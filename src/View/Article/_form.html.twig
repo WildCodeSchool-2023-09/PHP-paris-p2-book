@@ -3,10 +3,18 @@
 	<div>
 		<label for="title">Title of article</label>
 		<input type="text" name="title" id="title">
+
+		{% if errors.title is defined %}
+		<p class="error">{{ errors.title }}</p>
+		{% endif %}
 	</div>
 	<div>
 		<label for="content">Contenu</label>
 		<textarea name="content" id="content"></textarea>
+
+		{% if errors.content is defined %}
+		<p class="error">{{ errors.content }}</p>
+		{% endif %}
 	</div>
 	<div>
 		<label for="picture">Image</label>
