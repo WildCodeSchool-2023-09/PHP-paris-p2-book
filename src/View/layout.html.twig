@@ -9,12 +9,12 @@
     <title>{% block title %}MyBookshelf{% endblock %}</title>
 
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/style-home-guest.css">
     {% block stylesheet %}{% endblock %}
 </head>
 
 <body>
     {% block header %} {% include 'item/_header.html.twig' %} {% endblock %}
+    {% block div %}{% endblock %}
     {% block content %}{% endblock %}
     {% block footer %} {% include 'item/_footer.html.twig' %} {% endblock %}
     {% block navbar %} {% include 'item/_navbar.html.twig' %} {% endblock %}
