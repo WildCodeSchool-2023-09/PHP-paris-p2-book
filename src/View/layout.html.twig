@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/assets/images/favicon.png">
+ 
 
-    <title>{% block title %}{% endblock %}</title>
+
+    <title>{% block title %}MyBookshelf{% endblock %}</title>
+
+
 
     {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -14,10 +17,11 @@
 </head>
 
 <body>
+    {% block header %} {% include 'item/_header.html.twig' %} {% endblock %}
     {% include 'Item/header.html.twig' %}
     {% block content %} {% endblock %}
+    {% block footer %} {% include 'item/_footer.html.twig' %} {% endblock %}
+    {% block navbar %} {% include 'item/_navbar.html.twig' %} {% endblock %}
     {% block javascript %}{% endblock %}
 </body>
 </html>
-
-
