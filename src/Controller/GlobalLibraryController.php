@@ -4,7 +4,7 @@ namespace App\Controller;
 
 class GlobalLibraryController extends AbstractController
 {
-    /**
+/**
      * Display home page
      */
     public function GlobalLibrary(): string
