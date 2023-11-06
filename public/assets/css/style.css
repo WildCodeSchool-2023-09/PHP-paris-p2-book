@@ -74,12 +74,12 @@ nav {
 
 #navbar-top {
   width: 20vw;
-    height: 50px;
+  height: 50px;
 
   background-image: url('/assets/images/navbar-container-top.png');
   background-size: cover;
   background-repeat: no-repeat;
-    background-position: bottom;
+  background-position: bottom;
 
   top: -100px;
 }
@@ -96,7 +96,7 @@ nav {
   background-image: url('/assets/images/navbar-container-bottom.png');
     background-size: cover;
     background-repeat: no-repeat;
-      background-position: center;
+    background-position: center;
 
   /* box-shadow: 0px -10px 10px grey; */
 }
