@@ -1,15 +1,6 @@
 header {
     background-image: url("../images/header.png");
-    padding-bottom: 13%;
+    padding-bottom: 8%;
     margin: 0;
 }
 
-.title {
-color: #E8D2C9;
-font-family: 'Goudy Bookletter 1911' serif;
-margin: 0;
-padding-top: 5%;
-padding-right: 30%;
-display: flex;
-justify-content: center;
-}
