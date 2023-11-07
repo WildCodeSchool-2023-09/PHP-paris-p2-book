@@ -14,9 +14,13 @@
     </head>
 
     <body>
-        {% block header %} {% include 'book/_header.html.twig' %} {% endblock %}
+        {% block header %}
+            {# {% include 'book/_header.html.twig' %} #}
+        {% endblock %}
         {% block content %}{% endblock %}
-        {% block footer %} {% include 'book/_footer.html.twig' %} {% endblock %}
+        {% block footer %}
+            {# {% include 'book/_footer.html.twig' %} #}
+        {% endblock %}
         {% block navbar %} {% include 'book/_navbar.html.twig' %} {% endblock %}
         {% block javascript %}{% endblock %}
         <script src="/assets/js/navbar.js"></script>

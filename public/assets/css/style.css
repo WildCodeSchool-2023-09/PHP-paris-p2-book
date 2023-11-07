@@ -161,4 +161,28 @@ nav {
 }
 .icon-selected {
   display: none;
+/* -- SEARCH -- */
+
+#search {
+
+}
+
+#search-bar, #search-box {
+  border-radius: 10px;
+  background-color: var(--color-third);
+}
+
+#search-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 66%;
+  margin: 10px auto;
+  height: 40px;
+}
+
+#search-box {
+  display: none;
+  width: 90%;
+  margin: 10px auto;
+  height: 200px;
 }
