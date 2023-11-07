@@ -1,118 +1,222 @@
-@media only screen and (max-width: 480px){
-    /* CSS Homepage Guest */
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    @font-face{
-        font-family: 'Libre Caslon Text';
-        src:url(../font/Libre_Caslon_Text/LibreCaslonText-Regular.ttf);
-    }
-    .container {
-        width: 390px;
-    }
-    .book-icon {
-        position: absolute;
-        top: 2.5rem;
-        left: 2.56rem;
-    }
-    .mybookshelf-h1 {
-        color: #E8D2C9;
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        font-family: Libre Caslon Display;
-        font-size: 3rem;
-        line-height: 3.68rem;
-        font-weight: 400;
-        position: absolute;
-        top: 1.56rem;
-        left: 6.87rem;
-        right: 2.56rem;
-    }
-    .your-digital-book {
-        color: #EDC7B7;
-        text-align: center;
-        font-family: Libre Caslon Display;
-        font-size: 1.5rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        position: absolute;
-        top: 9.38rem;
-        left: 2.5rem;
-    }
-    body {
-        background: var(--Background, #FFEAD7);
-    }
-    .bloc-text {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 24.375rem;
-        height: 10.375rem;
-    }
-    .heart {
-        right: 3rem;
-    }
-    .text-home {
-        color: #9D244D;
-        text-align: justify;
-        font-family: Libre Caslon Text;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        left: 2.75rem;
-        right: 8.75rem;
-        width: 12.875rem;
-    }
-    .text-home-middle {
-        color: #9D244D;
-        display: flex;
-        width: 13.0625rem;
-        height: 4.5rem;
-        flex-direction: column;
-        justify-content: center;
-        font-family: Libre Caslon Text;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-    }
-    .card-home {
-        border: 0.2px solid rgba(0, 0, 0, 0.50);
-        background: #F9E2C7;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 24.375rem;
-        height: 10.375rem;
-        justify-content: center;
-        align-items: center;
-    }
-    /* CSS Global Library */
-    .book-1 {
-        color: #9D244D;
-        display: flex;
-        width: 11.9375rem;
-        height: 3rem;
-    }
-    .card-home-library {
-        border: 0.2px solid rgba(0, 0, 0, 0.50);
-        background: #F9E2C7;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        justify-content: center;
-        align-items: center;
-    }
-    .card-home-global {
-        border: 0.2px solid rgba(0, 0, 0, 0.50);
-        background: #F9E2C7;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jomolhari&display=swap');
+
+:root {
+  --color-main: #370A0A;
+  --color-second: #9D244D;
+  --color-third: #7A3434;
+  --color-background: #FFEAD7;
+  --color-card: #F9E2C7;
+  --color-title: #EDC7B7;
+
+  --font-inter: 'Inter', sans-serif;
+  --font-libre-caslon-display: 'Libre Caslon Text', serif;
+  --font-libre-caslon-text: 'Libre Caslon Display', serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-jomolhari: 'Jomolhari', serif;
 }
 
+/* reset css */
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+/* img {
+  max-width: 100%;
+  height: auto;
+} */
+
+@font-face{
+    font-family: 'Libre Caslon Text';
+    src:url(../font/Libre_Caslon_Text/LibreCaslonText-Regular.ttf);
+}
+
+.container {
+    width: 390px;
+}
+
+.book-icon {
+    position: absolute;
+    top: 2.5rem;
+    left: 2.56rem;
+}
+
+.mybookshelf-h1 {
+    color: #E8D2C9;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Libre Caslon Display;
+    font-size: 3rem;
+    line-height: 3.68rem;
+    font-weight: 400;
+    position: absolute;
+    top: 1.56rem;
+    left: 6.87rem;
+    right: 2.56rem;
+}
+
+.your-digital-book {
+    color: #EDC7B7;
+    text-align: center;
+    font-family: Libre Caslon Display;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 9.38rem;
+    left: 2.5rem;
+}
+
+body {
+    background: var(--Background, #FFEAD7);
+}
+
+.bloc-text {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 24.375rem;
+    height: 10.375rem;
+}
+
+.heart {
+    right: 3rem;
+}
+
+.text-home {
+    color: #9D244D;
+    text-align: justify;
+    font-family: Libre Caslon Text;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    left: 2.75rem;
+    right: 8.75rem;
+    width: 12.875rem;
+}
+
+.text-home-middle {
+    color: #9D244D;
+    display: flex;
+    width: 13.0625rem;
+    height: 4.5rem;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Libre Caslon Text;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.card-home {
+    border: 0.2px solid rgba(0, 0, 0, 0.50);
+    background: #F9E2C7;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 24.375rem;
+    height: 10.375rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-book {
+  box-sizing: border-box;
+  margin: 0rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.31rem;
+}
+
+.card-model {
+  display: flex;
+  width: 23.25rem;
+  height: 13.5625rem;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 0.625rem;
+  border: 0.2px solid rgba(0, 0, 0, 0.50);
+  background: var(--Card-color, #F9E2C7);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.bloc-book {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-book-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.book-title-h1 {
+  color: var(--Second, #9D244D);
+  font-family: Libre Caslon Text;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  width: 11.9375rem;
+  height: 3rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book-title-h2 {
+  color: #947982;
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  width: 7rem;
+}
+
+.book-resume {
+  color: var(--Second, #9D244D);
+  text-align: justify;
+  font-family: Libre Caslon Text;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 11.9375rem;
+}
