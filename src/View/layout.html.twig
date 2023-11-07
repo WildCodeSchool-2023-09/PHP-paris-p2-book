@@ -4,14 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/assets/images/favicon.png">
-
     <title>{% block title %}MyBookshelf{% endblock %}</title>
-
+    {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/style.css">
-    {% block stylesheet %}{% endblock %}
+    {% endblock %}
 </head>
-
 <body>
     {% block header %} {% include 'book/_header.html.twig' %} {% endblock %}
     {% block content %}{% endblock %}
