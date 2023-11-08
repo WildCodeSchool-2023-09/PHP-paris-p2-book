@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+	<form action="" method="post" enctype="multipart/form-data">
+		<div id="cover">
+			<label for="imageUpload"><img class="cover-picture" src="/assets/images/appareil-photo 1.png"></label>
+			<input type="file" name="book_editor_cover" id="imageUpload" onchange="previewPicture(this)"/>
+		</div>
+		<div class="inner-form">
+			<div class="element1">
+				<input class="full-size" type="text" id="book_title" name="book_title" placeholder="TITLE" required/>
+			</div>
+			<div class="element2">
+				<input class="mid-size" type="text" id="author_firstname" name="author_firstname" placeholder="FIRSTNAME" required/>
+			</div>
+			<div class="element3">
+				<input class="mid-size" type="text" id="author_lastname" name="author_lastname" placeholder="LASTNAME" required/>
+			</div>
+			<div class="element4">
+				<input class="mid-size" type="int" id="book_editor_nb_pages" name="book_editor_nb_pages" placeholder="PAGES" required/>
+			</div>
+			<div class="element5">
+				<input class="full-size" type="text" id="genre_label" name="genre_label" placeholder="GENRE" required/>
+			</div>
+			<div class="element6">
+				<input class="mid-size" type="int" id="book_written_at" name="book_written_at" placeholder="WRITTEN AT" required/>
+			</div>
+			<div class="element7">
+				<input class="mid-size" type="int" id="book_editor_isbn" name="book_editor_isbn" placeholder="ISBN" required/>
+			</div>
+			<div class="element8">
+				<input class="mid-size" type="int" id="editor_label" name="editor_label" placeholder="EDITOR" required/>
+			</div>
+			<div class="element9">
+				<input class="mid-size" type="int" id="book_editor_published_at" name="book_editor_published_at" placeholder="PUBLISHED AT" required/>
+			</div>
+			<div class="element10">
+				<textarea id="book_editor_synopsis" name="book_editor_synopsis" placeholder="SYNOPSIS" required/></textarea>
+		</div>
+		<input class="submit" type="submit">
+	</form>
+</body>{% endblock %}
