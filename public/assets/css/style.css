@@ -58,7 +58,7 @@ ul {
 
 @font-face{
     font-family: 'Libre Caslon Text';
-    src:url(../font/Libre_Caslon_Text/LibreCaslonText-Regular.ttf);
+    src:url(../font/libre-caslon-text/libre-caslon-text-regular.ttf)
 }
 
 .container {
