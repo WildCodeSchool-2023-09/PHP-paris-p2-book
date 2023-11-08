@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ parent() ~ ' - ' ~ book.title }} {% endblock %}
+
+  {% block content %}
+    <h1>
+      {{ dump(book) }}
+      {{ book.title }}
+    </h1>
+    <div class="picture">
+      <img src={{book.cover}} alt="picture">
+    </div>
+    <p>
+        {{ book.synopsis }}
+    </p>
+ {% endblock %}
