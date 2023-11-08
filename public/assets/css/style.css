@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jomolhari&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jomolhari&display=swap");
 :root {
   --color-main: #370A0A;
   --color-second: #9D244D;
@@ -11,16 +10,16 @@
   --color-background: #FFEAD7;
   --color-card: #F9E2C7;
   --color-title: #EDC7B7;
-
-  --font-inter: 'Inter', sans-serif;
-  --font-libre-caslon-display: 'Libre Caslon Text', serif;
-  --font-libre-caslon-text: 'Libre Caslon Display', serif;
-  --font-roboto: 'Roboto', sans-serif;
-  --font-jomolhari: 'Jomolhari', serif;
+  --shadow-drop-icon: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+  --shadow-text: 2px 2px 2px rgba(0, 0, 0, .5);
+  --font-inter: "Inter", sans-serif;
+  --font-libre-caslon-display: "Libre Caslon Text", serif;
+  --font-libre-caslon-text: "Libre Caslon Display", serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-jomolhari: "Jomolhari", serif;
 }
 
 /* reset css */
-
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -51,17 +50,12 @@ ol,
 ul {
   list-style: none;
 }
+
 /* img {
   max-width: 100%;
   height: auto;
 } */
-
 /* -- SEARCH -- */
-
-#search {
-
-}
-
 #search-bar, #search-box {
   border-radius: 10px;
   background-color: var(--color-third);
@@ -70,14 +64,45 @@ ul {
 #search-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 66%;
-  margin: 10px auto;
   height: 40px;
+  margin: 10px auto;
+  padding: 5px 10px;
+}
+#search-bar img {
+  height: 1.6rem;
+  filter: var(--shadow-drop-icon);
+}
+#search-bar form {
+  width: 50%;
+}
+#search-bar #search-field {
+  width: 100%;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  font-family: var(--font-jomolhari);
+  text-shadow: var(--shadow-text);
+  font-size: 1rem;
+}
+#search-bar #search-field:focus, #search-bar #search-field:active {
+  border: none;
+}
+#search-bar ::placeholder {
+  color: lightgray;
+  font-family: var(--font-jomolhari);
+  text-shadow: var(--shadow-text);
+  font-size: 1rem;
 }
 
 #search-box {
   display: none;
+  justify-content: center;
   width: 90%;
-  margin: 10px auto;
   height: 200px;
-}
+  margin: 10px auto;
+  padding: 5px;
+}/*# sourceMappingURL=style.css.map */
