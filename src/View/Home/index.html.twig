@@ -1,25 +1,11 @@
 {% extends 'layout.html.twig' %}
 
+{% block header %}
+{% include '/Home/_header.html.twig' %}
+{% endblock %}
 {% block content %}
-            <div>
-                <div class="container">
-                        <div class="book-icon">
-                                <img src="../../assets/icons/book.svg" alt="book icon">
-                        </div>
-                        <div>
-                            <img src="../../assets/images/header_home.png" alt="header image">  
-                                <h1 class="mybookshelf-h1">MyBookshelf</h1>
-                        <div class="your-digital-book">
-                            <p> Your digital 
-                            <br>
-                                bookshelf
-                            </p>
-                        </div>
-                    </div>       
-                </div>                
-            </div>
             <div class="bloc-text">
-                <div class="heart"><img src="../assets/icons/Heart.svg"></div>
+                <div class="heart"><img src="../assets/icons/heart.svg"></div>
                 <div class="text-home">Make your physical library become digital by adding every book you have read !</div>
             </div>
             <div class="card-home">
@@ -29,9 +15,10 @@
                 </div>
             </div>
             <div class="bloc-text">
-                <div><img src="../assets/icons/Share.svg"></div>
+                <div><img src="../assets/icons/share.svg"></div>
                 <div class="text-home">Share your readings with others and find your next reading !</div>
             </div> 
+    {% include '/Book/_navbar.html.twig' %}
 {% endblock %}
 
 {% block navbar %} {% endblock %}
