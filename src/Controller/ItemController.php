@@ -51,7 +51,7 @@ class ItemController extends AbstractController
             return null;
         }
 
-        return $this->twig->render('Item/edit.html.twig', [
+        return $this->twig->render('Book/edit.html.twig', [
             'item' => $item,
         ]);
     }
@@ -75,7 +75,7 @@ class ItemController extends AbstractController
             return null;
         }
 
-        return $this->twig->render('Item/add.html.twig');
+        return $this->twig->render('Book/add.html.twig');
     }
 
     /**

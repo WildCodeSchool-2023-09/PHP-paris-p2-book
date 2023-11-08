@@ -2,13 +2,17 @@
 
 namespace App\Controller;
 
+use App\Model\GlobalLibraryManager;
+
 class GlobalLibraryController extends AbstractController
 {
-/**
-     * Display home page
-     */
-    public function GlobalLibrary(): string
+
+    public function showAll(): string
     {
-        return $this->twig->render('GlobalLibrary/global_library.html.twig');
+        $GlobalLibraryManager = new GlobalLibraryManager();
+        $books = $GlobalLibraryManager->selectAll('title');
+
+        return $this->twig->render('GlobalLibrary/global_library.html.twig', ['books' => $books]);
     }
+
 }
