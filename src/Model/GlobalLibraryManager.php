@@ -2,13 +2,7 @@
 
 namespace App\Model;
 
-
-class GlobalLibraryManager extends AbstractManager 
+class GlobalLibraryManager extends AbstractManager
 {
     public const TABLE = 'book';
-
 }
-
-
-
-    
