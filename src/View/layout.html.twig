@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}MyBookshelf{% endblock %}</title>
     {% block stylesheet %}
-    <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
     {% endblock %}
 </head>
 <body>
@@ -14,6 +14,8 @@
     {% block content %}{% endblock %}
     {% block footer %} {# include 'book/_navbar.html.twig' #} {% endblock %}
     {% block navbar %} {# include 'book/_navbar.html.twig' #} {% endblock %}
-    {% block javascript %}{% endblock %}
+    {% block javascript %}
+        <script src="/assets/js/navbar.js"></script>
+    {% endblock %}
 </body>
 </html>

@@ -12,7 +12,8 @@
   --color-card: #F9E2C7;
   --color-title: #EDC7B7;
 
-  --shadow-drop-icon: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+  --shadow-drop-small: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+  --shadow-drop: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
   --shadow-text: 2px 2px 2px rgba(0, 0, 0, .5);
 
   --font-inter: 'Inter', sans-serif;
@@ -61,13 +62,14 @@ ul {
 
 /* -- SEARCH -- */
 
-#search {
-
+body {
+    background-color: var(--color-background);
 }
 
 #search-bar, #search-box {
-    border-radius: 10px;
-    background-color: var(--color-third);
+    background-color: var(--color-main);
+    color: white;
+    filter: var(--shadow-drop-small);
 }
 
 #search-bar {
@@ -79,19 +81,21 @@ ul {
     height: 40px;
 
     margin: 10px auto;
-    padding: 5px 10px;
+    padding: 5px 12px;
 
-    img {
+    border-radius: 2rem;
+
+    img, input[type="image"] {
         height: 1.6rem;
-        filter: var(--shadow-drop-icon);
+        filter: var(--shadow-drop-small);
     }
 
-    form {
-        width: 50%;
+    .btn.settings {
+        cursor: pointer;
     }
 
     #search-field {
-        width: 100%;
+        width: 80%;
 
         border: none;
         border-radius: .5rem;
@@ -99,8 +103,8 @@ ul {
         text-align: center;
         background-color: transparent;
 
-        &:focus, &:active {
-            border: none;
+        &:focus-visible {
+            outline: none;
         }
 
         color: white;
@@ -118,12 +122,64 @@ ul {
 }
 
 #search-box {
-    display: none;
-    justify-content: center;
+    justify-content: space-around;
 
     width: 90%;
     height: 200px;
 
     margin: 10px auto;
-    padding: 5px;
+    padding: 1rem 2rem;
+
+    border-radius: 1.2rem;
+
+    & > .sort {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+
+        height: fit-content;
+
+        cursor: pointer;
+
+        .btn.sort {
+            height: 1.2rem;
+            margin: 0 .5rem;
+        }
+    }
+
+    & > .filter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 200px;
+
+        label {
+            cursor: pointer;
+        }
+
+        select {
+            width: 100px;
+            background-color: var(--color-background);
+            border-radius: .5rem;
+
+            &:focus-visible {
+                outline: none;
+            }
+
+            option {
+                text-align: center;
+            }
+        }
+    }
+}
+
+// JAVASCRIPT CLASSES
+.hidden {
+    display: none;
+}
+
+.reversed {
+    transform: scaleY(-1);
 }

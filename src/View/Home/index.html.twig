@@ -1,4 +1,10 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     {% include 'Book/_search.html.twig' %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script src="/assets/js/search.js"></script>
 {% endblock %}

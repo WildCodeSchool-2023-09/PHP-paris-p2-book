@@ -10,7 +10,8 @@
   --color-background: #FFEAD7;
   --color-card: #F9E2C7;
   --color-title: #EDC7B7;
-  --shadow-drop-icon: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+  --shadow-drop-small: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+  --shadow-drop: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
   --shadow-text: 2px 2px 2px rgba(0, 0, 0, .5);
   --font-inter: "Inter", sans-serif;
   --font-libre-caslon-display: "Libre Caslon Text", serif;
@@ -56,9 +57,14 @@ ul {
   height: auto;
 } */
 /* -- SEARCH -- */
+body {
+  background-color: var(--color-background);
+}
+
 #search-bar, #search-box {
-  border-radius: 10px;
-  background-color: var(--color-third);
+  background-color: var(--color-main);
+  color: white;
+  filter: var(--shadow-drop-small);
 }
 
 #search-bar {
@@ -68,17 +74,18 @@ ul {
   width: 66%;
   height: 40px;
   margin: 10px auto;
-  padding: 5px 10px;
+  padding: 5px 12px;
+  border-radius: 2rem;
 }
-#search-bar img {
+#search-bar img, #search-bar input[type=image] {
   height: 1.6rem;
-  filter: var(--shadow-drop-icon);
+  filter: var(--shadow-drop-small);
 }
-#search-bar form {
-  width: 50%;
+#search-bar .btn.settings {
+  cursor: pointer;
 }
 #search-bar #search-field {
-  width: 100%;
+  width: 80%;
   border: none;
   border-radius: 0.5rem;
   text-align: center;
@@ -88,8 +95,8 @@ ul {
   text-shadow: var(--shadow-text);
   font-size: 1rem;
 }
-#search-bar #search-field:focus, #search-bar #search-field:active {
-  border: none;
+#search-bar #search-field:focus-visible {
+  outline: none;
 }
 #search-bar ::placeholder {
   color: lightgray;
@@ -99,10 +106,50 @@ ul {
 }
 
 #search-box {
-  display: none;
-  justify-content: center;
+  justify-content: space-around;
   width: 90%;
   height: 200px;
   margin: 10px auto;
-  padding: 5px;
+  padding: 1rem 2rem;
+  border-radius: 1.2rem;
+}
+#search-box > .sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  height: fit-content;
+  cursor: pointer;
+}
+#search-box > .sort .btn.sort {
+  height: 1.2rem;
+  margin: 0 0.5rem;
+}
+#search-box > .filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+#search-box > .filter label {
+  cursor: pointer;
+}
+#search-box > .filter select {
+  width: 100px;
+  background-color: var(--color-background);
+  border-radius: 0.5rem;
+}
+#search-box > .filter select:focus-visible {
+  outline: none;
+}
+#search-box > .filter select option {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.reversed {
+  transform: scaleY(-1);
 }/*# sourceMappingURL=style.css.map */

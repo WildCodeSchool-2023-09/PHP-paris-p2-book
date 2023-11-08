@@ -1,13 +1,35 @@
 <div id="search">
     <div id="search-bar">
-        <img class="btn search" src="/assets/images/search/icon-search.svg" alt="Search button"/>
-        <form action="" method="get">
-            <input id="search-field" type="text" placeholder="Search"/>
-        </form>
+        <input type="image" src="/assets/images/search/icon-search.svg" alt="Search button" name="search-button" class="btn search">
+        {# <img class="btn search" src="/assets/images/search/icon-search.svg" alt="Search button"/> #}
+        <input id="search-field" form="search-form" type="text" placeholder="Search"/>
         <img class="btn settings" src="/assets/images/search/icon-settings.svg" alt="Settings button">
     </div>
-    <div id="search-box">
-        filters and sorting here
+    <div id="search-box" class="hidden">
+        <div class="filter">
+            <label for="genre">Genre</label>
+            <select name="genre" id="genre" class="hidden" multiple>
+                {% for genre in genres %}
+                    <option value="{{ genre.label }}">{{ genre.label }}</option>
+                {% endfor %}
+                <option value="sci-fi">sci-fi</option>
+                <option value="detective">detective</option>
+                <option value="philosophy">philosophy</option>
+            </select>
+        </div>
+        <div class="filter">
+            <label for="tag">Tag</label>
+            <select name="tag" id="tag" class="hidden" multiple>
+                {% for tag in tags %}
+                    <option value="{{ genre.tag }}">{{ genre.tag }}</option>
+                {% endfor %}
+                <option value="fun">fun</option>
+                <option value="scary">scary</option>
+                <option value="interesting">interesting</option>
+            </select>
+        </div>
+        <div class="sort date">Date<img class="btn sort" src="/assets/images/search/icon-sort-down.svg" alt="Sort down"></div>
+        <div class="sort reviews">Reviews<img class="btn sort" src="/assets/images/search/icon-sort-down.svg" alt="Sort down"></div>
+        <div class="sort note">Note<img class="btn sort" src="/assets/images/search/icon-sort-down.svg" alt="Sort down"></div>
     </div>
 </div>
-<script scr="/assets/js/search.js"></script>
