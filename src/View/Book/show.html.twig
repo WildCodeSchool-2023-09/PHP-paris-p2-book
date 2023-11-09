@@ -1,16 +1,41 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %} {{ parent() ~ ' - ' ~ book.title }} {% endblock %}
-
   {% block content %}
-    <h1>
-      {{ dump(book) }}
-      {{ book.title }}
-    </h1>
-    <div class="picture">
+    <div id="picture">
       <img src={{book.cover}} alt="picture">
     </div>
-    <p>
-        {{ book.synopsis }}
-    </p>
+    <div class="icones">
+      <img class="review" src="../assets/images/Review.png" alt="review">
+      <img class="share" src="../assets/images/Share.png" alt="share">
+      <img class="add" src="../assets/images/Add.png" alt="add">
+    </div>
+    <h1>
+      {{ book.title }}
+    </h1>
+    <div class="infos">
+      <p>
+        {{ book.firstname }}
+        {{ book. lastname }}
+      </p>
+      <p> 
+       {{ book.note }}/10
+      </p>
+  </div>
+<div class="categories">
+    <div class="description">
+      <h2>Synopsis</h2>
+     </div>
+     <div>
+      <hr class="separation" />
+      </div>
+    <div class="detail">
+      <h2>Details</h2>
+  </div>
+</div>
+<div class="synopsis">
+<p>
+  {{ book.synopsis }}
+</p>
+</div>
  {% endblock %}
