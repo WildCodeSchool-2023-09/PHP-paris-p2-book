@@ -13,5 +13,4 @@ class GlobalLibraryController extends AbstractController
 
         return $this->twig->render('GlobalLibrary/global_library.html.twig', ['books' => $books]);
     }
-    
 }
