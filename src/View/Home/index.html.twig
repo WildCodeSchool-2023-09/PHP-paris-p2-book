@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block header %}
-{% include '/Home/_header.html.twig' %}
+{% include 'Home/_header.html.twig' %}
 {% endblock %}
 {% block content %}
             <div class="bloc-text">
@@ -18,4 +18,5 @@
                 <div><img src="../assets/icons/share.svg"></div>
                 <div class="text-home">Share your readings with others and find your next reading !</div>
             </div> 
+    {% include 'Book/_navbar.html.twig' %}
 {% endblock %}

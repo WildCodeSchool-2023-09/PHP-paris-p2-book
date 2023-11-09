@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jomolhari&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jomolhari&display=swap");
 :root {
   --color-main: #370A0A;
   --color-second: #9D244D;
@@ -11,16 +10,14 @@
   --color-background: #FFEAD7;
   --color-card: #F9E2C7;
   --color-title: #EDC7B7;
-
-  --font-inter: 'Inter', sans-serif;
-  --font-libre-caslon-display: 'Libre Caslon Text', serif;
-  --font-libre-caslon-text: 'Libre Caslon Display', serif;
-  --font-roboto: 'Roboto', sans-serif;
-  --font-jomolhari: 'Jomolhari', serif;
+  --font-inter: "Inter", sans-serif;
+  --font-libre-caslon-display: "Libre Caslon Text", serif;
+  --font-libre-caslon-text: "Libre Caslon Display", serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-jomolhari: "Jomolhari", serif;
 }
 
-/* reset css */
-
+/* --- RESET CSS --- */
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -51,10 +48,6 @@ ol,
 ul {
   list-style: none;
 }
-/* img {
-  max-width: 100%;
-  height: auto;
-} */
 
 @font-face{
     font-family: 'Libre Caslon Text';
@@ -152,3 +145,97 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/* --- NAVBAR ---  */
+/* only for dev & testing */
+body {
+  height: 1000px;
+  background-color: var(--color-background);
+  color: var(--color-main);
+  font-family: var(--font-libre-caslon-text);
+}
+
+/* - */
+nav {
+  width: 100%;
+  max-height: 1400px;
+  position: fixed;
+  bottom: 0;
+}
+
+#navbar-head {
+  width: 80px;
+  height: 16px;
+  margin: 0 auto;
+  background-image: url("/assets/images/navbar/navbar-container-head.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+#navbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  max-height: 800px;
+  padding: 10px 0.5% 0;
+  background-image: url("/assets/images/navbar/navbar-container-body.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#navbar-container .btn a, #navbar-container .btn img {
+  height: 3rem;
+}
+#navbar-container .btn.search img {
+  height: 3.5rem;
+}
+
+#user-menu {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  height: 50vh;
+  min-height: 300px;
+  max-height: 400px;
+}
+
+#user-menu-head {
+  height: 24px;
+  background-image: url("/assets/images/navbar/user-menu/user-menu-container-head.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+#user-menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 14px;
+  height: calc(50vh - 24px);
+  min-height: 276px;
+  max-height: 376px;
+  background-color: var(--color-third);
+  border-radius: 1rem 1rem 0 0;
+}
+#user-menu-container .btn a, #user-menu-container .btn img {
+  height: 2rem;
+}
+#user-menu-container .btn.user img {
+  height: 3rem;
+}
+
+.icon-desktop {
+  display: none;
+}
+
+.icon-selected {
+  display: none;
+}
+
+/* -- SEARCH -- *//*# sourceMappingURL=style.css.map */
