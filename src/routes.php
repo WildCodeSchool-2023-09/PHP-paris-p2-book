@@ -8,9 +8,9 @@
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
     '' => ['HomeController', 'index',],
-    'items' => ['ItemController', 'index',],
-    'items/edit' => ['ItemController', 'edit', ['id']],
-    'items/show' => ['ItemController', 'show', ['id']],
-    'items/add' => ['ItemController', 'add',],
-    'items/delete' => ['ItemController', 'delete',],
+    'book' => ['BookController', 'index',],
+    'book/edit' => ['ItemController', 'edit', ['id']],
+    'book/show' => ['ItemController', 'show', ['id']],
+    'book/add' => ['ItemController', 'add',],
+    'book/delete' => ['ItemController', 'delete',],
 ];

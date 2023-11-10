@@ -113,4 +113,19 @@ class BookController extends AbstractController
             return $uploadFile = "assets/images/cover_question_mark.png";
         }
     }
+
+    // SEARCH
+
+    // public function search()
+    // {
+    //     $filters = [
+    //         'name' => '',
+    //         'genres' => [],
+    //         'tags' => [],
+    //         'sort-criteria' => NULL,
+    //         'sort-order' => 'DESC'
+    //     ];
+
+    //     return $this->twig->render('Book/show.html.twig', ['genres' => $this->genres]);
+    // }
 }

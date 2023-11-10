@@ -147,4 +147,41 @@ class BookManager extends AbstractManager
         " WHERE label = " . '"' . $book['editor_label'] . '"' . ";");
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
+
+    // SEARCH
+
+    // public function search(array $filters)
+    // {
+    //     $query = '  SELECT be.id, b.title, be.cover, be.synopsis, a.firstname, a.lastname, e.label
+    //                 FROM book_editor as be
+    //                 JOIN book as b
+    //                     ON be.id = b.id
+    //                 JOIN book_author as ba
+    //                     ON b.id = ba.book_id
+    //                 JOIN author as a
+    //                     ON ba.author_id = a.id
+    //                 JOIN book_genre as bg
+    //                     ON b.id = bg.book_id
+    //                 JOIN genre as g
+    //                     ON bg.genre_id = g.id
+    //                 JOIN editor as e
+    //                     ON be.editor_id = e.id
+    //                 ';
+
+    //     if (!empty($filters)) {
+    //         foreach ($filters as $filter) {
+
+    //         }
+    //     }
+    //     else {
+    //         $query .= '  ORDER BY id
+    //                     ;';
+    //     }
+
+    //     $statement = $this->pdo->prepare($query);
+    //     $statement->bindValue(':sth', $book['sth'], PDO::PARAM_STR);
+    //     $statement->execute();
+
+    //     return $statement->fetchAll(PDO::FETCH_ASSOC);
+    // }
 }

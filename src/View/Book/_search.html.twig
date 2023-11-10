@@ -1,4 +1,4 @@
-<div id="search">
+<form method="POST" action="" id="search">
     <div id="search-bar">
         <input type="image" src="/assets/images/search/icon-search.svg" alt="Search button" name="search-button" class="btn search">
         {# <img class="btn search" src="/assets/images/search/icon-search.svg" alt="Search button"/> #}
@@ -6,7 +6,7 @@
         <img class="btn settings" src="/assets/images/search/icon-settings.svg" alt="Settings button">
     </div>
     <div id="search-box" class="hidden">
-        <div class="filter">
+        <div class="filter genre">
             <label for="genre">Genre</label>
             <select name="genre" id="genre" class="hidden" multiple>
                 {% for genre in genres %}
@@ -17,7 +17,7 @@
                 <option value="philosophy">philosophy</option>
             </select>
         </div>
-        <div class="filter">
+        <div class="filter tag">
             <label for="tag">Tag</label>
             <select name="tag" id="tag" class="hidden" multiple>
                 {% for tag in tags %}
@@ -32,4 +32,4 @@
         <div class="sort reviews">Reviews<img class="btn sort" src="/assets/images/search/icon-sort-down.svg" alt="Sort down"></div>
         <div class="sort note">Note<img class="btn sort" src="/assets/images/search/icon-sort-down.svg" alt="Sort down"></div>
     </div>
-</div>
+</form>
