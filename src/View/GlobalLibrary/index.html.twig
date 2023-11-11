@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block header %}
+{% include '/_header.html.twig' %}
+{% endblock %}
+
+{% block content %}
+{% for book in books %}
+    <div class="container-book">
+        <div class="card-model">
+            <img src="{{ book.cover }}" class="book-cover">
+            {# <img src="../assets/images/books/book-harry-potter-et-la-chambre-des-secrets.png"> #}
+                <div class="bloc-book">
+                    <li class="li-marker"><a href="/GlobalLibrary/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a></li>
+                <div>
+                    <div class="flex-book-title">
+                        <h2 class="book-title-h2">{{ book.id }} {{ book.firstname }}{{ book.lastname }}{{ book.written_at }}</h2>
+                    </div>
+                <div>
+                    <p class="book-resume">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <li>Nothing to display</li>
+{% endfor %} 
+           
+          
+{% endblock %}
+
+{% block navbar %}
+{% include '/Book/_navbar.html.twig' %}
+{% endblock %}

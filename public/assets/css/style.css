@@ -198,6 +198,10 @@ body {
   flex-direction: row;
 }
 
+.li-marker {
+  list-style: none;
+}
+
 .book-title-h1 {
   color: var(--Second, #9D244D);
   font-family: Libre Caslon Text;
@@ -232,6 +236,11 @@ body {
   font-weight: 400;
   line-height: normal;
   width: 11.9375rem;
+}
+
+.book-cover {
+  width: 123px;
+  height: 182px;
 }
     /* max-width: 100%;
     height: auto;
