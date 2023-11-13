@@ -10,7 +10,7 @@ class BookController extends AbstractController
     public const HIGHER_LIMIT = 150;
     public const LOWER_LIMIT = 50;
 
-    public function add()
+    public function addForm()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $book = array_map('trim', $_POST);
@@ -18,33 +18,42 @@ class BookController extends AbstractController
             $this->checkIfErrorGenre($book);
             if (empty($this->errors)) {
                 $bookManager = new BookManager();
-                if (
-                    $bookManager->checkIfBookExists($book) === false
-                    || $bookManager->checkIfEditorExists($book) === false
-                ) {
-                    if ($bookManager->checkIfAuthorExists($book) === false) {
+                
+                if (!$bookManager->checkIfBookExists($book) || !$bookManager->checkIfEditorExists($book)) {
+                    if (!$bookManager->checkIfAuthorExists($book)) {
                         $bookManager->insertIntoAuthor($book);
                     }
-                    if ($bookManager->checkIfGenreExists($book) === false) {
+                    if (!$bookManager->checkIfGenreExists($book)) {
                         $bookManager->insertIntoGenre($book);
                     }
-                    if ($bookManager->checkIfEditorExists($book) === false) {
+                    if (!$bookManager->checkIfEditorExists($book)) {
                         $bookManager->insertIntoEditor($book);
                     }
-                    if ($bookManager->checkIfBookExists($book) === false) {
+                    if (!$bookManager->checkIfBookExists($book)) {
                         $bookManager->insertIntoBook($book);
                     }
+
                     $id = $bookManager->insertIntoBookEditor($book, $this->manageCover());
+                    if ($this->formChoice($book) === "notyet") {
+                        header('Location:/library/show?id=' . $id);
+                        exit();
+                    } elseif ($this->formChoice($book) === "read") {
+                        header('Location:/Book/addReview');
+                        exit();
+                    }
+                } else {
+                    $id = $bookManager->findBook($book);
                     header('Location:/library/show?id=' . $id);
                 }
-                return null;
             } else {
-                return $this->twig->render('Book/_add-form.html.twig', [
+                return $this->twig->render('Book/_addForm.html.twig', [
                     'errors' => $this->errors,
                 ]);
             }
         }
-        return $this->twig->render('Book/_add-form.html.twig');
+        return $this->twig->render('Book/_addForm.html.twig', [
+            'genres' => BookManager::GENRES,
+        ]);
     }
 
     public function checkIfError($book)
@@ -113,4 +122,14 @@ class BookController extends AbstractController
             return $uploadFile = "assets/images/cover_question_mark.png";
         }
     }
+
+    public function formChoice($book): string
+    {
+        if ($book['choice'] === "read") {
+            return "read";
+        } else {
+            return "notyet";
+        }
+    }
+
 }

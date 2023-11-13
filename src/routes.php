@@ -11,6 +11,6 @@ return [
     'book' => ['BookController', 'index',],
     'book/edit' => ['BookController', 'edit', ['id']],
     'book/show' => ['BookController', 'show', ['id']],
-    'book/add' => ['BookController', 'add',],
+    'book/add' => ['BookController', 'addForm',],
     'book/delete' => ['BookController', 'delete',],
 ];

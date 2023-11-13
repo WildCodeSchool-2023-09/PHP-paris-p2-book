@@ -26,8 +26,11 @@
 			{% include 'book/_footer.html.twig' %}
 		{% endblock %}
 		{% block navbar %}
-			{% include 'book/_navbar.html.twig' %}
+			{% include 'Book/_navbar.html.twig' %}
 		{% endblock %}
-		{% block javascript %}{% endblock %}
+		{% block javascript %}
+			<script src="/assets/js/read.js"></script>
+			<script src="/assets/js/cover.js"></script>
+		{% endblock %}
 	</body>
 </html>

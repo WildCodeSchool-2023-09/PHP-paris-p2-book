@@ -1,4 +1,5 @@
-var image = document.getElementById("#cover");
+var image = document.getElementById("coverPicture");
+var appareil = document.getElementById("camera");
 
 var previewPicture = function (e) {
 
@@ -11,10 +12,17 @@ var previewPicture = function (e) {
         // L'événement déclenché lorsque la lecture est complète
         reader.onload = function (e) {
             // On change l'URL de l'image (base64)
-            image.src = e.target.result
+            image.style.backgroundImage = `url(${e.target.result})`;
+            image.style.backgroundSize = "cover";
+            appareil.style.opacity = 0;
+            appareil.addEventListener("mouseover", () => {
+                appareil.style.opacity = 1;
+                setTimeout(() => {
+                    appareil.style.opacity = 0;
+                }, 1000);
+            });
         }
 
-        // On lit le fichier "picture" uploadé
         reader.readAsDataURL(picture)
 
     }

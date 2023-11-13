@@ -11,6 +11,10 @@ class BookManager extends AbstractManager
     public const AUTHOR_TABLE = 'author';
     public const GENRE_TABLE = 'genre';
     public const EDITOR_TABLE = 'editor';
+    public const GENRES = ['Action', 'Adventure', 'Bibliography', 'Biography', 'Comedy', 'Cookbook', 'Epic', 'Essay',
+    'Encyclopedic', 'Fabulation', 'Fantasy', 'Folklore', 'Historical', 'Horror', 'Journalistic', 'Mystery',
+    'Paranoid', 'Pastoral', 'Philosophical', 'Political', 'Realist', 'Religious', 'Romance', 'Satire', 'Science fiction',
+    'Social', 'Theatre', 'Thriller', 'Travel', 'Western'];
 
 
     public function insertIntoBookEditor(array $book, string $uploadFile): int
@@ -134,17 +138,31 @@ class BookManager extends AbstractManager
         }
     }
 
-    public function getBookId(array $book): array
+    public function getBookId(array $book): int
     {
-        $statement = $this->pdo->query("SELECT id FROM " . self::BOOK_TABLE .
-        " WHERE title = " . '"' . $book['book_title'] . '"' . ";");
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        $statement = $this->pdo->prepare("SELECT id FROM " . self::BOOK_TABLE .
+        " WHERE title = :book_title");
+        $statement->bindValue(':book_title', $book["book_title"]);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC)['id'];
     }
 
-    public function getEditorId(array $book): array
+    public function getEditorId(array $book): int
     {
-        $statement = $this->pdo->query("SELECT id FROM " . self::EDITOR_TABLE .
-        " WHERE label = " . '"' . $book['editor_label'] . '"' . ";");
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        $statement = $this->pdo->prepare("SELECT id FROM " . self::EDITOR_TABLE .
+        " WHERE label = :editor_label");
+        $statement->bindValue(':editor_label', $book["editor_label"]);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC)['id'];
     }
+
+    public function findBook(array $book): int
+    {
+        $statement = $this->pdo->prepare("SELECT be.id FROM " . self::BOOK_EDITOR_TABLE . " AS be INNER JOIN " . self::EDITOR_TABLE . " AS e ON e.id=be.editor_id INNER JOIN " . self::BOOK_TABLE . " AS b ON b.id=be.book_id WHERE e.label = :editor_label AND b.title = :book_title");
+        $statement->bindValue(':editor_label', $book["editor_label"]);
+        $statement->bindValue(':book_title', $book["book_title"]);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC)['id'];
+    }
+
 }
