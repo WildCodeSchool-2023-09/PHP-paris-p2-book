@@ -6,7 +6,6 @@ use App\Model\GlobalLibraryManager;
 
 class GlobalLibraryController extends AbstractController
 {
-    
     public function index(): string
     {
         $globalLibraryManager = new GlobalLibraryManager();

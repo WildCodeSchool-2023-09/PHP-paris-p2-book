@@ -7,17 +7,38 @@
 {% block content %}
 {% for book in books %}
     <div class="container-book">
-        <div class="card-model">
+        <div class="card-model-library">
             <img src="{{ book.cover }}" class="book-cover">
             {# <img src="../assets/images/books/book-harry-potter-et-la-chambre-des-secrets.png"> #}
                 <div class="bloc-book">
-                    <li class="li-marker"><a href="/GlobalLibrary/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a></li>
+                    <li class="li-marker"><a href="/Book/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a></li>
                 <div>
                     <div class="flex-book-title">
-                        <h2 class="book-title-h2">{{ book.id }} {{ book.firstname }}{{ book.lastname }}{{ book.written_at }}</h2>
+                        <h2 class="book-title-h2">{{ book.id }}{{ book.firstname }}{{ book.lastname }}</h2>
+                        <h2 class="book-title-year">{{ book.id }}{{ book.written_at }}</h2>
                     </div>
+                 <div>
+                        <p class="book-edition">Gallimard</p>
+                </div> 
+                <div class="bloc-genre">
                 <div>
-                    <p class="book-resume">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="book-genre">Fiction, 
+                                        <br>
+                                        Fantasy</p>                      
+                </div>
+                <div>
+                    <p class="book-opinion">Fun, 
+                                        <br>
+                                        Classic</p>
+                </div>
+                <div>
+                    <p class="review">24 <img src="assets/icons/review.png" class="book-review"></p>
+                </div>
+                <div>
+                    <p class="review">4.7 <img src="assets/icons/star.svg" class="book-review"></p>
+                </div>
+                </div>
+                 
                 </div>
             </div>
         </div>

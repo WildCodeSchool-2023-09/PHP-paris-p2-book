@@ -173,6 +173,19 @@ body {
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
+.card-model-library {
+  display: flex;
+  width: 23.25rem;
+  height: 9.5rem;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  align-items: center;
+  border-radius: 0.625rem;
+  border: 0.2px solid rgba(0, 0, 0, 0.50);
+  background: var(--Card-color, #F9E2C7);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
 .bloc-book {
   display: flex;
   flex-direction: column;
@@ -196,6 +209,7 @@ body {
 .flex-book-title {
   display: flex;
   flex-direction: row;
+  align-content: flex-end;
 }
 
 .li-marker {
@@ -210,13 +224,41 @@ body {
   font-weight: 700;
   line-height: normal;
   display: flex;
-  width: 11.9375rem;
+  padding-left: 0.93rem;
+  width: 15.75rem;
   height: 3rem;
   flex-direction: column;
   justify-content: center;
+  text-decoration: none;
+}
+
+
+
+.book-title-h1:hover {
+  color: var(--Second, #fb4c86);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .book-title-h2 {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  color: var(--Second, #9D244D);
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  width: 7rem;
+  padding-left: 1.18rem;
+}
+
+.book-title-year {
+  display: flex;
+  justify-content: flex-end;
   color: #947982;
   font-family: Roboto;
   font-size: 0.875rem;
@@ -227,20 +269,72 @@ body {
   width: 7rem;
 }
 
-.book-resume {
-  color: var(--Second, #9D244D);
+.book-edition {
+  display: flex;
+  justify-content: flex-end;
+  color: #947982;
+  font-family: Roboto;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.bloc-genre {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.book-genre {
+  color: #947982;
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  padding-left: 0.93rem;
+  padding-top: 2rem;
+  text-decoration: none;
+}
+
+.book-opinion {
+  color: #947982;
+  text-align: right;
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  width: 3.3125rem;
+  height: 2.3125rem;
+  justify-content: baseline;
+}
+
+.book-review {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.review {
+  color: #000;
   text-align: justify;
   font-family: Libre Caslon Text;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width: 11.9375rem;
 }
 
 .book-cover {
-  width: 123px;
-  height: 182px;
+  width: 4.88638rem;
+  height: 7.5rem;
+  border-radius: 0.0625rem 0.125rem 0.125rem 0.0625rem;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
     /* max-width: 100%;
     height: auto;
