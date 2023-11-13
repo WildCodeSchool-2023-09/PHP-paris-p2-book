@@ -1,0 +1,12 @@
+/* Form to add a book */
+
+
+form {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+form #coverPicture {
+    height: 55vh;
+    width: 20vw;
+}

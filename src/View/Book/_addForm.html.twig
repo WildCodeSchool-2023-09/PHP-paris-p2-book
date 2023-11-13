@@ -7,37 +7,36 @@
 			{{ errors.book_editor_cover }}
 		</div>
 		<div id="check">
-			<div id="global-read">
+			<div id="globalRead">
 				<div id="read">
-					<img id="first-picture" src="/assets/images/read.png" alt="An icon to mark if you have read the book you are adding"/>
+					<img id="firstPicture" src="/assets/images/read.png" alt="An icon to mark if you have read the book you are adding"/>
 					<span>READ</span>
 				</div>
 			</div>
-			<div id="global-notyet">
-				<div id="notyet">
-					<img id="second-picture" src="/assets/images/not-yet.png" alt="An icon to mark if you have not read the book you are adding"/>
+			<div id="globalNotYet">
+				<div id="notYet">
+					<img id="secondPicture" src="/assets/images/not-yet.png" alt="An icon to mark if you have not read the book you are adding"/>
 					<span>NOT YET</span>
 				</div>
 			</div>
 			<input id="choice" name="choice" type="hidden" value="choice"/>
 		</div>
-		<div class="inner-form">
+		<div id="innerForm">
 			<div id="element1">
-				<input class="full-size" type="text" id="book_title" name="book_title" placeholder="TITLE" required/>
+				<input type="text" id="book_title" name="book_title" placeholder="TITLE" required/>
 				{{ errors.book_title }}
 			</div>
 			<div id="element2">
-				<input class="mid-size" type="text" id="author_firstname" name="author_firstname" placeholder="FIRSTNAME"/>
+				<input type="text" id="author_firstname" name="author_firstname" placeholder="FIRSTNAME"/>
 				{{ errors.author_firstname }}
 			</div>
 			<div id="element3">
-				<input class="mid-size" type="text" id="author_lastname" name="author_lastname" placeholder="LASTNAME"/>
+				<input type="text" id="author_lastname" name="author_lastname" placeholder="LASTNAME"/>
 				{{ errors.author_lastname }}
 			</div>
 			<div id="element4">
-				<input class="full-size" type="text" id="genre_label" name="genre_label" placeholder="GENRE" required/>
-				<select class="full-size" name="genre_label" id="genre_label">
-					<option value="">GENRE</option>
+				<select name="genre_label" id="genre_label">
+					<option value="GENRE">GENRE</option>
 					{% for genre in genres %}
 						<option value="{{genre}}">{{genre}}</option>
 					{% endfor %}
@@ -45,23 +44,23 @@
 				{{ errors.genre_label }}
 			</div>
 			<div id="element5">
-				<input class="mid-size" type="int" id="book_editor_nb_pages" name="book_editor_nb_pages" placeholder="PAGES" required/>
+				<input type="int" id="book_editor_nb_pages" name="book_editor_nb_pages" placeholder="PAGES" required/>
 				{{ errors.book_editor_nb_pages }}
 			</div>
 			<div id="element6">
-				<input class="mid-size" type="int" id="book_editor_isbn" name="book_editor_isbn" placeholder="ISBN" required/>
+				<input type="int" id="book_editor_isbn" name="book_editor_isbn" placeholder="ISBN" required/>
 				{{ errors.book_editor_isbn }}
 			</div>
 			<div id="element7">
-				<input class="mid-size" type="int" id="book_written_at" name="book_written_at" placeholder="WRITTEN AT"/>
+				<input type="int" id="book_written_at" name="book_written_at" placeholder="WRITTEN AT"/>
 				{{ errors.book_written_at }}
 			</div>
 			<div id="element8">
-				<input class="mid-size" type="int" id="editor_label" name="editor_label" placeholder="EDITOR" required/>
+				<input type="int" id="editor_label" name="editor_label" placeholder="EDITOR" required/>
 				{{ errors.editor_label }}
 			</div>
 			<div id="element9">
-				<input class="mid-size" type="int" id="book_editor_published_at" name="book_editor_published_at" placeholder="PUBLISHED AT" required/>
+				<input type="int" id="book_editor_published_at" name="book_editor_published_at" placeholder="PUBLISHED AT" required/>
 				{{ errors.book_editor_published_at }}
 			</div>
 			<div id="element10">

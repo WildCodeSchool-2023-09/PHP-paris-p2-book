@@ -18,19 +18,18 @@ class BookController extends AbstractController
             $this->checkIfErrorGenre($book);
             if (empty($this->errors)) {
                 $bookManager = new BookManager();
-                
                 if (!$bookManager->checkIfBookExists($book) || !$bookManager->checkIfEditorExists($book)) {
-                    if (!$bookManager->checkIfAuthorExists($book)) {
-                        $bookManager->insertIntoAuthor($book);
-                    }
-                    if (!$bookManager->checkIfGenreExists($book)) {
-                        $bookManager->insertIntoGenre($book);
-                    }
-                    if (!$bookManager->checkIfEditorExists($book)) {
-                        $bookManager->insertIntoEditor($book);
-                    }
-                    if (!$bookManager->checkIfBookExists($book)) {
-                        $bookManager->insertIntoBook($book);
+                    $checks = [
+                        'checkIfAuthorExists' => 'insertIntoAuthor',
+                        'checkIfGenreExists' => 'insertIntoGenre',
+                        'checkIfEditorExists' => 'insertIntoEditor',
+                        'checkIfBookExists' => 'insertIntoBook',
+                    ];
+
+                    foreach ($checks as $checkFunction => $insertFunction) {
+                        if (!$bookManager->$checkFunction($book)) {
+                            $bookManager->$insertFunction($book);
+                        }
                     }
 
                     $id = $bookManager->insertIntoBookEditor($book, $this->manageCover());
@@ -131,5 +130,4 @@ class BookController extends AbstractController
             return "notyet";
         }
     }
-
 }
