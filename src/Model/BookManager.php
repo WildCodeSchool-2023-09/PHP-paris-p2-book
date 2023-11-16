@@ -6,164 +6,76 @@ use PDO;
 
 class BookManager extends AbstractManager
 {
-    public const BOOK_EDITOR_TABLE = 'book_editor';
-    public const BOOK_TABLE = 'book';
-    public const AUTHOR_TABLE = 'author';
-    public const GENRE_TABLE = 'genre';
-    public const EDITOR_TABLE = 'editor';
-    public const GENRES = ['Action', 'Adventure', 'Bibliography', 'Biography', 'Comedy', 'Cookbook', 'Epic', 'Essay',
-    'Encyclopedic', 'Fabulation', 'Fantasy', 'Folklore', 'Historical', 'Horror', 'Journalistic', 'Mystery',
-    'Paranoid', 'Pastoral', 'Philosophical', 'Political', 'Realist', 'Religious', 'Romance', 'Satire',
-    'Science fiction', 'Social', 'Theatre', 'Thriller', 'Travel', 'Western'];
+    public const TABLE = 'book';
 
-
-    public function insertIntoBookEditor(array $book, string $uploadFile): int
+    public function insert(array $data, int $editorId, int $authorId, int $genreId): int
     {
-        $bookId = $this->getBookId($book);
-        $editorId = $this->getEditorId($book);
-        $statement = $this->pdo->prepare("INSERT INTO " . self::BOOK_EDITOR_TABLE .
-        " (book_id, editor_id, isbn, synopsis, nb_pages, cover, published_at) 
-        VALUES (:book_id, :editor_id, :isbn, :synopsis, :nb_pages, :cover, :published_at);");
-        $statement->bindValue(':book_id', $bookId, PDO::PARAM_INT);
-        $statement->bindValue(':editor_id', $editorId, PDO::PARAM_INT);
-        $statement->bindValue(':isbn', $book['book_editor_isbn'], PDO::PARAM_INT);
-        $statement->bindValue(':synopsis', $book['book_editor_synopsis'], PDO::PARAM_STR);
-        $statement->bindValue(':nb_pages', $book['book_editor_nb_pages'], PDO::PARAM_INT);
-        $statement->bindValue(':cover', $uploadFile, PDO::PARAM_STR);
-        $statement->bindValue(':published_at', $book['book_editor_published_at'], PDO::PARAM_STR);
-        $statement->execute();
-        return (int)$this->pdo->lastInsertId();
-    }
+        $book = $this->findOneByTitle($data['book_title']);
 
-    public function insertIntoBook(array $book)
-    {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::BOOK_TABLE .
-        " (title, written_at) VALUES (:title, :written_at);");
-        $statement->bindValue(':title', $book['book_title'], PDO::PARAM_STR);
-        $statement->bindValue(':written_at', $book['book_written_at'], PDO::PARAM_INT);
-        $statement->execute();
-    }
-
-    public function insertIntoAuthor(array $book)
-    {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::AUTHOR_TABLE .
-        "(firstname, lastname) VALUES (:firstname, :lastname);");
-        $statement->bindValue(':firstname', $book['author_firstname'], PDO::PARAM_STR);
-        $statement->bindValue(':lastname', $book['author_lastname'], PDO::PARAM_STR);
-        $statement->execute();
-    }
-
-    public function insertIntoGenre(array $book)
-    {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::GENRE_TABLE . " (label) VALUES (:label);");
-        $statement->bindValue(':label', $book['genre_label'], PDO::PARAM_STR);
-        $statement->execute();
-    }
-
-    public function insertIntoEditor(array $book)
-    {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::EDITOR_TABLE . " (label) VALUES (:label);");
-        $statement->bindValue(':label', $book['editor_label'], PDO::PARAM_STR);
-        $statement->execute();
-    }
-
-    public function checkIfAuthorExists(array $book): bool
-    {
-        $statement = $this->pdo->query("SELECT * FROM " . self::AUTHOR_TABLE . ";");
-        $infos = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $alreadyExists = [];
-        foreach ($infos as $info) {
-            if (
-                ($info['firstname'] === $book['author_firstname'])
-                && ($info['lastname'] === $book['author_lastname'])
-            ) {
-                $alreadyExists[] = "L'auteur existe déjà";
-            }
+        if ($book) {
+            $bookId = $book['id'];
         }
-        if (empty($alreadyExists)) {
-            return false;
-        } else {
-            return true;
+        else {
+            $query  = 'INSERT INTO ' . self::TABLE . ' (title, written_at) ';
+            $query .= 'VALUES (:title, :written_at);';
+    
+            $statement = $this->pdo->prepare($query);
+    
+            $statement->bindValue(':title', $data['book_title'], PDO::PARAM_STR);
+            $statement->bindValue(':written_at', $data['book_written_at'], PDO::PARAM_INT);
+    
+            $statement->execute();
+    
+            $bookId = (int) $this->pdo->lastInsertId();
         }
+
+        $bookEditorManager = new BookEditorManager();
+        $bookEditorManager->insert($data, $data['cover'], $bookId, $editorId);
+
+        $bookGenreManager = new BookGenreManager();
+
+        if (!$bookGenreManager->findOne($bookId, $genreId)) {
+            $bookGenreManager->insert($bookId, $genreId);
+        }
+        
+        $bookAuthorManager = new BookAuthorManager();
+        
+        if (!$bookAuthorManager->findOne($bookId, $authorId)) {
+            $bookAuthorManager->insert($bookId, $authorId);
+        }
+
+        return $bookId;
     }
 
-    public function checkIfGenreExists(array $book): bool
+    public function findOneByTitleAndEditor(string $title, string $editor): array|false
     {
-        $statement = $this->pdo->query("SELECT * FROM " . self::GENRE_TABLE . ";");
-        $infos = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $alreadyExists = [];
-        foreach ($infos as $info) {
-            if ($info['label'] === $book['genre_label']) {
-                $alreadyExists[] = "Le genre existe déjà";
-            }
-        }
-        if (empty($alreadyExists)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+        $query  = 'SELECT * FROM ' . self::TABLE . ' AS b ';
+        $query .= 'INNER JOIN ' . BookEditorManager::TABLE . ' AS be ON be.book_id = b.id ';
+        $query .= 'INNER JOIN ' . EditorManager::TABLE . ' AS e ON e.id = be.editor_id ';
+        $query .= 'WHERE e.label = :editor_label ';
+        $query .= 'AND b.title = :book_title';
 
-    public function checkIfBookExists(array $book): bool
-    {
-        $statement = $this->pdo->query("SELECT * FROM " . self::BOOK_TABLE . ";");
-        $infos = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $alreadyExists = [];
-        foreach ($infos as $info) {
-            if ($info['title'] === $book['book_title'] && $info['written_at'] === $book['book_written_at']) {
-                $alreadyExists[] = "Le livre existe déjà";
-            }
-        }
-        if (empty($alreadyExists)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+        $statement = $this->pdo->prepare($query);
 
-    public function checkIfEditorExists(array $book): bool
-    {
-        $statement = $this->pdo->query("SELECT * FROM " . self::EDITOR_TABLE . ";");
-        $infos = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $alreadyExists = [];
-        foreach ($infos as $info) {
-            if ($info['label'] === $book['editor_label']) {
-                $alreadyExists[] = "L'éditeur existe déjà";
-            }
-        }
-        if (empty($alreadyExists)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public function getBookId(array $book): int
-    {
-        $statement = $this->pdo->prepare("SELECT id FROM " . self::BOOK_TABLE .
-        " WHERE title = :book_title");
-        $statement->bindValue(':book_title', $book["book_title"]);
+        $statement->bindValue(':editor_label', $editor);
+        $statement->bindValue(':book_title', $title);
+        
         $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC)['id'];
+        
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getEditorId(array $book): int
+    public function findOneByTitle(string $title): array|false
     {
-        $statement = $this->pdo->prepare("SELECT id FROM " . self::EDITOR_TABLE .
-        " WHERE label = :editor_label");
-        $statement->bindValue(':editor_label', $book["editor_label"]);
-        $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC)['id'];
-    }
+        $query  = 'SELECT * FROM ' . self::TABLE . ' AS b ';
+        $query .= 'WHERE b.title = :book_title';
 
-    public function findBook(array $book): int
-    {
-        $statement = $this->pdo->prepare("SELECT be.id FROM " . self::BOOK_EDITOR_TABLE .
-        " AS be INNER JOIN " . self::EDITOR_TABLE . " AS e ON e.id=be.editor_id INNER JOIN " . self::BOOK_TABLE .
-        " AS b ON b.id=be.book_id WHERE e.label = :editor_label AND b.title = :book_title");
-        $statement->bindValue(':editor_label', $book["editor_label"]);
-        $statement->bindValue(':book_title', $book["book_title"]);
+        $statement = $this->pdo->prepare($query);
+
+        $statement->bindValue(':book_title', $title);
+
         $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC)['id'];
+        
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }

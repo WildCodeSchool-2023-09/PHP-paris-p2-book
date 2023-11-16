@@ -1,13 +1,13 @@
 /* Form to add a book */
 
-form {
+#formAdd {
     background-color: var(--color-background);
     padding-top: 10%;
     padding-bottom: 10%;
     font-family: var(--font-inter);
 }
 
-form #innerForm {
+#formAdd #innerForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
@@ -21,36 +21,36 @@ form #innerForm {
     margin-right: 5%;
 }
 
-form #check {
+#formAdd #check {
     display: flex;
     justify-content: space-around;
     margin: 5%;
 }
 
-form #check span {
+#formAdd #check span {
     text-align: center;
     color: var(--color-second);
     font-size: 1.1rem;
     margin: 5%;
 }
 
-form #globalRead {
+#formAdd #globalRead {
     width: 25%;
 }
 
-form #globalNotYet {
+#formAdd #globalNotYet {
     width: 25%;
 }
 
-form #read,
-#notYet {
+#formAdd #read,
+#formAdd #notYet {
     display: flex;
     flex-direction: column;
 }
 
-form input,
-textarea,
-select {
+#formAdd input,
+#formAdd textarea,
+#formAdd select {
     background-color: #FFF4E3;
     justify-content: center;
     border-radius: 3px;
@@ -61,60 +61,60 @@ select {
     margin-right: 10%;
 }
 
-form #element1 {
+#formAdd #bookTitle {
     grid-column: 1/3;
     grid-row: 2;
 }
 
-form #element2 {
+#formAdd #authorFirstname {
     grid-column: 1/2;
     grid-row: 3;
 }
 
-form #element3 {
+#formAdd #authorLastname {
     grid-column: 2/3;
     grid-row: 3;
 }
 
-form #element4 {
+#formAdd #genreLabel {
     grid-column: 1/2;
     grid-row: 4;
 }
 
-form #element5 {
+#formAdd #bookEditorNbPages {
     grid-column: 2/3;
     grid-row: 4;
 }
 
-form #element6 {
+#formAdd #bookEditorIsbn {
     grid-column: 1/2;
     grid-row: 5;
 }
 
-form #element7 {
+#formAdd #bookWrittenAt {
     grid-column: 2/3;
     grid-row: 5;
 }
 
-form #element8 {
+#formAdd #editorLabel {
     grid-column: 1/2;
     grid-row: 6;
 }
 
-form #element9 {
+#formAdd #bookEditorPublishedAt {
     grid-column: 2/3;
     grid-row: 6;
 }
 
-form #element10 {
+#formAdd #bookEditorSynopsis {
     grid-column: 1/3;
     grid-row: 7;
     height: 15rem;
 }
 
-form input::placeholder,
-textarea::placeholder,
-select {
+#formAdd input::placeholder,
+#formAdd textarea::placeholder,
+#formAdd select {
     color: var(--color-second);
     font-family: var(--font-inter);
     opacity: 0.8;
@@ -122,7 +122,7 @@ select {
     padding-left: 0.7rem;
 }
 
-form #coverPicture {
+#formAdd #coverPicture {
     width: 50%;
     height: 72vw;
     background-color: var(--color-card);
@@ -135,52 +135,52 @@ form #coverPicture {
     position: relative;
 }
 
-form #coverPicture input {
+#formAdd #coverPicture input {
     display: none;
 }
 
-form input,
-textarea,
-select {
+#formAdd input,
+#formAdd textarea,
+#formAdd select {
     margin: 1rem;
     display: block;
     margin-right: auto;
     margin-left: auto;
 }
 
-form input,
+#formAdd input,
 select {
     width: 80%;
 }
 
-form #element1 input {
+#formAdd #bookTitle input {
     width: 90%;
 }
 
-form textarea {
+#formAdd textarea {
     width: 90%;
     height: 80%;
 }
 
-form .submit {
+#formAdd .submit {
     background-color: var(--color-third);
     color: var(--color-background);
     width: 30%;
 }
 
-form #firstPicture {
+#formAdd #firstPicture {
     width: 4rem;
     height: 4rem;
     margin: auto;
 }
 
-form #secondPicture {
+#formAdd #secondPicture {
     width: 4rem;
     height: 4rem;
     margin: auto;
 }
 
-form #camera {
+#formAdd #camera {
     display: block;
     width: 40%;
     height: 30%;

@@ -3,6 +3,11 @@
 namespace App\Controller;
 
 use App\Model\BookManager;
+use App\Model\AuthorManager;
+use App\Model\EditorManager;
+use App\Model\GenreManager;
+use App\Model\BookEditorManager;
+use App\Model\BookGenreManager;
 
 class BookController extends AbstractController
 {
@@ -10,52 +15,80 @@ class BookController extends AbstractController
     public const HIGHER_LIMIT = 150;
     public const LOWER_LIMIT = 50;
 
-    public function addForm()
+    public const AUTHORIZED_EXTENSIONS = ['jpeg', 'jpg' ,'png', 'gif', 'webp',];
+
+    public const MAX_FILE_SIZE = 1000000;
+
+    public const FORM_ADD_BOOK_READ = "read";
+
+    public const FORM_ADD_BOOK_NOT_YET = "notyet";
+
+    public BookManager $manager;
+
+    public EditorManager $editorManager;
+
+    public GenreManager $genreManager;
+
+    public AuthorManager $authorManager;
+
+    public function __construct() 
+    {
+        parent::__construct();
+
+        $this->manager = new BookManager();
+        $this->editorManager = new EditorManager();
+        $this->genreManager = new GenreManager();
+        $this->authorManager = new AuthorManager();
+    }
+
+    public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $book = array_map('trim', $_POST);
-            $this->checkIfError($book);
-            $this->checkIfErrorGenre($book);
-            if (empty($this->errors)) {
-                $bookManager = new BookManager();
-                if (!$bookManager->checkIfBookExists($book) || !$bookManager->checkIfEditorExists($book)) {
-                    $checks = [
-                        'checkIfAuthorExists' => 'insertIntoAuthor',
-                        'checkIfGenreExists' => 'insertIntoGenre',
-                        'checkIfEditorExists' => 'insertIntoEditor',
-                        'checkIfBookExists' => 'insertIntoBook',
-                    ];
+            $data = array_map('trim', $_POST);
 
-                    foreach ($checks as $checkFunction => $insertFunction) {
-                        if (!$bookManager->$checkFunction($book)) {
-                            $bookManager->$insertFunction($book);
-                        }
-                    }
+            $this->checksFormAdd($data);
+            $this->checksFormAddExtension($data);
 
-                    $id = $bookManager->insertIntoBookEditor($book, $this->manageCover());
-                    if ($this->formChoice($book) === "notyet") {
-                        header('Location:/library/show?id=' . $id);
+            if (empty($this->errors)) {                
+                $book = $this->manager->findOneByTitleAndEditor($data['book_title'], $data['editor_label']);
+
+                if ($book) {
+                    header('Location:/library/show?id=' . $book['id']);
+                    exit();
+                }
+                else {
+                    $editor = $this->editorManager->findOneByLabel($data['editor_label']);
+                    $editorId = empty($editor) ? $this->editorManager->insert($data) : $editor['id'];
+    
+                    $author = $this->authorManager->findOneByName($data['author_firstname'], $data['author_lastname']);
+                    $authorId = empty($author) ? $this->authorManager->insert($data) : $author['id'];
+
+                    $genre = $this->genreManager->findOneByLabel($data['genre_label']);
+
+                    $data['cover'] = $this->manageFormAddCover();
+
+                    $bookId = $this->manager->insert($data, $editorId, $authorId, $genre['id']);
+
+                    if ($data['choice'] === self::FORM_ADD_BOOK_NOT_YET) {
+                        header('Location:/library/show?id=' . $bookId);
                         exit();
-                    } elseif ($this->formChoice($book) === "read") {
+                    } elseif ($data['choice'] === self::FORM_ADD_BOOK_READ) {
                         header('Location:/Book/addReview');
                         exit();
                     }
-                } else {
-                    $id = $bookManager->findBook($book);
-                    header('Location:/library/show?id=' . $id);
                 }
-            } else {
-                return $this->twig->render('Book/_addForm.html.twig', [
+            }
+            else {
+                return $this->twig->render('Book/formAdd.html.twig', [
                     'errors' => $this->errors,
                 ]);
             }
         }
-        return $this->twig->render('Book/_addForm.html.twig', [
-            'genres' => BookManager::GENRES,
-        ]);
+
+        return $this->twig->render('Book/formAdd.html.twig');
     }
 
-    public function checkIfError($book)
+    public function checksFormAdd($book)
     {
         if (empty($book['book_title'])) {
             $this->errors['book_title'] = "Vous devez indiquer le titre de l'ouvrage";
@@ -87,7 +120,7 @@ class BookController extends AbstractController
             $this->errors['book_writing_year'] = "Vous devez indiquer l'année d'écriture de l'ouvrage";
         }
     }
-    public function checkIfErrorGenre($book)
+    public function checksFormAddExtension($book)
     {
         if (empty($book['genre_label'])) {
             $this->errors['genre_label'] = "Vous devez indiquer le genre de l'ouvrage";
@@ -96,38 +129,34 @@ class BookController extends AbstractController
         }
     }
 
-    public function manageCover()
+    public function manageFormAddCover(): string
     {
         if (!empty($_FILES['book_editor_cover']['name'][0])) {
             $cover = $_FILES['book_editor_cover'];
-            $authorizedExtensions = ['jpeg', 'jpg' ,'png', 'gif', 'webp',];
-            $maxFileSize = 1000000;
-            $coverExtension = $cover['type'];
-            $coverExtension = explode("/", $coverExtension);
+
+            $coverExtension = explode("/", $cover['type']);
             $coverExtension = end($coverExtension);
-            if (!in_array($coverExtension, $authorizedExtensions)) {
+
+            if (!in_array($coverExtension, self::AUTHORIZED_EXTENSIONS)) {
                 $this->errors['book_editor_cover'][] =
                 'Veuillez sélectionner une image de type Jpg, Jpeg, Gif, Webp ou Png !';
             }
-            if (file_exists($cover['tmp_name']) && $cover['size'] > $maxFileSize) {
+
+            if (file_exists($cover['tmp_name']) && $cover['size'] > self::MAX_FILE_SIZE) {
                 $this->errors['book_editor_cover'][] = "Votre fichier est trop volumineux";
             }
-            $uploadDir = 'uploads/';
-            $uploadFile = $uploadDir . uniqid() . "." . $coverExtension;
+
+            $uploadFile = UPLOAD_DIR . uniqid() . "." . $coverExtension;
+
             move_uploaded_file($cover['tmp_name'], $uploadFile);
-            return $uploadFile;
+
         }
+
         if (empty($_FILES['book_editor_cover']['name'][0])) {
-            return $uploadFile = "assets/images/cover_question_mark.png";
+            $uploadFile = "assets/images/cover_question_mark.png";
         }
+
+        return $uploadFile;
     }
 
-    public function formChoice($book): string
-    {
-        if ($book['choice'] === "read") {
-            return "read";
-        } else {
-            return "notyet";
-        }
-    }
 }

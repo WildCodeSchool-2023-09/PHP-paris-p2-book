@@ -1,6 +1,6 @@
 <?php
 
-use App\Model\BookManager;
+use App\Model\GenreManager;
 
 require 'vendor/autoload.php';
 if (file_exists('config/db.php')) {
@@ -29,9 +29,10 @@ try {
         $sql = file_get_contents(DB_DUMP_PATH);
         $statement = $pdo->prepare($sql);
         $statement->execute();
-        foreach (BookManager::GENRES as $genre) {
-            $statement = $pdo->prepare("INSERT INTO " . BookManager::GENRE_TABLE . " (label) VALUES (:label);");
-            $statement->bindValue(':label', $genre);
+
+        foreach (GenreManager::GENRES as $genre) {
+            $query = 'INSERT INTO ' . GenreManager::TABLE . ' (label) VALUES ("' . $genre . '");';
+            $statement = $pdo->prepare($query);
             $statement->execute();
         }
     } else {

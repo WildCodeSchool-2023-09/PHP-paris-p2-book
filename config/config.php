@@ -11,3 +11,5 @@ define('APP_VIEW_PATH', __DIR__ . '/../src/View/');
 
 // database dump file path for automatic import
 define('DB_DUMP_PATH', __DIR__ . '/../database.sql');
+
+define('UPLOAD_DIR', 'uploads/');
