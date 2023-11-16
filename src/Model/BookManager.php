@@ -43,7 +43,7 @@ class BookManager extends AbstractManager
 
     public function search(array $params = []): array
     {
-        $query = file_get_contents("../src/Model/sql/searchByParams.sql");
+        $query = file_get_contents("../src/Model/sql/search.sql");
 
         if (!empty($params)) {
             // FILTER PARAMS
