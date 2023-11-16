@@ -5,9 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'Book/_search.html.twig' %}
+    {% include 'Components/_search.html.twig' %}
     {{ errors }}
-    {{ dump(results) }}
     {{ parent() }}
 {% endblock %}
 

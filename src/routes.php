@@ -11,6 +11,7 @@ return [
     'book' => ['HomeController', 'index',],
     'book/global-library' => ['BookController', 'showGlobalLibrary',],
     // 'book/show' => ['BookController', 'show', ['id']],
-    // 'book/add' => ['BookController', 'add',],
-    // 'book/delete' => ['BookController', 'delete',],
+    // 'admin' => ['AdminController', 'index',],
+    // 'admin/book/add' => ['BookController', 'add',],
+    // 'admin/book/delete' => ['BookController', 'delete',],
 ];
