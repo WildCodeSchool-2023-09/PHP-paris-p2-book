@@ -59,6 +59,10 @@ ul {
     src:url(../font/Libre_Caslon_Text/libre-caslon-text-regular.ttf);
 }
 
+#global-block {
+  margin-bottom: 8rem;
+}
+
 .container {
     width: 100%;
 }
@@ -151,12 +155,11 @@ body {
     align-items: center;
 }
 
-/* .heart-icon {
+.heart-icon {
+  position: absolute;
   padding-left: 19.5rem;
-  padding-right: 7.5rem;
-  padding-top: 0rem;
-  padding-bottom: -2rem;
-} */
+  margin-top: -0.7rem;
+}
 .container-icons {
   display: flex;
   flex-direction: column;
@@ -170,20 +173,26 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   width: auto;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .header-icons-title {
   width: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 1.5rem;
-  /* padding-left: 5rem;
-  padding-right: 5rem; */
   color: var(--Second, #9D244D);
   font-family: Roboto;
   font-size: 0.875rem;
+}
+
+.reading-title {
+  margin-right: 0.7rem;
+}
+
+.wishlist-title {
+  margin-right: 0.7rem;
 }
 
 .container-book {
@@ -194,6 +203,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 2.31rem;
+ 
 }
 
 .card-model {
@@ -261,6 +271,7 @@ body {
   font-weight: 700;
   line-height: normal;
   display: flex;
+  padding-bottom: 2rem;
   padding-left: 0.93rem;
   width: 15.75rem;
   height: 3rem;
@@ -289,7 +300,6 @@ body {
   font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
-  width: 7rem;
   padding-left: 1.18rem;
 }
 
@@ -304,7 +314,7 @@ body {
   line-height: normal;
   text-transform: uppercase;
   width: 7rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 .book-edition {
@@ -476,30 +486,3 @@ nav {
 }
 
 /* -- SEARCH -- *//*# sourceMappingURL=style.css.map */
-
-
-/* -- Class blank space -- */
-.blank200 {
-  margin-bottom: 200px;
-}
-.blank150 {
-  margin-bottom: 150px;
-}
-.blank100 {
-  margin-bottom: 100px;
-}
-.blank50 {
-  margin-bottom: 50px;
-}
-.blank40 {
-  margin-bottom: 40px;
-}
-.blank30 {
-  margin-bottom: 30px;
-}
-.blank20 {
-  margin-bottom: 20px;
-}
-.blank10 {
-  margin-bottom: 10px;
-}

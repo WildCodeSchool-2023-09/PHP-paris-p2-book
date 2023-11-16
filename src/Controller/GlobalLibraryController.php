@@ -10,7 +10,6 @@ class GlobalLibraryController extends AbstractController
     {
         $globalLibraryManager = new GlobalLibraryManager();
         $books = $globalLibraryManager->selectAll('title');
-
-        return $this->twig->render('GlobalLibrary/index.html.twig', ['books' => $books]);
+        return $this->twig->render('Book/global-library.html.twig', ['books' => $books]);
     }
 }
