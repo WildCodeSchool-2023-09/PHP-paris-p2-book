@@ -1,42 +1,38 @@
-function toggleDisplay(element) {
-    if (element.classList.contains("hidden")) {
-        element.classList.remove("hidden");
-        element.classList.add("shown");
-        element.style.display = "flex";
-    }
-    else if (element.classList.contains("shown")) {
-        element.classList.remove("shown");
-        element.classList.add("hidden");
-        element.style.display = "none";
-    }
+function toggleDisplay(buttonSelector, targetSelector, defaultDisplay) {
+    const button = document.querySelector(buttonSelector);
+    const target = document.querySelector(targetSelector);
+    button.addEventListener('click', function(){
+        if (target.classList.contains("hidden")) {
+            target.style.display = defaultDisplay;
+        }
+        else {
+            target.style.display = "none";
+        }
+        target.classList.toggle("hidden");
+    });
 }
 
-const searchSettingsBtn = document.querySelector('.btn.settings');
-const searchSettingsBox = document.querySelector('#search-box');
-searchSettingsBtn.addEventListener('click', function(){toggleDisplay(searchSettingsBox)});
+function toggleSorting(buttonSelector, targetSelector, inputValue) {
+    const button = document.querySelector(buttonSelector);
+    const target = document.querySelector(targetSelector);
+    const sortBy = document.querySelector('input#sort-by');
+    const sortOrder = document.querySelector('input#sort-order');
+    button.addEventListener('click', function(){
+        target.classList.toggle('reversed');
+        sortBy.setAttribute('value', inputValue);
+        if (target.className.includes('reversed')) {
+            sortOrder.setAttribute('value', 'ASC');
+        }
+        else {
+            sortOrder.setAttribute('value', 'DESC');   
+        }
+    });
+}
 
-const genreBtn = document.querySelector('.filter label[for="genre"]');
-const genreSelect = document.querySelector('.filter select#genre');
-genreBtn.addEventListener('click', function(){toggleDisplay(genreSelect)});
+toggleDisplay('.btn.settings', '#search-box', 'flex');
+toggleDisplay('.filter label[for="genre"]', '.filter .params#genre', 'block');
+toggleDisplay('.filter label[for="tag"]', '.filter .params#tag', 'block');
 
-const tagBtn = document.querySelector('.filter label[for="tag"]');
-const tagSelect = document.querySelector('.filter select#tag');
-tagBtn.addEventListener('click', function(){toggleDisplay(tagSelect)});
-
-const sortDateBtn = document.querySelector('.sort.date');
-const sortDateIcon = document.querySelector('.sort.date .btn.sort');
-sortDateBtn.addEventListener('click', function() {
-    sortDateIcon.classList.toggle('reversed');
-});
-
-const sortNoteBtn = document.querySelector('.sort.note');
-const sortNoteIcon = document.querySelector('.sort.note .btn.sort');
-sortNoteBtn.addEventListener('click', function() {
-    sortNoteIcon.classList.toggle('reversed');
-});
-
-const sortReviewsBtn = document.querySelector('.sort.reviews');
-const sortReviewsIcon = document.querySelector('.sort.reviews .btn.sort');
-sortReviewsBtn.addEventListener('click', function() {
-    sortReviewsIcon.classList.toggle('reversed');
-});
+toggleSorting('.sort.date', '.sort.date .btn.sort', 'date');
+toggleSorting('.sort.note', '.sort.note .btn.sort', 'note');
+toggleSorting('.sort.reads', '.sort.reads .btn.sort', 'reads');

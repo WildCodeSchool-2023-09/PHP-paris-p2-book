@@ -1,15 +1,9 @@
 SELECT
 -- DATA TO DISPLAY :
-    be.id, b.title, be.cover, be.synopsis, a.firstname, a.lastname, e.label
+    be.id as id, b.title as title, CONCAT(a.firstname, ' ', a.lastname) as author, be.cover as cover, e.label as editor, b.written_at as date, g.label as genre, t.label as tags
+    -- ,COUNT(r.id) as nb_reviews
+    -- ,AVG(r.note) as avg_note
 
-    -- be.id as book_editor_id, be.nb_pages as nb_pages,
-    -- b.title as book_title,
-    -- a.firstname as author_firstname, a.lastname as author_lastname,
-    -- g.label as genres,
-    -- e.label as editor,
-    -- -- reviews nb & avg note,
-    -- COUNT(r.id) as nb_reviews, AVG(r.note) as avg_note,
-    -- t.label as tags
 -- book_editor.nb_pages
 FROM book_editor as be
     -- book.title :
@@ -29,12 +23,11 @@ FROM book_editor as be
     JOIN editor as e
         ON be.editor_id = e.id
     -- reviews nb & average note
-    JOIN review as r
+    LEFT JOIN review as r
         ON be.id = r.book_editor_id
     -- tag.label
-    JOIN review_tag as rt
+    LEFT JOIN review_tag as rt
         ON r.id = rt.review_id
-    JOIN tag as t
+    LEFT JOIN tag as t
         ON rt.tag_id = t.id
--- GROUP BY book_editor_id
-;
+-- GROUP BY be.id

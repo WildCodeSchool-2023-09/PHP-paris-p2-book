@@ -23,7 +23,7 @@
   --font-jomolhari: 'Jomolhari', serif;
 }
 
-/* reset css */
+/* --- RESET CSS --- */
 
 html {
     box-sizing: border-box;
@@ -55,21 +55,34 @@ ol,
 ul {
     list-style: none;
 }
+
 /* img {
   max-width: 100%;
   height: auto;
 } */
 
-/* --- NAVBAR ---  */
+/* only for dev & testing */
+body {
+    height: 1000px;
+    background-color: var(--color-background);
+    color: var(--color-main);
+    font-family: var(--font-libre-caslon-text);
+}
+/* - */
 
-    /* only for dev & testing */
-    body {
-        height: 1000px;
-        background-color: var(--color-background);
-        color: var(--color-main);
-        font-family: var(--font-libre-caslon-text);
-    }
-    /* - */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: var(--font-roboto);
+}
+
+#content {
+    padding: 0 1rem;
+}
+
+/* --- NAVBAR ---  */
 
 nav {
     width: 100%;
@@ -166,14 +179,19 @@ nav {
 
 /* -- SEARCH -- */
 
-body {
-    background-color: var(--color-background);
+form#search {   
+    position: sticky;
+    width: 100%;
+    top: 10px;
 }
 
 #search-bar, #search-box {
     background-color: var(--color-main);
     color: white;
     filter: var(--shadow-drop-small);
+    width: 66%;
+    min-width: 320px;
+    max-width: 600px;
 }
 
 #search-bar {
@@ -181,21 +199,32 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    width: 66%;
-    height: 40px;
+    height: 46px;
 
     margin: 10px auto;
     padding: 5px 12px;
 
     border-radius: 2rem;
 
-    img, input[type="image"] {
+    .btn {
         height: 1.6rem;
-        filter: var(--shadow-drop-small);
-    }
+        width: 1.6rem;
 
-    .btn.settings {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 0 none;
+
+        filter: var(--shadow-drop-small);
         cursor: pointer;
+
+        &.search {
+            background-color: #370A0A;
+            background-image: url("/assets/images/search/icon-search.svg");
+        }
+        &.settings {
+            background-image: url("/assets/images/search/icon-settings.svg");
+        }
     }
 
     #search-field {
@@ -221,20 +250,47 @@ body {
         color: lightgray;
         font-family: var(--font-jomolhari);
         text-shadow: var(--shadow-text);
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
 
 #search-box {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
     justify-content: space-around;
 
-    width: 90%;
-    height: 200px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
 
-    margin: 10px auto;
-    padding: 1rem 2rem;
+    border-radius: 1.4rem;
 
-    border-radius: 1.2rem;
+    & > .filter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100px;
+
+        label {
+            cursor: pointer;
+        }
+
+        // select,
+        .params {
+            background-color: var(--color-third);
+            border: 1px solid black;
+            border-radius: .5rem;
+            position: absolute;
+            top: 40px;
+            padding: 2px .5rem;
+
+            option {
+                text-align: center;
+            }
+        }
+    }
 
     & > .sort {
         display: flex;
@@ -249,32 +305,6 @@ body {
         .btn.sort {
             height: 1.2rem;
             margin: 0 .5rem;
-        }
-    }
-
-    & > .filter {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        width: 200px;
-
-        label {
-            cursor: pointer;
-        }
-
-        select {
-            width: 100px;
-            background-color: var(--color-background);
-            border-radius: .5rem;
-
-            &:focus-visible {
-                outline: none;
-            }
-
-            option {
-                text-align: center;
-            }
         }
     }
 }

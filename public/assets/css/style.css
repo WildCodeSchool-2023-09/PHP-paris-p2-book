@@ -20,7 +20,7 @@
   --font-jomolhari: "Jomolhari", serif;
 }
 
-/* reset css */
+/* --- RESET CSS --- */
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -56,7 +56,6 @@ ul {
   max-width: 100%;
   height: auto;
 } */
-/* --- NAVBAR ---  */
 /* only for dev & testing */
 body {
   height: 1000px;
@@ -66,6 +65,19 @@ body {
 }
 
 /* - */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: var(--font-roboto);
+}
+
+#content {
+  padding: 0 1rem;
+}
+
+/* --- NAVBAR ---  */
 nav {
   width: 100%;
   max-height: 1400px;
@@ -149,32 +161,46 @@ nav {
 }
 
 /* -- SEARCH -- */
-body {
-  background-color: var(--color-background);
+form#search {
+  position: sticky;
+  width: 100%;
+  top: 10px;
 }
 
 #search-bar, #search-box {
   background-color: var(--color-main);
   color: white;
   filter: var(--shadow-drop-small);
+  width: 66%;
+  min-width: 320px;
+  max-width: 600px;
 }
 
 #search-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 66%;
-  height: 40px;
+  height: 46px;
   margin: 10px auto;
   padding: 5px 12px;
   border-radius: 2rem;
 }
-#search-bar img, #search-bar input[type=image] {
+#search-bar .btn {
   height: 1.6rem;
+  width: 1.6rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 0 none;
   filter: var(--shadow-drop-small);
+  cursor: pointer;
+}
+#search-bar .btn.search {
+  background-color: #370A0A;
+  background-image: url("/assets/images/search/icon-search.svg");
 }
 #search-bar .btn.settings {
-  cursor: pointer;
+  background-image: url("/assets/images/search/icon-settings.svg");
 }
 #search-bar #search-field {
   width: 80%;
@@ -194,16 +220,38 @@ body {
   color: lightgray;
   font-family: var(--font-jomolhari);
   text-shadow: var(--shadow-text);
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 #search-box {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
   justify-content: space-around;
-  width: 90%;
-  height: 200px;
-  margin: 10px auto;
-  padding: 1rem 2rem;
-  border-radius: 1.2rem;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  border-radius: 1.4rem;
+}
+#search-box > .filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+#search-box > .filter label {
+  cursor: pointer;
+}
+#search-box > .filter .params {
+  background-color: var(--color-third);
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 40px;
+  padding: 2px 0.5rem;
+}
+#search-box > .filter .params option {
+  text-align: center;
 }
 #search-box > .sort {
   display: flex;
@@ -216,26 +264,6 @@ body {
 #search-box > .sort .btn.sort {
   height: 1.2rem;
   margin: 0 0.5rem;
-}
-#search-box > .filter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 200px;
-}
-#search-box > .filter label {
-  cursor: pointer;
-}
-#search-box > .filter select {
-  width: 100px;
-  background-color: var(--color-background);
-  border-radius: 0.5rem;
-}
-#search-box > .filter select:focus-visible {
-  outline: none;
-}
-#search-box > .filter select option {
-  text-align: center;
 }
 
 .hidden {

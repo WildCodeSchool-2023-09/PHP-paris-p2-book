@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Global Library
+{% endblock %}
+
+{% block content %}
+    {% include 'Book/_search.html.twig' %}
+    {{ errors }}
+    {{ dump(results) }}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script src="/assets/js/search.js"></script>
+{% endblock %}

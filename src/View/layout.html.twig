@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="/assets/images/favicon.png">
 
-        <title>{% block title %}MyBookshelf{% endblock %}</title>
+        <title>MyBookshelf - {% block title %}{% endblock %}</title>
 
         <link rel="stylesheet" href="/assets/css/style.css">
         <link rel="stylesheet" href="/assets/css/desktop.css" media="(min-width: 1200px)">
@@ -15,13 +15,23 @@
 
     <body>
         {% block header %}
-            {# {% include 'book/_header.html.twig' %} #}
+            {% include 'book/_header.html.twig' %}
         {% endblock %}
-        {% block content %}{% endblock %}
+
+        {% block navbar %}
+            {% include 'book/_navbar.html.twig' %}
+        {% endblock %}
+
+        <div id="content">
+            {% block content %}
+            
+            {% endblock %}
+        </div>
+
         {% block footer %}
-            {# {% include 'book/_footer.html.twig' %} #}
+            {% include 'book/_footer.html.twig' %}
         {% endblock %}
-        {% block navbar %} {% include 'book/_navbar.html.twig' %} {% endblock %}
+
         {% block javascript %}
             <script src="/assets/js/navbar.js"></script>
         {% endblock %}
