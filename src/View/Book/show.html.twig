@@ -1,6 +1,9 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %} {{ parent() ~ ' - ' ~ book.title }} {% endblock %}
+
+
+
   {% block content %}
     <div id="picture">
       <img src={{book.cover}} alt="picture">
@@ -14,28 +17,46 @@
       {{ book.title }}
     </h1>
     <div class="infos">
+      <div id="author">
       <p>
         {{ book.firstname }}
         {{ book. lastname }}
       </p>
+    </div>
+    <div id="note">
       <p> 
-       {{ book.note }}/10
+      note : {{ book.note }}/10
       </p>
+    </div>
   </div>
 <div class="categories">
-    <div class="description">
-      <h2>Synopsis</h2>
-     </div>
-     <div>
+    <div id="synopsisTitle">
+        <h2>Synopsis</h2>
+    </div>
+    <div>
       <hr class="separation" />
       </div>
-    <div class="detail">
+    <div id="detailTitle">
       <h2>Details</h2>
   </div>
 </div>
-<div class="synopsis">
-<p>
+<DIV id="synopsis">
+  <p>
   {{ book.synopsis }}
-</p>
+  </p>
+</DIV>
+<div id="details">
+  <p> Langue : <strong>{{ book.langue }}</strong></p>
+  <p>ISBN : <strong>{{ book.isbn }}</strong></p>
+  <p>Genre : <strong>{{ book.label }}</strong></p>
+  <p>Date de publication : <strong>{{ book.written_at }}</strong></p>
+  <p>Nombre de pages : <strong>{{ book.nb_pages }}</strong></p>
+  <p>Difficulté : <strong>{{ book.difficulty }}/5</strong></p>
+  <p>Temps de lecture moyen : <strong>{{ book.reading_time }}h</strong></p>
+
 </div>
- {% endblock %}
+{% endblock %}
+
+{% block javascript %}
+  <script src="/assets/js/scriptShow.js"></script>
+{% endblock %}
