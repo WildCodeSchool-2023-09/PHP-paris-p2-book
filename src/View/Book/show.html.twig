@@ -1,48 +1,48 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %} {{ parent() ~ ' - ' ~ book.title }} {% endblock %}
+{% block title %}{{ parent() ~ ' - ' ~ book.title }}{% endblock %}
 
-
-
-  {% block content %}
-    <div id="picture">
+{% block content %}
+  <div id="picture">
       <img src={{book.cover}} alt="picture">
-    </div>
-    <div class="icones">
-      <img class="review" src="../assets/images/Review.png" alt="review">
-      <img class="share" src="../assets/images/Share.png" alt="share">
-      <img class="add" src="../assets/images/Add.png" alt="add">
-    </div>
+  </div>
+  <div class="icones">
+    <img class="review" src="../assets/images/reviewBook.png" alt="review">
+    <img class="share" src="../assets/images/shareBook.png" alt="share">
+    <img class="add" src="../assets/images/addLibraryBook.png" alt="add">
+  </div>
+  <div id="bookTitle">
     <h1>
       {{ book.title }}
     </h1>
-    <div class="infos">
-      <div id="author">
-      <p>
-        {{ book.firstname }}
-        {{ book. lastname }}
-      </p>
-    </div>
-    <div id="note">
-      <p> 
-      note : {{ book.note }}/10
-      </p>
-    </div>
   </div>
+<div class="infos">
+  <div id="author">
+    <p>
+      {{ book.firstname }}
+      {{ book. lastname }}
+    </p>
+  </div>
+  <div id="note">
+    <p> 
+      note : {{ book.note }}/10
+    </p>
+  </div>
+</div>
 <div class="categories">
-    <div id="synopsisTitle">
-        <h2>Synopsis</h2>
-    </div>
-    <div>
-      <hr class="separation" />
-      </div>
-    <div id="detailTitle">
-      <h2>Details</h2>
+  <div id="synopsisTitle">
+    <h2>Synopsis</h2>
+  </div>
+  <div>
+    <hr class="separation" />
+  </div>
+  <div id="detailTitle">
+    <h2>Details</h2>
   </div>
 </div>
 <DIV id="synopsis">
   <p>
-  {{ book.synopsis }}
+    {{ book.synopsis }}
   </p>
 </DIV>
 <div id="details">
@@ -53,10 +53,9 @@
   <p>Nombre de pages : <strong>{{ book.nb_pages }}</strong></p>
   <p>Difficulté : <strong>{{ book.difficulty }}/5</strong></p>
   <p>Temps de lecture moyen : <strong>{{ book.reading_time }}h</strong></p>
-
 </div>
 {% endblock %}
 
 {% block javascript %}
-  <script src="/assets/js/scriptShow.js"></script>
+  <script src="/assets/js/toggleInfosDetails.js"></script>
 {% endblock %}

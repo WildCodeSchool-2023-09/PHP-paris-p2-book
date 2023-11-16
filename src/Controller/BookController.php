@@ -10,8 +10,7 @@ class BookController extends AbstractController
     {
         $bookEditionManager = new BookEditionManager();
         $book = $bookEditionManager->selectOneById($id);
-        
+
         return $this->twig->render('Book/show.html.twig', ['book' => $book]);
     }
-    
 }

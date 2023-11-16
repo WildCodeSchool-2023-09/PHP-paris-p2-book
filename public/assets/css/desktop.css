@@ -4,36 +4,36 @@
 }
 
 body {
-        background-color: var(--color-background);
+    background-color: var(--color-background);
 }
 
 h1 {
-color: var(--Second, #9D244D);
-text-align: center;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-font-family: Libre Caslon Display;
-font-size: 3.8rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-transform: uppercase;
-margin: 3rem;
+    color: var(--Second, #9D244D);
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Libre Caslon Display;
+    font-size: 3.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    margin: 3rem;
 }
 
 #author {
-color: #947982;
-display: flex;
-flex-direction: column;
-justify-content: center;
-width: 25rem;
-height: 5rem;
-flex-shrink: 0;
-text-align: center;
-font-family: Libre Caslon Display;
-font-size: 5rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    color: #947982;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25rem;
+    height: 5rem;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: Libre Caslon Display;
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 #note {
@@ -51,11 +51,6 @@ h2 {
     color: var(--color-second);
 }
 
-/* p {
-    color: var(--color-second);
-} */
-
-
 div#picture {
     display: flex;
     float: left;
@@ -65,23 +60,23 @@ div#picture {
     height: 35rem;
 }
 
-.separation{
-	clear: both;
-	position: center;
-	height: 2.5rem;
-	background: black;
+.separation {
+    clear: both;
+    position: center;
+    height: 2.5rem;
+    background: black;
     margin: auto;
-	}
+}
 
 
 .categories {
-display: flex;
-justify-content: space-evenly;
-font-size: 3rem;
-margin-top: 2rem;
-margin-right: 1rem;
-margin-bottom: 2rem;
-width : 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    width : 100%;
 }
 
 .detail {
@@ -90,8 +85,8 @@ width : 100%;
 }
 
 div.icones {
-display: column;
-align-items: flex-start;
+    display: column;
+    align-items: flex-start;
 }
 
 .review {
