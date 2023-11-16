@@ -8,9 +8,13 @@
 
         <title>MyBookshelf - {% block title %}{% endblock %}</title>
 
+        <link rel="stylesheet" href="/assets/css/reset.css">
         <link rel="stylesheet" href="/assets/css/style.css">
         <link rel="stylesheet" href="/assets/css/desktop.css" media="(min-width: 1200px)">
-        {% block stylesheet %}{% endblock %}
+
+        <link rel="stylesheet" href="/assets/css/navbar/navbar.css">
+        {% block stylesheet %}
+        {% endblock %}
     </head>
 
     <body>

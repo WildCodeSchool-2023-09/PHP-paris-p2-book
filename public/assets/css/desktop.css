@@ -1,75 +1,10 @@
-/* -- NAVBAR -- */
-nav, #content {
-  display: inline-block;
-  height: 100%;
-}
-
 #content {
+  display: inline-block;
+
+  height: 100%;
   margin: 0;
   width: calc(92% - 4px);
+  
   position: absolute;
   top: 0;
 }
-
-nav {
-  position: static;
-  width: 8%;
-  height: 100%;
-  left: 2px;
-  top: 0;
-}
-
-#navbar-head {
-  display: none;
-}
-
-#navbar-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 50%;
-  padding-top: 1rem;
-  background-image: none;
-}
-#navbar-container .btn {
-  padding-bottom: 10px;
-  margin-top: 20px;
-  border-radius: 1px;
-}
-#navbar-container .btn:not(.btn:last-of-type) {
-  border-bottom: 2px solid black;
-}
-
-#user-menu {
-  display: none;
-  position: relative;
-  top: -5%;
-  left: 0;
-  width: 100%;
-}
-
-#user-menu-head {
-  display: none;
-}
-
-#user-menu-container {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  border-radius: 20px;
-}
-
-.icon-mobile {
-  display: none;
-}
-
-.icon-desktop {
-  display: inline;
-}
-
-.icon-selected {
-  display: none;
-}/*# sourceMappingURL=desktop.css.map */

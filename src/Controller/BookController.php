@@ -14,10 +14,10 @@ class BookController extends AbstractController
         'sort-order'
     ];
     public const GENRES = [
-        'Philosophy', 'Sci-Fi', 'Politics', 'Novel', 'Horror', 'Drama', 'Detective', 'Fantasy', 'Porn'
+        'Philosophy', 'Sci-Fi', 'Politics', 'Novel', 'Horror', 'Drama', 'Detective', 'Fantasy'
     ];
     public const TAGS = [
-        'Fun', 'Boring', 'Funny', 'Interesting', 'Original', 'Scary', 'Weird', 'Hopeful', 'Cocky', 'Taboulé'
+        'Fun', 'Boring', 'Funny', 'Interesting', 'Original', 'Scary', 'Weird', 'Hopeful', 'Taboulé'
     ];
     public const SORT_BY = ['date', 'reads', 'note'];
     public const SORT_ORDERS = ['ASC', 'DESC'];
