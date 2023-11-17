@@ -14,18 +14,17 @@ class BookManager extends AbstractManager
 
         if ($book) {
             $bookId = $book['id'];
-        }
-        else {
+        } else {
             $query  = 'INSERT INTO ' . self::TABLE . ' (title, written_at) ';
             $query .= 'VALUES (:title, :written_at);';
-    
+
             $statement = $this->pdo->prepare($query);
-    
+
             $statement->bindValue(':title', $data['book_title'], PDO::PARAM_STR);
             $statement->bindValue(':written_at', $data['book_written_at'], PDO::PARAM_INT);
-    
+
             $statement->execute();
-    
+
             $bookId = (int) $this->pdo->lastInsertId();
         }
 
@@ -37,9 +36,9 @@ class BookManager extends AbstractManager
         if (!$bookGenreManager->findOne($bookId, $genreId)) {
             $bookGenreManager->insert($bookId, $genreId);
         }
-        
+
         $bookAuthorManager = new BookAuthorManager();
-        
+
         if (!$bookAuthorManager->findOne($bookId, $authorId)) {
             $bookAuthorManager->insert($bookId, $authorId);
         }
@@ -59,9 +58,9 @@ class BookManager extends AbstractManager
 
         $statement->bindValue(':editor_label', $editor);
         $statement->bindValue(':book_title', $title);
-        
+
         $statement->execute();
-        
+
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -75,7 +74,7 @@ class BookManager extends AbstractManager
         $statement->bindValue(':book_title', $title);
 
         $statement->execute();
-        
+
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }

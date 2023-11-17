@@ -9,9 +9,9 @@ class BookEditorManager extends AbstractManager
     public const TABLE = 'book_editor';
 
     public function insert(array $data, string $uploadFile, int $bookId, int $editorId): int
-    {        
-        $query  = 'INSERT INTO ' . self::TABLE . ' (book_id, editor_id, isbn, synopsis, nb_pages, cover, published_at) ';
-        $query .= 'VALUES (:book_id, :editor_id, :isbn, :synopsis, :nb_pages, :cover, :published_at);'; 
+    {
+        $query = 'INSERT INTO ' . self::TABLE . ' (book_id, editor_id, isbn, synopsis, nb_pages, cover, published_at) ';
+        $query .= 'VALUES (:book_id, :editor_id, :isbn, :synopsis, :nb_pages, :cover, :published_at);';
 
         $statement = $this->pdo->prepare($query);
 
@@ -22,10 +22,9 @@ class BookEditorManager extends AbstractManager
         $statement->bindValue(':nb_pages', $data['book_editor_nb_pages'], PDO::PARAM_INT);
         $statement->bindValue(':cover', $uploadFile, PDO::PARAM_STR);
         $statement->bindValue(':published_at', $data['book_editor_published_at'], PDO::PARAM_STR);
-        
+
         $statement->execute();
-        
+
         return (int)$this->pdo->lastInsertId();
     }
-
 }

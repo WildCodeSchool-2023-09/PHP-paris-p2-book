@@ -6,7 +6,6 @@ use PDO;
 
 class EditorManager extends AbstractManager
 {
-
     public const TABLE = 'editor';
 
     public function insert(array $data)
@@ -16,7 +15,6 @@ class EditorManager extends AbstractManager
         $statement->execute();
 
         return (int)$this->pdo->lastInsertId();
-
     }
 
     public function findOneByLabel(string $label): array|bool

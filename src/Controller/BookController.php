@@ -6,8 +6,6 @@ use App\Model\BookManager;
 use App\Model\AuthorManager;
 use App\Model\EditorManager;
 use App\Model\GenreManager;
-use App\Model\BookEditorManager;
-use App\Model\BookGenreManager;
 
 class BookController extends AbstractController
 {
@@ -31,7 +29,7 @@ class BookController extends AbstractController
 
     public AuthorManager $authorManager;
 
-    public function __construct() 
+    public function __construct()
     {
         parent::__construct();
 
@@ -49,17 +47,16 @@ class BookController extends AbstractController
             $this->checksFormAdd($data);
             $this->checksFormAddExtension($data);
 
-            if (empty($this->errors)) {                
+            if (empty($this->errors)) {
                 $book = $this->manager->findOneByTitleAndEditor($data['book_title'], $data['editor_label']);
 
                 if ($book) {
                     header('Location:/library/show?id=' . $book['id']);
                     exit();
-                }
-                else {
+                } else {
                     $editor = $this->editorManager->findOneByLabel($data['editor_label']);
                     $editorId = empty($editor) ? $this->editorManager->insert($data) : $editor['id'];
-    
+
                     $author = $this->authorManager->findOneByName($data['author_firstname'], $data['author_lastname']);
                     $authorId = empty($author) ? $this->authorManager->insert($data) : $author['id'];
 
@@ -76,9 +73,10 @@ class BookController extends AbstractController
                         header('Location:/Book/addReview');
                         exit();
                     }
+
                 }
-            }
-            else {
+
+            } else {
                 return $this->twig->render('Book/formAdd.html.twig', [
                     'errors' => $this->errors,
                 ]);
@@ -149,14 +147,10 @@ class BookController extends AbstractController
             $uploadFile = UPLOAD_DIR . uniqid() . "." . $coverExtension;
 
             move_uploaded_file($cover['tmp_name'], $uploadFile);
-
-        }
-
-        if (empty($_FILES['book_editor_cover']['name'][0])) {
+        } else {
             $uploadFile = "assets/images/cover_question_mark.png";
         }
-
+        
         return $uploadFile;
     }
-
 }

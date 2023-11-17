@@ -6,7 +6,6 @@ use PDO;
 
 class AuthorManager extends AbstractManager
 {
-
     public const TABLE = 'author';
 
     public function insert(array $book): int
