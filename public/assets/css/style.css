@@ -55,12 +55,12 @@ ul {
 } */
 
 @font-face{
-    font-family: 'Libre Caslon Text';
-    src:url(../font/Libre_Caslon_Text/libre-caslon-text-regular.ttf);
+  font-family: 'Libre Caslon Text';
+  src:url(../font/Libre_Caslon_Text/libre-caslon-text-regular.ttf);
 }
 
 #global-block {
-  margin-bottom: 8rem;
+  margin-bottom: 20rem;
 }
 
 .container {
@@ -68,48 +68,48 @@ ul {
 }
 
 .book-icon {
-    position: absolute;
-    top: 2.5rem;
-    left: 2.56rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 2.56rem;
 }
 
 .mybookshelf-h1 {
-    color: #E8D2C9;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Libre Caslon Display;
-    font-size: 3rem;
-    line-height: 3.68rem;
-    font-weight: 400;
-    position: absolute;
-    top: 1.56rem;
-    left: 6.87rem;
-    right: 2.56rem;
+  color: #E8D2C9;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Libre Caslon Display;
+  font-size: 3rem;
+  line-height: 3.68rem;
+  font-weight: 400;
+  position: absolute;
+  top: 1.56rem;
+  left: 6.87rem;
+  right: 2.56rem;
 }
 
 .your-digital-book {
-    color: #EDC7B7;
-    text-align: center;
-    font-family: Libre Caslon Display;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    position: absolute;
-    top: 8.5rem;
-    left: 2.5rem;
+  color: #EDC7B7;
+  text-align: center;
+  font-family: Libre Caslon Display;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  top: 8.5rem;
+  left: 2.5rem;
 }
 
 body {
-    background: var(--Background, #FFEAD7);
+  background: var(--Background, #FFEAD7);
 }
 
 .bloc-text {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 24.375rem;
-    height: 10.375rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 24.375rem;
+  height: 10.375rem;
 }
 
 .heart {
@@ -117,42 +117,42 @@ body {
 }
 
 .text-home {
-    color: #9D244D;
-    text-align: justify;
-    font-family: Libre Caslon Text;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    left: 2.75rem;
-    right: 8.75rem;
-    width: 12.875rem;
+  color: #9D244D;
+  text-align: justify;
+  font-family: Libre Caslon Text;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  left: 2.75rem;
+  right: 8.75rem;
+  width: 12.875rem;
 }
 
 .text-home-middle {
-    color: #9D244D;
-    display: flex;
-    width: 13.0625rem;
-    height: 4.5rem;
-    flex-direction: column;
-    justify-content: center;
-    font-family: Libre Caslon Text;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  color: #9D244D;
+  display: flex;
+  width: 13.0625rem;
+  height: 4.5rem;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Libre Caslon Text;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .card-home {
-    border: 0.2px solid rgba(0, 0, 0, 0.50);
-    background: #F9E2C7;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 24.375rem;
-    height: 10.375rem;
-    justify-content: center;
-    align-items: center;
+  border: 0.2px solid rgba(0, 0, 0, 0.50);
+  background: #F9E2C7;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 24.375rem;
+  height: 10.375rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .heart-icon {
@@ -166,33 +166,31 @@ body {
   width: 100%;
 }
 
+.header-icons img {
+  width: 3rem;
+  height: 3rem;
+}
+
 .header-icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: auto;
   height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: auto;
   margin-top: 3rem;
+  justify-items: center;
+  align-items: center;
 }
 
 .header-icons-title {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  height: auto;
+  text-align: center;
   margin-top: 1.5rem;
   color: var(--Second, #9D244D);
   font-family: Roboto;
   font-size: 0.875rem;
-}
-
-.reading-title {
-  margin-right: 0.7rem;
-}
-
-.wishlist-title {
-  margin-right: 0.7rem;
 }
 
 .container-book {
@@ -259,6 +257,113 @@ body {
   padding-top: 0.2rem;
 }
 
+
+.card-grid-book {
+  display: grid; 
+  grid-template-rows: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 2fr 2fr 1fr 1.5fr;
+
+  gap: 0px;
+
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-left: 0.5rem;
+  width: 23.25rem;
+  height: 9.5rem;
+
+  border-radius: 0.625rem;
+  border: 0.2px solid rgba(0, 0, 0, 0.50);
+  background: var(--Card-color, #F9E2C7);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+  
+}
+ 
+#item-0-book-cover {
+  margin: 1rem 1rem 1rem;
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  grid-row-end: 5;
+  grid-column-end: 2;
+  
+}
+#item-1-title {
+  width: 100%;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  grid-row-start: 1;
+  grid-column-start: 2;
+
+  grid-row-end: 2;
+  grid-column-end: 6;
+  
+}
+#item-2-author {
+  width: 100%;
+  margin-top: 0.5rem;
+  grid-row-start: 2;
+  grid-column-start: 2;
+
+  grid-row-end: 3;
+  grid-column-end: 4;
+  
+}
+#item-3-year {
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  grid-row-start: 2;
+  grid-column-start: 4;
+
+  grid-row-end: 3;
+  grid-column-end: 6;
+  
+}
+#item-4-editor {
+  margin-right: 1rem;
+  grid-row-start: 3;
+  grid-column-start: 4;
+
+  grid-row-end: 4;
+  grid-column-end: 6;
+  
+}
+#item-5-genre {
+  margin: auto;
+  grid-row-start: 3;
+  grid-column-start: 2;
+
+  grid-row-end: 5;
+  grid-column-end: 3;
+  
+}
+#item-6-opinion {
+  margin: auto; 
+  grid-row-start: 3;
+  grid-column-start: 3;
+
+  grid-row-end: 5;
+  grid-column-end: 4;
+  
+}
+#item-7-review {
+  padding-bottom: 1rem;
+  grid-row-start: 4;
+  grid-column-start: 4;
+
+  grid-row-end: 5;
+  grid-column-end: 5;
+  
+}
+#item-8-score {
+  grid-row-start: 4;
+  grid-column-start: 5;
+
+  grid-row-end: 5;
+  grid-column-end: 6;
+  
+}
+
 .li-marker {
   list-style: none;
 }
@@ -270,17 +375,9 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  display: flex;
-  padding-bottom: 2rem;
-  padding-left: 0.93rem;
-  width: 15.75rem;
-  height: 3rem;
-  flex-direction: column;
-  justify-content: center;
-  right: 0.69rem;
-  left: 6.81rem;
   text-decoration: none;
 }
+
 
 .book-title-h1:hover {
   color: var(--Second, #fb4c86);
@@ -290,9 +387,6 @@ body {
 }
 
 .book-title-h2 {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0.5rem;
   color: var(--Second, #9D244D);
   font-family: Roboto;
   font-size: 0.875rem;
@@ -300,33 +394,26 @@ body {
   font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
-  padding-left: 1.18rem;
 }
 
 .book-title-year {
-  display: flex;
-  justify-content: flex-end;
   color: #947982;
-  font-family: Roboto;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  text-transform: uppercase;
-  width: 7rem;
-  margin-left: 2rem;
-}
-
-.book-edition {
-  display: flex;
-  justify-content: flex-end;
-  color: #947982;
+  text-align: right;
   font-family: Roboto;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  padding-bottom: 0.5rem;
+}
+
+.book-edition {
+  color: #947982;
+  text-align: right;
+  font-family: Roboto;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .bloc-genre {
@@ -340,15 +427,12 @@ body {
 
 .book-genre {
   color: #947982;
+  text-align: left;
   font-family: Roboto;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  display: flex;
-  padding-left: 0.93rem;
-  padding-top: 2rem;
-  text-decoration: none;
 }
 
 .book-opinion {
@@ -359,9 +443,6 @@ body {
   font-style: italic;
   font-weight: 400;
   line-height: normal;
-  display: flex;
-  width: 3.3125rem;
-  justify-content: baseline;
 }
 
 .comment-star {
@@ -370,7 +451,8 @@ body {
 }
 
 .review {
-  color: #000;
+  height: auto;
+  color: #0a0a0a;
   text-align: justify;
   font-family: Libre Caslon Text;
   font-size: 0.75rem;
@@ -380,7 +462,15 @@ body {
 }
 
 .score {
+  height: auto;
   margin-left: 1.5rem;
+  color: #0a0a0a;
+  text-align: justify;
+  font-family: Libre Caslon Text;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .book-cover {
@@ -390,9 +480,11 @@ body {
   background: url(<path-to-image>), lightgray 50% / cover no-repeat;
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-    /* max-width: 100%;
-    height: auto;
-} */ */
+
+.nothing-to-display {
+  text-align: center;
+}
+
 /* --- NAVBAR ---  */
 /* only for dev & testing */
 body {

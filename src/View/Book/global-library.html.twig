@@ -6,61 +6,37 @@
 
 {% block content %}
 <div id="global-block">
-<div class="heart-icon">   
-    <img src="/assets/icons/wishlist-heart.png">
-</div>
-<div class="container-icons-title">
-    <div class="header-icons">
-        <img src="/assets/icons/my-library.png">
-        <img src="/assets/icons/reading.png">
-        <img src="/assets/icons/wishlist.png">    
-    </div>  
-    <div class="header-icons-title">
-        <div>MY LIBRARY</div>       
-        <div class="reading-title">READING</div>      
-        <div class="wishlist-title">WISHLIST</div>
-    </div>      
-</div>
-{% for book in books %}
-    <div class="container-book">  
-        <div class="card-model-library">
-            <img src="{{ book.cover }}" class="book-cover">
-            {# <img src="../assets/images/books/book-harry-potter-et-la-chambre-des-secrets.png"> #}
-                <div class="bloc-book">
-                    <li class="li-marker"><a href="/Book/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a></li>
-                
-                    <div class="flex-book-title">
-                        <h2 class="book-title-h2">{{ book.id }}{{ book.firstname }} {{ book.lastname }}</h2>
-                        <h2 class="book-title-year">{{ book.id }}{{ book.written_at }}</h2>
-                    </div>
-                <div>
-                 
-                <div class="bloc-genre">
-                    <div>
-                        <p class="book-genre">{{ book.id }}{{ book.glabel }}</div>
-                    <div>
-                        <p class="book-opinion">Good!</p>
-                    </div>
-                    <div class="review">
-                        <p>24 <img src="/assets/icons/review.png" class="comment-star"></p>
-                    </div>
-                    <div class="review">
-                        <p class="book-edition">{{ book.id }}{{ book.label }}</p>
-                        <p class="score">4.7 <img src="/assets/icons/star.svg" class="comment-star"></p>
-                    </div>
-                </div>
-                </div>
+        <div>
+            <div class="header-icons">
+                <img src="/assets/icons/my-library.png">
+                <img src="/assets/icons/reading.png">
+                <img src="/assets/icons/wishlist.png">    
+            </div>  
+            <div class="header-icons-title">
+                <div>MY LIBRARY</div>       
+                <div class="reading-title">READING</div>      
+                <div class="wishlist-title">WISHLIST</div>
             </div>
+        </div>      
+{% for book in books %}
+        <div class="card-grid-book">
+            <div id="item-0-book-cover" class="book-cover"><img src="{{ book.cover }}" class="book-cover"></div>
+            <div id="item-1-title"<li class="li-marker"><a href="/Book/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a></li></div>
+            <div id="item-2-author"><h2 class="book-title-h2">{{ book.firstname }} {{ book.lastname }}</h2></div>
+            <div id="item-3-year"><h2 class="book-title-year">{{ book.written_at }}</h2></div>
+            <div id="item-4-editor"><p class="book-edition">{{ book.label }}</p></div>
+            <div id="item-5-genre"><p class="book-genre">{{ book.glabel }}</p></div>
+            <div id="item-6-opinion"><p class="book-opinion">Good!</p></div>
+            <div id="item-7-review"><p class="review">24 <img src="/assets/icons/review.png"></p></div>
+            <div id="item-8-score"><p class="score">4.7 <img src="/assets/icons/star.svg" class="comment-star"></p></div>
         </div>
-    </div>
-    {% else %}
-    <li>Nothing to display</li>
-{% endfor %} 
-
-
+{% else %}
+    <div class="nothing-to-display"><li>Nothing to display</li></div>
+{% endfor %}
 </div>
 {% endblock %}
 
 {% block navbar %}
+
 {% include '/Book/_navbar.html.twig' %}
 {% endblock %}
