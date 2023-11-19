@@ -1,15 +1,77 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
-    <p>Dashboard</p>
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/dashboard/dashboard.css">
+{% endblock %}
 
-    <div class="card dashboard">
-        <div></div>
+{% block content %}
+    <div class="dashboard">
+        <section class="card" id="trending">
+            <h2>Now trending</h2>
+            <div class="carousel">
+                <ul class="slides-container">
+                    {% for i in 0..2 %}
+                        <li class="slide">
+                            <div class="book-slide">
+                                    {% for y in 0..2 %}
+                                        <a href="book/show?id={{trending[y + (3 * i)].id}}"><img class="book-img" src="{{trending[y + (3 * i)].cover}}" alt="{{trending[y + (3 * i)].title}}" title="{{trending[y + (3 * i)].title}}"></a>
+                                    {% endfor %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="slide-nav">
+                    <div class="slide-btn left"></div>
+                    <div class="slide-btn middle"></div>
+                    <div class="slide-btn right"></div>
+                </div>
+            </div>
+        </section>
+        <section class="card" id="reviews">
+            <h2>Latest Reviews</h2>
+            <div class="carousel">
+                <ul class="slides-container">
+                    {% for i in 0..2 %}
+                        <li class="slide">
+                            <div class="review-slide">
+                                <img class="book-img" src="{{reviews[i].cover}}" alt="" style="float: right">
+                                <strong>{{reviews[i].title}}</strong>
+                                <p><em>Avis</em> : nul à chier du cul des fesses</p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="slide-nav">
+                    <div class="slide-btn left"></div>
+                    <div class="slide-btn middle"></div>
+                    <div class="slide-btn right"></div>
+                </div>
+            </div>
+        </section>
+        <section class="card" id="for-you">
+            <h2>For You</h2>
+            <div class="carousel">
+                <ul class="slides-container">
+                    {% for i in 0..2 %}
+                        <li class="slide">
+                            <div class="book-slide">
+                                    {% for y in 0..2 %}
+                                        <a href="book/show?id={{forYou[y + (3 * i)].id}}"><img class="book-img" src="{{forYou[y + (3 * i)].cover}}" alt="{{forYou[y + (3 * i)].title}}" title="{{forYou[y + (3 * i)].title}}"></a>
+                                    {% endfor %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="slide-nav">
+                    <div class="slide-btn left"></div>
+                    <div class="slide-btn middle"></div>
+                    <div class="slide-btn right"></div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="card dashboard">
-        <div></div>
-    </div>
-    <div class="card dashboard">
-        <div></div>
-    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="/assets/js/carousel.js"></script>
 {% endblock %}

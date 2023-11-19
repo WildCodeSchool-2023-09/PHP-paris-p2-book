@@ -4,6 +4,7 @@ nav {
   max-height: 1400px;
   position: fixed;
   bottom: 0;
+  z-index: 1;
 }
 
 #navbar-head {

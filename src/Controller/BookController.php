@@ -83,13 +83,9 @@ class BookController extends AbstractController
             'name' => $params['name'],
             'genres' => self::GENRES,
             'tags' => self::TAGS,
-            'books' => $results
+            'books' => $results,
+            'sectionName' => 'Library'
             ]
         );
-    }
-
-    public function showAdminLibrary(): string
-    {
-        return $this->showGlobalLibrary();
     }
 }

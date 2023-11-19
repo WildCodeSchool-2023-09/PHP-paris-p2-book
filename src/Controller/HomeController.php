@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\BookManager;
+
 class HomeController extends AbstractController
 {
     /**
@@ -10,8 +12,17 @@ class HomeController extends AbstractController
     public function index(string $login = ''): string
     {
         if (empty($login)) {
-            return $this->twig->render('Home/index-guest.html.twig');
+            return $this->twig->render('Home/index-guest.html.twig', ['sectionName' => 'MyBookShelf']);
         }
-        return $this->twig->render('Home/index-user.html.twig');
+
+        $bookManager = new BookManager();
+        $trending = $bookManager->search();
+        $foryou = $bookManager->search();
+        $reviews = $bookManager->search();
+
+        return $this->twig->render(
+            'Home/index-user.html.twig',
+            ['sectionName' => 'Dashboard', 'trending' => $trending, 'forYou' => $foryou, 'reviews' => $reviews]
+        );
     }
 }

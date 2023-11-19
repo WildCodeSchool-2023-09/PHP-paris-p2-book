@@ -1,0 +1,19 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .card {
+        min-height: 10rem;
+        height: 200px;
+    }
+    
+    .carousel {
+
+        .book-slide {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+}

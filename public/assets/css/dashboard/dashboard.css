@@ -1,0 +1,14 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.dashboard .card {
+  min-height: 10rem;
+  height: 200px;
+}
+.dashboard .carousel .book-slide {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}/*# sourceMappingURL=dashboard.css.map */

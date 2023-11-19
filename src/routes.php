@@ -10,6 +10,6 @@ return [
     '' => ['HomeController', 'index', ['login']],
     'book' => ['BookController', 'showGlobalLibrary',],
     'book/global-library' => ['BookController', 'showGlobalLibrary',],
-    'book/show' => ['BookController', 'show', ['id']],
-    'book/add' => ['BookController', 'add', ['id']],
+    // 'book/show' => ['BookController', 'show', ['id']],
+    // 'book/add' => ['BookController', 'add', ['id']],
 ];

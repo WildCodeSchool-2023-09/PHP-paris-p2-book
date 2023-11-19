@@ -24,13 +24,13 @@
 /* only for dev & testing */
 body {
   /* height: 1000px; */
-  
   background-color: var(--color-background);
   color: var(--color-main);
   font-family: var(--font-libre-caslon-text);
 }
 
 /* --- */
+
 html {
   scroll-behavior: smooth;
 }
@@ -39,6 +39,137 @@ html {
   font-family: var(--font-roboto);
 }
 
-#content {
-  padding: 0 1rem;
+/* HEADER */
+
+#main-header {
+  height: 100px;
+  position: relative;
+  background-image: url('/assets/images/header.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+#main-header a img {
+  height: 3ch;
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+#main-header h1 {
+  font-family: var(--font-libre-caslon-display);
+  font-size: 2rem;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* CONTENT */
+
+#content {
+  padding: .5rem .5rem;
+}
+
+.book-img {
+  height: 8rem;
+  width: 6rem;
+  border-radius: .1rem .2rem .2rem .1rem;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+/* CARDS */
+
+.card {
+  width: 100%;
+  height: 100px;
+
+  margin: 0 auto;
+  padding: .4rem .8rem;
+
+  background-color: var(--color-card);
+  border: .2px solid rgba(0, 0, 0, .5);
+  border-radius: 10px;
+
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card h1, .card h2 {
+  margin-bottom: .4rem;
+
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+
+  font-family: var(--font-inter);
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  color: var(--color-second);
+  text-transform: uppercase;
+}
+
+/* CAROUSELS */
+
+.carousel {
+  height: 90%;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.slides-container {
+  display: flex;
+
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  overflow:scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width:none;
+}
+.slides-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+
+  padding: .5rem;
+
+  flex: 1 0 100%;
+
+  scroll-snap-align: center;
+}
+
+.slide-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+.slide-btn {
+  height: .75rem;
+  width: .75rem;
+
+  background-color: lightgray;
+  border: 1px solid darkgray;
+  border-radius: 2rem;
+
+  cursor: pointer;
+}
+
+/* FOOTER */
