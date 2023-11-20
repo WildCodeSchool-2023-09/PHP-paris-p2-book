@@ -3,9 +3,9 @@ const slideWidth = document.querySelector(".slide").clientWidth;
 function sliderScript(slidesContainerSelector) {
     const slidesContainer = document.querySelector(slidesContainerSelector +" .slides-container");
 
-    const leftBtn = document.querySelector(slidesContainerSelector + " .slide-btn.left");
-    const middleBtn = document.querySelector(slidesContainerSelector + " .slide-btn.middle");
-    const rightBtn = document.querySelector(slidesContainerSelector + " .slide-btn.right");
+    const leftBtn = document.querySelector(slidesContainerSelector + " .slides-btn.left");
+    const middleBtn = document.querySelector(slidesContainerSelector + " .slides-btn.middle");
+    const rightBtn = document.querySelector(slidesContainerSelector + " .slides-btn.right");
 
     leftBtn.addEventListener("click", () => {
         slidesContainer.scrollTo(0, 0);

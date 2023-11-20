@@ -23,7 +23,7 @@
 
 /* only for dev & testing */
 body {
-  /* height: 1000px; */
+  height: 100vh;
   background-color: var(--color-background);
   color: var(--color-main);
   font-family: var(--font-libre-caslon-text);
@@ -52,7 +52,7 @@ html {
 }
 
 #main-header a img {
-  height: 3ch;
+  height: 2rem;
   position: absolute;
   left: 28px;
   top: 0;
@@ -67,6 +67,10 @@ html {
 }
 
 /* CONTENT */
+
+#main-container {
+  position: relative;
+}
 
 #content {
   padding: .5rem .5rem;
@@ -83,7 +87,7 @@ html {
 
 .card {
   width: 100%;
-  height: 100px;
+  /* height: 100px; */
 
   margin: 0 auto;
   padding: .4rem .8rem;
@@ -112,13 +116,13 @@ html {
 /* CAROUSELS */
 
 .carousel {
-  height: 90%;
   position: relative;
   /* overflow: hidden; */
 }
 
 .slides-container {
   display: flex;
+  gap: 2rem;
 
   height: 100%;
   width: 100%;
@@ -148,12 +152,7 @@ html {
   scroll-snap-align: center;
 }
 
-.slide-nav {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10px;
-
+.slides-nav {
   display: flex;
   justify-content: center;
   gap: .6rem;
@@ -161,7 +160,7 @@ html {
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
 }
 
-.slide-btn {
+.slides-btn {
   height: .75rem;
   width: .75rem;
 

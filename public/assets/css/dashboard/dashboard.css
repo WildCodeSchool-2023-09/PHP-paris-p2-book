@@ -5,10 +5,24 @@
 }
 .dashboard .card {
   min-height: 10rem;
-  height: 200px;
 }
 .dashboard .carousel .book-slide {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .dashboard {
+    gap: 1rem;
+  }
+  .dashboard .card {
+    width: 800px;
+    height: 300px;
+  }
+  .dashboard .carousel .book-slide {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }/*# sourceMappingURL=dashboard.css.map */
