@@ -1,13 +1,26 @@
 #header {
     width: 100%;
-    height: auto;
+    max-height: 5rem;
+    height: 100px;
+    background-image: url("/assets/images/header.png");
+    background-size:cover;
+    background-position: center;
+    color: var(--Main, #370A0A);
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Libre Caslon Display;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
+
 
 body {
     background-color: var(--color-background);
 }
 
-h1 {
+#bookTitle {
     color: var(--color-second);
     margin: 1rem;
     text-align: center;
@@ -20,7 +33,7 @@ h1 {
     color: grey;
 }
 
-h2 {
+.categorie {
     color: var(--color-second);
 }
 

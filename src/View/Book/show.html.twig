@@ -11,11 +11,13 @@
     <img class="share" src="../assets/images/shareBook.png" alt="share">
     <img class="add" src="../assets/images/addLibraryBook.png" alt="add">
   </div>
-  <div id="bookTitle">
+
     <h1>
-      {{ book.title }}
+      <div id="bookTitle">
+        {{ book.title }}
+      </div>
     </h1>
-  </div>
+
 <div class="infos">
   <div id="author">
     <p>
@@ -29,15 +31,16 @@
     </p>
   </div>
 </div>
+
 <div class="categories">
   <div id="synopsisTitle">
-    <h2>Synopsis</h2>
+    <h2 class="categorie"  >Synopsis</h2>
   </div>
   <div>
     <hr class="separation" />
   </div>
   <div id="detailTitle">
-    <h2>Details</h2>
+    <h2 class="categorie">Details</h2>
   </div>
 </div>
 <DIV id="synopsis">
