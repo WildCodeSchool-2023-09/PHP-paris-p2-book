@@ -87,9 +87,4 @@ class BookController extends AbstractController
             ]
         );
     }
-
-    public function showAdminLibrary(): string
-    {
-        return $this->showGlobalLibrary();
-    }
 }
