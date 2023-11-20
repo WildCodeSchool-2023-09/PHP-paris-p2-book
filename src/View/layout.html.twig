@@ -1,32 +1,34 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/assets/images/favicon.png">
+
 		<title>
 			{% block title %}MyBookshelf
 			{% endblock %}
 		</title>
-		{% block stylesheet %}
-			<link rel="stylesheet" href="/assets/css/style.css">
-			<link rel="stylesheet" href="/assets/css/mobile.css">
-			<link href="/assets/css/desktop.css" media="screen and (min-width: 1200px)" rel="stylesheet"/>
-		{% endblock %}
-	</head>
 
-	<body>
-		{% block header %}
-			{% include 'book/_header.html.twig' %}
-		{% endblock %}
-		{% block content %}{% endblock %}
-		{% block footer %}
-			{% include 'book/_footer.html.twig' %}
-		{% endblock %}
-		{% block navbar %}
-			{% include 'Book/_navbar.html.twig' %}
-		{% endblock %}
-		{% block javascript %}{% endblock %}
-	</body>
-</html>
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="stylesheet" href="/assets/css/desktop.css" media="(min-width: 1200px)"> {% block stylesheet %}{% endblock %}
+		</head>
+
+		<body>
+			{% block header %}
+				{# {% include 'book/_header.html.twig' %} #}
+			{% endblock %}
+			{% block content %}{% endblock %}
+			{% block footer %}
+				{# {% include 'book/_footer.html.twig' %} #}
+			{% endblock %}
+			{% block navbar %}
+				{% include 'book/_navbar.html.twig' %}
+			{% endblock %}
+			{% block javascript %}
+				<script src="/assets/js/navbar.js"></script>
+			{% endblock %}
+		</body>
+		>>>>>>> dev
+	</html>
