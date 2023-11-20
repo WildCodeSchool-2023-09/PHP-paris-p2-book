@@ -70,7 +70,7 @@ class BookController extends AbstractController
                         header('Location:/library/show?id=' . $bookId);
                         exit();
                     } elseif ($data['choice'] === self::FORM_ADD_BOOK_READ) {
-                        header('Location:/Book/addReview');
+                        header('Location:/review/add?id=' . $bookId);
                         exit();
                     }
 
