@@ -27,4 +27,21 @@ class BookEditorManager extends AbstractManager
 
         return (int)$this->pdo->lastInsertId();
     }
+
+    public function forReview(int $bookEditorId): array|false
+    {
+        $query  = 'SELECT be.cover, b.*, a.* FROM ' . self::TABLE . ' as be ';
+        $query .= 'INNER JOIN ' . BookManager::TABLE . ' as b ON be.book_id = b.id ';
+        $query .= 'INNER JOIN ' . BookAuthorManager::TABLE . ' as ba ON b.id = ba.book_id ';
+        $query .= 'INNER JOIN ' . AuthorManager::TABLE . ' as a ON ba.author_id = a.id ';
+        $query .= 'WHERE be.id = :id ;';
+
+        $statement = $this->pdo->prepare($query);
+
+        $statement->bindValue(':id', $bookEditorId, PDO::PARAM_INT);
+
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
 }

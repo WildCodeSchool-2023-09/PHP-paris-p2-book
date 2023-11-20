@@ -1,6 +1,7 @@
 <?php
 
 use App\Model\GenreManager;
+use App\Model\TagManager;
 
 require 'vendor/autoload.php';
 if (file_exists('config/db.php')) {
@@ -32,6 +33,11 @@ try {
 
         foreach (GenreManager::GENRES as $genre) {
             $query = 'INSERT INTO ' . GenreManager::TABLE . ' (label) VALUES ("' . $genre . '");';
+            $statement = $pdo->prepare($query);
+            $statement->execute();
+        }
+        foreach (TagManager::TAGS as $tag) {
+            $query = 'INSERT INTO ' . TagManager::TABLE . ' (label) VALUES ("' . $tag . '");';
             $statement = $pdo->prepare($query);
             $statement->execute();
         }
