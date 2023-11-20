@@ -70,12 +70,10 @@ class BookController extends AbstractController
                         header('Location:/library/show?id=' . $bookId);
                         exit();
                     } elseif ($data['choice'] === self::FORM_ADD_BOOK_READ) {
-                        header('Location:/Book/addReview');
+                        header('Location:/review/add?id=' . $bookId);
                         exit();
                     }
-
                 }
-
             } else {
                 return $this->twig->render('Book/formAdd.html.twig', [
                     'errors' => $this->errors,
@@ -150,7 +148,6 @@ class BookController extends AbstractController
         } else {
             $uploadFile = "assets/images/cover_question_mark.png";
         }
-        
         return $uploadFile;
     }
 }
