@@ -36,3 +36,12 @@ toggleDisplay('.filter label[for="tag"]', '.filter .params#tag', 'block');
 toggleSorting('.sort.date', '.sort.date .btn.sort', 'date');
 toggleSorting('.sort.note', '.sort.note .btn.sort', 'note');
 toggleSorting('.sort.reads', '.sort.reads .btn.sort', 'reads');
+
+const searchField = document.querySelector("#search-field");
+
+searchField.addEventListener('focusin', function() {
+    searchField.setAttribute('placeholder', '');
+});
+searchField.addEventListener('focusout', function(){
+    searchField.setAttribute('placeholder', 'Search');
+});
