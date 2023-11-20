@@ -58,9 +58,8 @@ ul {
   font-family: 'Libre Caslon Text';
   src:url(../font/Libre_Caslon_Text/libre-caslon-text-regular.ttf);
 }
-
-#global-block {
-  margin-bottom: 20rem;
+body, #global-block {
+  margin-bottom: 10rem;
 }
 
 .container {
