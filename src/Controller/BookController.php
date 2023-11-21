@@ -6,6 +6,7 @@ use App\Model\BookManager;
 use App\Model\AuthorManager;
 use App\Model\EditorManager;
 use App\Model\GenreManager;
+use App\Model\BookEditorManager;
 
 class BookController extends AbstractController
 {
@@ -28,6 +29,8 @@ class BookController extends AbstractController
     public GenreManager $genreManager;
 
     public AuthorManager $authorManager;
+
+    public BookEditorManager $bookEditorManager;
 
     public function __construct()
     {
@@ -150,4 +153,13 @@ class BookController extends AbstractController
         }
         return $uploadFile;
     }
+
+    public function show(int $id): string
+    {
+        $bookEditorManager = new BookEditorManager();
+        $book = $bookEditorManager->selectOneById($id);
+
+        return $this->twig->render('Book/show.html.twig', ['book' => $book]);
+    }
 }
+
