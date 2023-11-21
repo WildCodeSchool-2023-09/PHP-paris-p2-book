@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/guest/guest.css">
+{% endblock %}
+
+{% block header %}
+    <header id="guest-header">
+            <a href="/"><img src="/assets/images/navbar/user-menu/icon-user-library.png" alt="Home button"></a>
+            <h1>MyBookShelf</h1>
+            <p class="your-digital-book">
+                Your digital<br/>bookshelf
+            </p>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div id="home-guest">
+        <section>
+            <div id="heart"><img src="../assets/icons/heart.svg"></div>
+            <p class="text-home">Make your physical library become digital by adding every book you have read !</p>
+        </section>
+
+        <section id="middle">
+            <img id="star" src="../assets/icons/star.svg">
+            <p class="text-home middle">Have an easy look back on every one of your reads : reviews, note, stats & more!</p>
+        </section>
+
+        <section>
+            <img id="share" src="../assets/icons/share.svg">
+            <p class="text-home">Share your readings with others and find your next reading !</p>
+        </section>
+    </div>
+{% endblock %}
