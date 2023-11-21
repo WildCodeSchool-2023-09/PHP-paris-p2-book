@@ -1,12 +1,4 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <h1>Books</h1>
-    <ul>
-        {% for book in books %}
-            <li><a href="/books/show?id={{ book.id }}">{{ book.id }}. {{ book.title }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
-    <a href="/books/add">Ajouter</a>
+    <h1>Accueil</h1>
 {% endblock %}
