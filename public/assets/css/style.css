@@ -15,8 +15,8 @@
   --shadow-drop: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
   --shadow-text: 2px 2px 2px rgba(0, 0, 0, .5);
   --font-inter: "Inter", sans-serif;
-  --font-libre-caslon-display: "Libre Caslon Text", serif;
-  --font-libre-caslon-text: "Libre Caslon Display", serif;
+  --font-libre-caslon-display: "Libre Caslon Display", serif;
+  --font-libre-caslon-text: "Libre Caslon Text", serif;
   --font-roboto: "Roboto", sans-serif;
   --font-jomolhari: "Jomolhari", serif;
 }
@@ -26,15 +26,9 @@ html {
 }
 
 body {
-  height: 100vh;
-  /* height: 1000px; */
   background-color: var(--color-background);
   color: var(--color-main);
   font-family: var(--font-libre-caslon-text);
-}
-
-* {
-  /* font-family: var(--font-roboto); */
 }
 
 /* HEADER */
@@ -49,13 +43,16 @@ body {
   align-items: center;
 }
 
-#main-header a img {
+#main-header a img,
+#guest-header a img {
   height: 2rem;
   position: absolute;
+
   left: 28px;
-  top: 0;
+  top: 34px;
   bottom: 0;
-  margin: auto 0;
+  
+  /* margin: auto 0; */
 }
 
 #main-header h1 {
@@ -167,96 +164,6 @@ body {
   border-radius: 2rem;
 
   cursor: pointer;
-}
-
-/* INDEX GUEST */
-
-.container {
-  width: 390px;
-}
-
-.book-icon {
-  position: absolute;
-  top: 2.5rem;
-  left: 2.56rem;
-}
-
-.mybookshelf-h1 {
-  color: #E8D2C9;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: var(--font-libre-caslon-display);
-  font-size: 3rem;
-  line-height: 3.68rem;
-  font-weight: 400;
-  position: absolute;
-  top: 1.56rem;
-  left: 6.87rem;
-  right: 2.56rem;
-}
-
-.your-digital-book {
-  color: #EDC7B7;
-  text-align: center;
-  font-family: var(--font-libre-caslon-display);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  position: absolute;
-  top: 9.38rem;
-  left: 2.5rem;
-}
-
-.bloc-text {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 24.375rem;
-  height: 10.375rem;
-}
-
-.heart {
-  right: 3rem;
-}
-
-.text-home {
-  color: #9D244D;
-  text-align: justify;
-  font-family: var(--font-libre-caslon-text);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  left: 2.75rem;
-  right: 8.75rem;
-  width: 12.875rem;
-}
-
-.text-home-middle {
-  color: #9D244D;
-  display: flex;
-  width: 13.0625rem;
-  height: 4.5rem;
-  flex-direction: column;
-  justify-content: center;
-  font-family: var(--font-libre-caslon-text);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
-.card-home {
-  border: 0.2px solid rgba(0, 0, 0, 0.50);
-  background: #F9E2C7;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 24.375rem;
-  height: 10.375rem;
-  justify-content: center;
-  align-items: center;
 }
 
 /* ADD BOOK FORM */
