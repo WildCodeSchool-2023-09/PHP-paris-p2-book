@@ -1,10 +1,11 @@
 /* --- NAVBAR ---  */
 
-nav {
+#main-nav {
     width: 100%;
     max-height: 1400px;
     position: fixed;
     bottom: 0;
+    z-index: 2;
 }
 
 #navbar-head {

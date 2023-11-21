@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 31, 2023 at 04:17 PM
--- Server version: 8.0.34
--- PHP Version: 8.2.11
+-- Hôte : localhost
+-- Généré le : lun. 20 nov. 2023 à 09:44
+-- Version du serveur : 8.0.28
+-- Version de PHP : 8.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,38 +18,37 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mybookshelf`
+-- Base de données : `mybookshelf`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `author`
+-- Structure de la table `author`
 --
 
 CREATE TABLE `author` (
   `id` int NOT NULL,
   `firstname` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'Unknown',
-  `lastname` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'Unknown',
-  `birthdate` date DEFAULT NULL
+  `lastname` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'Unknown'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book`
+-- Structure de la table `book`
 --
 
 CREATE TABLE `book` (
   `id` int NOT NULL,
   `title` varchar(150) NOT NULL,
-  `written_at` year DEFAULT NULL
+  `written_at` year NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_author`
+-- Structure de la table `book_author`
 --
 
 CREATE TABLE `book_author` (
@@ -60,23 +59,24 @@ CREATE TABLE `book_author` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_edition`
+-- Structure de la table `book_editor`
 --
 
-CREATE TABLE `book_edition` (
+CREATE TABLE `book_editor` (
   `id` int NOT NULL,
   `book_id` int NOT NULL,
   `editor_id` int NOT NULL,
+  `isbn` varchar(13) NOT NULL,
   `synopsis` text NOT NULL,
   `nb_pages` int NOT NULL,
-  `cover` varchar(150) NOT NULL,
-  `published_at` year NOT NULL
+  `cover` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `published_at` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_genre`
+-- Structure de la table `book_genre`
 --
 
 CREATE TABLE `book_genre` (
@@ -87,19 +87,18 @@ CREATE TABLE `book_genre` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `editor`
+-- Structure de la table `editor`
 --
 
 CREATE TABLE `editor` (
   `id` int NOT NULL,
-  `label` varchar(150) NOT NULL,
-  `created_at` year DEFAULT NULL
+  `label` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `genre`
+-- Structure de la table `genre`
 --
 
 CREATE TABLE `genre` (
@@ -107,27 +106,63 @@ CREATE TABLE `genre` (
   `label` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `genre`
+--
+
+INSERT INTO `genre` (`id`, `label`) VALUES
+(1, 'Action'),
+(2, 'Adventure'),
+(3, 'Bibliography'),
+(4, 'Biography'),
+(5, 'Comedy'),
+(6, 'Cookbook'),
+(7, 'Epic'),
+(8, 'Essay'),
+(9, 'Encyclopedic'),
+(10, 'Fabulation'),
+(11, 'Fantasy'),
+(12, 'Folklore'),
+(13, 'Historical'),
+(14, 'Horror'),
+(15, 'Journalistic'),
+(16, 'Mystery'),
+(17, 'Paranoid'),
+(18, 'Pastoral'),
+(19, 'Philosophical'),
+(20, 'Political'),
+(21, 'Realist'),
+(22, 'Religious'),
+(23, 'Romance'),
+(24, 'Satire'),
+(25, 'Science fiction'),
+(26, 'Social'),
+(27, 'Theatre'),
+(28, 'Thriller'),
+(29, 'Travel'),
+(30, 'Western');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review`
+-- Structure de la table `review`
 --
 
 CREATE TABLE `review` (
   `id` int NOT NULL,
-  `book_edition_id` int NOT NULL,
+  `book_editor_id` int NOT NULL,
   `user_id` int NOT NULL,
   `note` tinyint NOT NULL,
   `difficulty` tinyint NOT NULL,
   `opinion` text,
-  `reading_time` time DEFAULT NULL,
+  `reading_time` varchar(150) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review_tag`
+-- Structure de la table `review_tag`
 --
 
 CREATE TABLE `review_tag` (
@@ -138,7 +173,7 @@ CREATE TABLE `review_tag` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tag`
+-- Structure de la table `tag`
 --
 
 CREATE TABLE `tag` (
@@ -146,10 +181,30 @@ CREATE TABLE `tag` (
   `label` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `tag`
+--
+
+INSERT INTO `tag` (`id`, `label`) VALUES
+(1, 'Amazing'),
+(2, 'Cry'),
+(3, 'Dark'),
+(4, 'Disappointment'),
+(5, 'Emotion'),
+(6, 'Intense'),
+(7, 'Joy'),
+(8, 'Laugh'),
+(9, 'Mystery'),
+(10, 'Plot-twist'),
+(11, 'Sad'),
+(12, 'Unexpected'),
+(13, 'Weird'),
+(14, 'Wonder');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Structure de la table `user`
 --
 
 CREATE TABLE `user` (
@@ -168,7 +223,7 @@ CREATE TABLE `user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_book_edition`
+-- Structure de la table `user_book_edition`
 --
 
 CREATE TABLE `user_book_edition` (
@@ -178,129 +233,117 @@ CREATE TABLE `user_book_edition` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `author`
+-- Index pour la table `author`
 --
 ALTER TABLE `author`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `book`
+-- Index pour la table `book`
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `book_author`
+-- Index pour la table `book_author`
 --
 ALTER TABLE `book_author`
   ADD PRIMARY KEY (`book_id`,`author_id`);
 
 --
--- Indexes for table `book_edition`
+-- Index pour la table `book_editor`
 --
-ALTER TABLE `book_edition`
+ALTER TABLE `book_editor`
   ADD PRIMARY KEY (`id`,`book_id`,`editor_id`);
 
 --
--- Indexes for table `book_genre`
+-- Index pour la table `book_genre`
 --
 ALTER TABLE `book_genre`
   ADD PRIMARY KEY (`book_id`,`genre_id`);
 
 --
--- Indexes for table `editor`
+-- Index pour la table `editor`
 --
 ALTER TABLE `editor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `genre`
+-- Index pour la table `genre`
 --
 ALTER TABLE `genre`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `review`
+-- Index pour la table `review`
 --
 ALTER TABLE `review`
-  ADD PRIMARY KEY (`id`,`book_edition_id`,`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `review_tag`
---
-ALTER TABLE `review_tag`
-  ADD PRIMARY KEY (`review_id`,`tag_id`);
-
---
--- Indexes for table `tag`
+-- Index pour la table `tag`
 --
 ALTER TABLE `tag`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Index pour la table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_book_edition`
---
-ALTER TABLE `user_book_edition`
-  ADD PRIMARY KEY (`user_id`,`book_edition_id`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `author`
+-- AUTO_INCREMENT pour la table `author`
 --
 ALTER TABLE `author`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `book`
+-- AUTO_INCREMENT pour la table `book`
 --
 ALTER TABLE `book`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `book_edition`
+-- AUTO_INCREMENT pour la table `book_editor`
 --
-ALTER TABLE `book_edition`
+ALTER TABLE `book_editor`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `editor`
+-- AUTO_INCREMENT pour la table `editor`
 --
 ALTER TABLE `editor`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `genre`
+-- AUTO_INCREMENT pour la table `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `review`
+-- AUTO_INCREMENT pour la table `review`
 --
 ALTER TABLE `review`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tag`
+-- AUTO_INCREMENT pour la table `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
