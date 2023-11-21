@@ -12,6 +12,13 @@
     {% include 'Components/_search.html.twig' %}
 
     {{ errors }}
+    
+    {# DEV #}
+    {% for book in books %}
+        <div>
+            {{book.title}}
+        </div>
+    {% endfor %}
 
 {% endblock %}
 

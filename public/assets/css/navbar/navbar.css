@@ -83,60 +83,58 @@
 }
 
 @media screen and (min-width: 1200px) {
-  nav {
-    display: inline-block;
+  #main-nav {
+    position: fixed;
+    width: 6rem;
     height: 100%;
-    position: static;
-    width: 8%;
-    height: 100%;
-    left: 2px;
-    top: 0;
+    left: 4px;
+    top: 100px;
   }
-  #navbar-head {
+  #main-nav #navbar-head {
     display: none;
   }
-  #navbar-container {
+  #main-nav #navbar-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 50%;
+    height: 250px;
     padding-top: 1rem;
     background-image: none;
   }
-  #navbar-container .btn {
-    padding-bottom: 10px;
+  #main-nav #navbar-container .btn {
+    padding-bottom: 16px;
     margin-top: 20px;
     border-radius: 1px;
   }
-  #navbar-container .btn:not(.btn:last-of-type) {
+  #main-nav #navbar-container .btn:not(.btn:last-of-type) {
     border-bottom: 2px solid black;
   }
-  #user-menu {
+  #main-nav #user-menu {
     display: none;
     position: relative;
-    top: -5%;
-    left: 0;
+    top: 138px;
     width: 100%;
   }
-  #user-menu-head {
+  #main-nav #user-menu-head {
     display: none;
   }
-  #user-menu-container {
+  #main-nav #user-menu-container {
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
     align-items: center;
+    height: 340px;
     padding: 1rem 0;
     border-radius: 20px;
   }
-  .icon-mobile {
+  #main-nav .icon-mobile {
     display: none;
   }
-  .icon-desktop {
+  #main-nav .icon-desktop {
     display: inline;
   }
-  .icon-selected {
+  #main-nav .icon-selected {
     display: none;
   }
 }/*# sourceMappingURL=navbar.css.map */
