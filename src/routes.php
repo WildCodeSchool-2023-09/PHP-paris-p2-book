@@ -9,4 +9,6 @@
 return [
     'book/add' => ['BookController', 'add',],
     'review/add' => ['ReviewController', 'add', ['id']],
+    'Book/show' => ['BookController', 'show', ['id']],
+
 ];

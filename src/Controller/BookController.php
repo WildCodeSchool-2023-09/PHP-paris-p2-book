@@ -148,7 +148,6 @@ class BookController extends AbstractController
         } else {
             $uploadFile = "assets/images/cover_question_mark.png";
         }
-
         return $uploadFile;
     }
 }
