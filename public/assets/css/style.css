@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jomolhari&display=swap");
+
 :root {
   --color-main: #370A0A;
   --color-second: #9D244D;
@@ -49,101 +50,101 @@ ul {
   list-style: none;
 }
 
-@font-face{
-    font-family: 'Libre Caslon Text';
-    src:url(../font/libre-caslon-text/libre-caslon-text-regular.ttf)
+@font-face {
+  font-family: 'Libre Caslon Text';
+  src: url(../font/libre-caslon-text/libre-caslon-text-regular.ttf)
 }
 
 .container {
-    width: 390px;
+  width: 390px;
 }
 
 .book-icon {
-    position: absolute;
-    top: 2.5rem;
-    left: 2.56rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 2.56rem;
 }
 
 .mybookshelf-h1 {
-    color: #E8D2C9;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Libre Caslon Display;
-    font-size: 3rem;
-    line-height: 3.68rem;
-    font-weight: 400;
-    position: absolute;
-    top: 1.56rem;
-    left: 6.87rem;
-    right: 2.56rem;
+  color: #E8D2C9;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Libre Caslon Display;
+  font-size: 3rem;
+  line-height: 3.68rem;
+  font-weight: 400;
+  position: absolute;
+  top: 1.56rem;
+  left: 6.87rem;
+  right: 2.56rem;
 }
 
 .your-digital-book {
-    color: #EDC7B7;
-    text-align: center;
-    font-family: Libre Caslon Display;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    position: absolute;
-    top: 9.38rem;
-    left: 2.5rem;
+  color: #EDC7B7;
+  text-align: center;
+  font-family: Libre Caslon Display;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  top: 9.38rem;
+  left: 2.5rem;
 }
 
 body {
-    background: var(--Background, #FFEAD7);
+  background: var(--Background, #FFEAD7);
 }
 
 .bloc-text {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 24.375rem;
-    height: 10.375rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 24.375rem;
+  height: 10.375rem;
 }
 
 .heart {
-    right: 3rem;
+  right: 3rem;
 }
 
 .text-home {
-    color: #9D244D;
-    text-align: justify;
-    font-family: Libre Caslon Text;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    left: 2.75rem;
-    right: 8.75rem;
-    width: 12.875rem;
+  color: #9D244D;
+  text-align: justify;
+  font-family: Libre Caslon Text;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  left: 2.75rem;
+  right: 8.75rem;
+  width: 12.875rem;
 }
 
 .text-home-middle {
-    color: #9D244D;
-    display: flex;
-    width: 13.0625rem;
-    height: 4.5rem;
-    flex-direction: column;
-    justify-content: center;
-    font-family: Libre Caslon Text;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  color: #9D244D;
+  display: flex;
+  width: 13.0625rem;
+  height: 4.5rem;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Libre Caslon Text;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .card-home {
-    border: 0.2px solid rgba(0, 0, 0, 0.50);
-    background: #F9E2C7;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 24.375rem;
-    height: 10.375rem;
-    justify-content: center;
-    align-items: center;
+  border: 0.2px solid rgba(0, 0, 0, 0.50);
+  background: #F9E2C7;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 24.375rem;
+  height: 10.375rem;
+  justify-content: center;
+  align-items: center;
 }
 
 /* --- NAVBAR ---  */
@@ -185,9 +186,12 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
 }
-#navbar-container .btn a, #navbar-container .btn img {
+
+#navbar-container .btn a,
+#navbar-container .btn img {
   height: 3rem;
 }
+
 #navbar-container .btn.search img {
   height: 3.5rem;
 }
@@ -223,9 +227,12 @@ nav {
   background-color: var(--color-third);
   border-radius: 1rem 1rem 0 0;
 }
-#user-menu-container .btn a, #user-menu-container .btn img {
+
+#user-menu-container .btn a,
+#user-menu-container .btn img {
   height: 2rem;
 }
+
 #user-menu-container .btn.user img {
   height: 3rem;
 }
@@ -238,4 +245,197 @@ nav {
   display: none;
 }
 
-/* -- SEARCH -- *//*# sourceMappingURL=style.css.map */
+/* -- SEARCH -- */
+/*# sourceMappingURL=style.css.map */
+
+
+/* Form to add a book */
+
+#formAdd {
+  background-color: var(--color-background);
+  padding-top: 10%;
+  padding-bottom: 10%;
+  font-family: var(--font-inter);
+}
+
+#formAdd #innerForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 5%;
+  background-color: var(--color-card);
+  border: solid rgba(0, 0, 0, 0.4);
+  border-width: 0.1px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#formAdd #check {
+  display: flex;
+  justify-content: space-around;
+  margin: 5%;
+}
+
+#formAdd #check span {
+  text-align: center;
+  color: var(--color-second);
+  font-size: 1.1rem;
+  margin: 5%;
+}
+
+#formAdd #globalRead {
+  width: 25%;
+}
+
+#formAdd #globalNotYet {
+  width: 25%;
+}
+
+#formAdd #read,
+#formAdd #notYet {
+  display: flex;
+  flex-direction: column;
+}
+
+#formAdd input,
+#formAdd textarea,
+#formAdd select {
+  background-color: #FFF4E3;
+  justify-content: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: inset 0 5px 7px -7px rgba(0, 0, 0, 0.4);
+  height: 1.8rem;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#formAdd #bookTitle {
+  grid-column: 1/3;
+  grid-row: 2;
+}
+
+#formAdd #authorFirstname {
+  grid-column: 1/2;
+  grid-row: 3;
+}
+
+#formAdd #authorLastname {
+  grid-column: 2/3;
+  grid-row: 3;
+}
+
+#formAdd #genreLabel {
+  grid-column: 1/2;
+  grid-row: 4;
+}
+
+#formAdd #bookEditorNbPages {
+  grid-column: 2/3;
+  grid-row: 4;
+}
+
+#formAdd #bookEditorIsbn {
+  grid-column: 1/2;
+  grid-row: 5;
+}
+
+#formAdd #bookWrittenAt {
+  grid-column: 2/3;
+  grid-row: 5;
+}
+
+#formAdd #editorLabel {
+  grid-column: 1/2;
+  grid-row: 6;
+}
+
+#formAdd #bookEditorPublishedAt {
+  grid-column: 2/3;
+  grid-row: 6;
+}
+
+#formAdd #bookEditorSynopsis {
+  grid-column: 1/3;
+  grid-row: 7;
+  height: 15rem;
+}
+
+#formAdd input::placeholder,
+#formAdd textarea::placeholder,
+#formAdd select {
+  color: var(--color-second);
+  font-family: var(--font-inter);
+  opacity: 0.8;
+  font-size: 0.8rem;
+  padding-left: 0.7rem;
+}
+
+#formAdd #coverPicture {
+  width: 50%;
+  height: 72vw;
+  background-color: var(--color-card);
+  border: solid rgba(0, 0, 0, 0.4);
+  border-width: 0.1px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+#formAdd #coverPicture input {
+  display: none;
+}
+
+#formAdd input,
+#formAdd textarea,
+#formAdd select {
+  margin: 1rem;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#formAdd input,
+select {
+  width: 80%;
+}
+
+#formAdd #bookTitle input {
+  width: 90%;
+}
+
+#formAdd textarea {
+  width: 90%;
+  height: 80%;
+}
+
+#formAdd .submit {
+  background-color: var(--color-third);
+  color: var(--color-background);
+  width: 30%;
+}
+
+#formAdd #firstPicture {
+  width: 4rem;
+  height: 4rem;
+  margin: auto;
+}
+
+#formAdd #secondPicture {
+  width: 4rem;
+  height: 4rem;
+  margin: auto;
+}
+
+#formAdd #camera {
+  display: block;
+  width: 40%;
+  height: 30%;
+  left: 30%;
+  position: absolute;
+  top: 35%;
+}

@@ -1,22 +1,23 @@
 {% extends 'layout.html.twig' %}
 
 {% block header %}
-{% include 'Home/_header.html.twig' %}
+	{% include 'Home/_header.html.twig' %}
 {% endblock %}
 {% block content %}
-            <div class="bloc-text">
-                <div class="heart"><img src="../assets/icons/heart.svg"></div>
-                <div class="text-home">Make your physical library become digital by adding every book you have read !</div>
-            </div>
-            <div class="card-home">
-                <div class="bloc-text">
-                    <div class="text-home-middle">Have an easy look back on every one of your reads : reviews, note, stats & more!</div>
-                    <div><img src="../assets/icons/star.svg"></div>
-                </div>
-            </div>
-            <div class="bloc-text">
-                <div><img src="../assets/icons/share.svg"></div>
-                <div class="text-home">Share your readings with others and find your next reading !</div>
-            </div> 
-    {% include 'Book/_navbar.html.twig' %}
+	<div class="bloc-text">
+		<div class="heart"><img src="../assets/icons/heart.svg"></div>
+		<div class="text-home">Make your physical library become digital by adding every book you have read !</div>
+	</div>
+	<div class="card-home">
+		<div class="bloc-text">
+			<div class="text-home-middle">Have an easy look back on every one of your reads : reviews, note, stats & more!</div>
+			<div><img src="../assets/icons/star.svg"></div>
+		</div>
+	</div>
+	<div class="bloc-text">
+		<div><img src="../assets/icons/share.svg"></div>
+		<div class="text-home">Share your readings with others and find your next reading !</div>
+	</div>
+	{% include 'Book/_navbar.html.twig' %}
 {% endblock %}
+>>>>>>> dev

@@ -1,3 +1,16 @@
+/* Form to add a book */
+
+
+#formAdd {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#formAdd #coverPicture {
+    height: 55vh;
+    width: 20vw;
+}
+
 #header {
     width: 100%;
     height: auto;
@@ -76,7 +89,7 @@ div#picture {
     margin-top: 2rem;
     margin-right: 1rem;
     margin-bottom: 2rem;
-    width : 100%;
+    width: 100%;
 }
 
 .detail {
@@ -104,7 +117,7 @@ div.icones {
 #synopsis {
     text-align: justify;
     margin: 1.5rem;
-    font-size:1.5rem;
+    font-size: 1.5rem;
     color: var(--color-main);
 }
 
@@ -115,6 +128,7 @@ div.icones {
     margin: 2rem;
     font-size: 1.7rem;
     color: var(--color-main);
+}
 
 /* -- NAVBAR -- */
 
@@ -159,7 +173,7 @@ nav {
 
     width: 100%;
 }
-  
+
 #user-menu-head {
     display: none;
 }
@@ -178,9 +192,11 @@ nav {
 .icon-mobile {
     display: none;
 }
+
 .icon-desktop {
     display: inline;
 }
+
 .icon-selected {
     display: none;
 }
