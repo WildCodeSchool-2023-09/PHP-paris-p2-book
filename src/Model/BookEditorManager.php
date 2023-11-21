@@ -8,6 +8,18 @@ class BookEditorManager extends AbstractManager
 {
     public const TABLE = 'book_editor';
 
+    public function selectOneById(int $id): array|false
+    {
+        $statement = $this->pdo->prepare('SELECT b.title, b.written_at, be.cover, be.langue, be.synopsis, 
+        be.isbn, be.nb_pages, r.note, r.reading_time, r.difficulty, a.firstname, a.lastname, e.label, g.label 
+        FROM ' . static::TABLE . ' AS be JOIN book b JOIN review r 
+        JOIN author a JOIN editor e JOIN genre g ON b.id=be.book_id WHERE b.id=:id');
+        $statement->bindValue('id', $id, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+
     public function insert(array $data, string $uploadFile, int $bookId, int $editorId): int
     {
         $query = 'INSERT INTO ' . self::TABLE . ' (book_id, editor_id, isbn, synopsis, nb_pages, cover, published_at) ';

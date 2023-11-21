@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/searchbar/searchbar.css">
+{% endblock %}
+
+{% block title %}
+    Global Library
+{% endblock %}
+
+{% block content %}
+    {% include 'Components/_search.html.twig' %}
+
+    {{ errors }}
+
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script src="/assets/js/search.js"></script>
+{% endblock %}
