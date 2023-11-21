@@ -10,6 +10,7 @@ return [
     '' => ['HomeController', 'index',],
     'book' => ['HomeController', 'index',],
     'book/global-library' => ['BookController', 'showGlobalLibrary',],
+    'book/global-libraryAJAX' => ['BookController', 'showGlobalLibraryAJAX',],
     // 'book/show' => ['BookController', 'show', ['id']],
     // 'book/add' => ['BookController', 'add', ['id']],
 ];

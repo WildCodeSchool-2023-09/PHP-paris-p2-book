@@ -45,3 +45,24 @@ searchField.addEventListener('focusin', function() {
 searchField.addEventListener('focusout', function(){
     searchField.setAttribute('placeholder', 'Search');
 });
+
+// SEARCH IN AJAX
+
+function showBooks(books) {
+    const ul = document.getElementById('book-list');
+    ul.innerHTML = '';
+    for (book of books) {
+        console.log(book.title);
+        const li = document.createElement('li');
+        li.innerHTML = book.title;
+        ul.appendChild(li);
+    }
+}
+
+searchField.addEventListener('input', function(){
+    const searchInput = searchField.value;
+    fetch('/book/global-libraryAJAX?name='+searchInput)
+        .then(response => response.json())
+        .then(books => showBooks(books))
+        .catch((err) => console.log(err));
+})

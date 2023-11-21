@@ -87,4 +87,26 @@ class BookController extends AbstractController
             ]
         );
     }
+
+    public function showGlobalLibraryAJAX(): string
+    {
+        $params = [];
+        $params['name'] = '';
+        $paramErrors = [];
+        // $errors = '';
+
+        // SECURING USER INPUT
+        if ($_SERVER['REQUEST_METHOD'] === "GET" && !empty($_GET)) {
+            if ($this->cleanSearchInput($params, $paramErrors)) {
+                $results = $this->bookManager->search($params);
+            } else {
+                // $errors = 'The following parameters do not exist : ' . implode(', ', $paramErrors) . '.';
+                $results = [];
+            }
+        } else {
+            $results = $this->bookManager->search();
+        }
+
+        return json_encode($results);
+    }
 }
