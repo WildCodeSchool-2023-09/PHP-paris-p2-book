@@ -6,7 +6,8 @@
   bottom: 0;
   z-index: 2;
 }
-#main-nav #navbar-head {
+
+#navbar-head {
   width: 80px;
   height: 16px;
   margin: 0 auto;
@@ -15,7 +16,8 @@
   background-repeat: no-repeat;
   background-position: bottom;
 }
-#main-nav #navbar-container {
+
+#navbar-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -27,13 +29,14 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-#main-nav #navbar-container .btn a, #main-nav #navbar-container .btn img {
+#navbar-container .btn a, #navbar-container .btn img {
   height: 3rem;
 }
-#main-nav #navbar-container .btn.search img {
+#navbar-container .btn.search img {
   height: 3.5rem;
 }
-#main-nav #user-menu {
+
+#user-menu {
   display: none;
   position: absolute;
   bottom: 0;
@@ -43,14 +46,16 @@
   min-height: 300px;
   max-height: 400px;
 }
-#main-nav #user-menu-head {
+
+#user-menu-head {
   height: 24px;
   background-image: url("/assets/images/navbar/user-menu/user-menu-container-head.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
 }
-#main-nav #user-menu-container {
+
+#user-menu-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -62,16 +67,18 @@
   background-color: var(--color-third);
   border-radius: 1rem 1rem 0 0;
 }
-#main-nav #user-menu-container .btn a, #main-nav #user-menu-container .btn img {
+#user-menu-container .btn a, #user-menu-container .btn img {
   height: 2rem;
 }
-#main-nav #user-menu-container .btn.user img {
+#user-menu-container .btn.user img {
   height: 3rem;
 }
-#main-nav .icon-desktop {
+
+.icon-desktop {
   display: none;
 }
-#main-nav .icon-selected {
+
+.icon-selected {
   display: none;
 }
 
