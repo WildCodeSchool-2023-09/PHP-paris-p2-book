@@ -14,6 +14,13 @@
   top: 20px;
   text-align: center;
 }
+#guest-header .your-digital-book {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  color: var(--color-title);
+  font-size: 1.2rem;
+}
 
 #home-guest {
   display: flex;
@@ -28,46 +35,29 @@
   align-items: center;
   height: 10rem;
 }
-
-.your-digital-book {
-  color: var(--color-title);
-  text-align: center;
-  font-family: var(--font-libre-caslon-display);
-  font-size: 1.5rem;
-  position: absolute;
-  bottom: 3rem;
-  left: 3rem;
+#home-guest section#middle {
+  background-color: var(--color-card);
+  border-radius: 0.5rem;
+  flex-direction: row-reverse;
 }
-
-.heart {
-  right: 3rem;
-}
-
-.text-home {
+#home-guest section p {
   color: var(--color-second);
   text-align: justify;
   font-family: var(--font-libre-caslon-text);
   font-size: 1rem;
-  left: 2.75rem;
-  right: 8.75rem;
-  width: 12.875rem;
+  width: 33%;
 }
 
-.text-home-middle {
-  color: var(--color-second);
-  display: flex;
-  width: 13rem;
-  height: 4.5rem;
-  flex-direction: column;
-  justify-content: center;
-  font-family: var(--font-libre-caslon-text);
-  font-size: 1rem;
-}
-
-.card-home {
-  border: 0.2px solid rgba(0, 0, 0, 0.5);
-  background: var(--color-card);
-  align-items: center;
-  width: 95%;
-  height: 10rem;
+@media screen and (min-width: 1200px) {
+  #main-nav {
+    top: 280px;
+  }
+  #guest-header h1 {
+    position: relative;
+    top: 40px;
+  }
+  #guest-header a img {
+    left: 40px;
+    top: 40px;
+  }
 }/*# sourceMappingURL=guest.css.map */
