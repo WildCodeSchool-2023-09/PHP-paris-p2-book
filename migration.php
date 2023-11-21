@@ -1,5 +1,7 @@
 <?php
 
+use App\Model\GenreManager;
+
 require 'vendor/autoload.php';
 if (file_exists('config/db.php')) {
     require 'config/db.php';
@@ -8,6 +10,9 @@ if (file_exists('config/db.php')) {
 }
 
 require 'config/config.php';
+require 'src/Model/BookManager.php';
+
+
 
 try {
     $pdo = new PDO(
@@ -24,6 +29,12 @@ try {
         $sql = file_get_contents(DB_DUMP_PATH);
         $statement = $pdo->prepare($sql);
         $statement->execute();
+
+        foreach (GenreManager::GENRES as $genre) {
+            $query = 'INSERT INTO ' . GenreManager::TABLE . ' (label) VALUES ("' . $genre . '");';
+            $statement = $pdo->prepare($query);
+            $statement->execute();
+        }
     } else {
         echo DB_DUMP_PATH . ' file does not exist';
     }
