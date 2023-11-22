@@ -88,12 +88,3 @@ div.icones {
     font-size: 1.5rem;
     color: var(--color-main);
 }
-
-#review {
-    display: none;
-    text-align: start;
-    line-height: 2rem;
-    margin: 1.5rem;
-    font-size: 1.5rem;
-    color: var(--color-main);
-}

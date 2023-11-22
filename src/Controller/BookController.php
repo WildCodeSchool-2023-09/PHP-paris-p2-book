@@ -101,7 +101,6 @@ class BookController extends AbstractController
         } else {
             $results = $this->manager->search([]);
         }
-
         return $this->twig->render(
             'Book/global-library.html.twig',
             ['errors' => $errors,
@@ -285,6 +284,6 @@ class BookController extends AbstractController
         $bookEditorManager = new BookEditorManager();
         $book = $bookEditorManager->selectOneById($id);
 
-        return $this->twig->render('Book/show.html.twig', ['book' => $book]);
+        return $this->twig->render('book/show.html.twig', ['book' => $book]);
     }
 }

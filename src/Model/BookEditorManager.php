@@ -47,13 +47,21 @@ class BookEditorManager extends AbstractManager
 
     public function selectOneById(int $id): array|false
     {
-        $statement = $this->pdo->prepare('SELECT b.title, b.written_at, 
-        be.cover, be.synopsis, be.isbn, be.nb_pages, 
-        r.created_at, r.note, r.reading_time, r.difficulty, r.opinion, 
-        a.firstname, a.lastname, e.label, g.label 
-        FROM ' . static::TABLE . ' AS be JOIN book b JOIN review r 
-        JOIN author a JOIN editor e JOIN genre g ON b.id=be.book_id WHERE b.id=:id');
+        $query = 'SELECT b.title, b.written_at, be.cover, be.synopsis, be.isbn, 
+                be.nb_pages, a.firstname, a.lastname, e.label, g.label ';
+        $query .= 'FROM ' . self::TABLE . ' AS be ';
+        $query .= 'JOIN book b ON b.id = be.book_id ';
+        $query .= 'JOIN editor e ON e.id = be.editor_id ';
+        $query .= 'JOIN book_author ba ON ba.book_id = b.id ';
+        $query .= 'JOIN author a ON a.id = ba.author_id ';
+        $query .= 'JOIN book_genre bg ON bg.book_id = b.id ';
+        $query .= 'JOIN genre g ON g.id = bg.genre_id ';
+        $query .= 'WHERE b.id = :id;';
+
+        $statement = $this->pdo->prepare($query);
+
         $statement->bindValue('id', $id, PDO::PARAM_INT);
+
         $statement->execute();
 
         return $statement->fetch();
