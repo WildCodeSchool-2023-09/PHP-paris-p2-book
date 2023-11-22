@@ -47,7 +47,8 @@ class BookEditorManager extends AbstractManager
 
     public function selectOneById(int $id): array|false
     {
-        $query = 'SELECT b.title, b.written_at, be.cover, be.synopsis, be.isbn, be.nb_pages, a.firstname, a.lastname, e.label, g.label ';
+        $query = 'SELECT b.title, b.written_at, be.cover, be.synopsis, be.isbn, 
+                be.nb_pages, a.firstname, a.lastname, e.label, g.label ';
         $query .= 'FROM ' . self::TABLE . ' AS be ';
         $query .= 'JOIN book b ON b.id = be.book_id ';
         $query .= 'JOIN editor e ON e.id = be.editor_id ';
@@ -56,7 +57,7 @@ class BookEditorManager extends AbstractManager
         $query .= 'JOIN book_genre bg ON bg.book_id = b.id ';
         $query .= 'JOIN genre g ON g.id = bg.genre_id ';
         $query .= 'WHERE b.id = :id;';
-        
+
         $statement = $this->pdo->prepare($query);
 
         $statement->bindValue('id', $id, PDO::PARAM_INT);
