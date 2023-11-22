@@ -43,13 +43,18 @@ class BookManager extends AbstractManager
         return $query;
     }
 
-    public function search(array $params = []): array
+    public function search(array $params, int $id = 0): array
     {
         $query = file_get_contents("../src/Model/sql/search.sql");
 
         if (!empty($params)) {
             // FILTER PARAMS
             $query .= $this->filterBy($params);
+
+            // FILTER BY USER
+            if ($id > 0) {
+                // $query .= " WHERE ...";
+            }
 
             // ORDER PARAMS
             $query .= " ORDER BY ";

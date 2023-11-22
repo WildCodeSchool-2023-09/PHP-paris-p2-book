@@ -96,7 +96,7 @@ class BookController extends AbstractController
                 $results = [];
             }
         } else {
-            $results = $this->manager->search();
+            $results = $this->manager->search([]);
         }
 
         return $this->twig->render(
@@ -127,7 +127,7 @@ class BookController extends AbstractController
                 $results = [];
             }
         } else {
-            $results = $this->manager->search();
+            $results = $this->manager->search([]);
         }
 
         return json_encode($results);
