@@ -30,4 +30,6 @@ FROM book_editor as be
         ON r.id = rt.review_id
     LEFT JOIN tag as t
         ON rt.tag_id = t.id
+    LEFT JOIN user
+        ON r.user_id = user.id
 -- GROUP BY be.id

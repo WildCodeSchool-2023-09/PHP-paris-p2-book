@@ -6,6 +6,7 @@ use App\Model\BookManager;
 use App\Model\AuthorManager;
 use App\Model\EditorManager;
 use App\Model\GenreManager;
+use App\Model\BookEditorManager;
 
 class BookController extends AbstractController
 {
@@ -14,7 +15,8 @@ class BookController extends AbstractController
         'genre',
         'tag',
         'sort-by',
-        'sort-order'
+        'sort-order',
+        'userid',
     ];
 
     public const GENRES = [
@@ -40,6 +42,7 @@ class BookController extends AbstractController
     public EditorManager $editorManager;
     public GenreManager $genreManager;
     public AuthorManager $authorManager;
+    public BookEditorManager $bookEditorManager;
 
     public array $errors = [];
 
@@ -96,7 +99,7 @@ class BookController extends AbstractController
                 $results = [];
             }
         } else {
-            $results = $this->manager->search();
+            $results = $this->manager->search([]);
         }
 
         return $this->twig->render(
@@ -109,6 +112,28 @@ class BookController extends AbstractController
             'sectionName' => 'Library'
             ]
         );
+    }
+
+    public function showGlobalLibraryAJAX(): string
+    {
+        $params = [];
+        $params['name'] = '';
+        $paramErrors = [];
+        // $errors = '';
+
+        // SECURING USER INPUT
+        if ($_SERVER['REQUEST_METHOD'] === "GET" && !empty($_GET)) {
+            if ($this->cleanSearchInput($params, $paramErrors)) {
+                $results = $this->manager->search($params);
+            } else {
+                // $errors = 'The following parameters do not exist : ' . implode(', ', $paramErrors) . '.';
+                $results = [];
+            }
+        } else {
+            $results = $this->manager->search([]);
+        }
+
+        return json_encode($results);
     }
 
     public function add()
@@ -224,34 +249,43 @@ class BookController extends AbstractController
         return $uploadFile;
     }
 
-    // public function showPersonnalLibrary(int $userid): string
-    // {
-    //     $params = [];
-    //     $params['name'] = '';
-    //     $paramErrors = [];
-    //     $errors = '';
+    public function showPersonnalLibrary(): string
+    {
+        $params = [];
+        $params['name'] = '';
+        $paramErrors = [];
+        $errors = '';
 
-    //     // SECURING USER INPUT
-    //     if ($_SERVER['REQUEST_METHOD'] === "GET" && !empty($_GET)) {
-    //         if ($this->cleanSearchInput($params, $paramErrors)) {
-    //             $results = $this->manager->search($params, $userid);
-    //         } else {
-    //             $errors = 'The following parameters do not exist : ' . implode(', ', $paramErrors) . '.';
-    //             $results = [];
-    //         }
-    //     } else {
-    //         $results = $this->manager->search([], $userid);
-    //     }
+        // SECURING USER INPUT
+        if ($_SERVER['REQUEST_METHOD'] === "GET" && !empty($_GET)) {
+            if ($this->cleanSearchInput($params, $paramErrors)) {
+                $results = $this->manager->search($params, 1);
+            } else {
+                $errors = 'The following parameters do not exist : ' . implode(', ', $paramErrors) . '.';
+                $results = [];
+            }
+        } else {
+            $results = $this->manager->search([], 1);
+        }
 
-    //     return $this->twig->render(
-    //         'Book/personnal-library.html.twig',
-    //         ['errors' => $errors,
-    //         'name' => $params['name'],
-    //         'genres' => self::GENRES,
-    //         'tags' => self::TAGS,
-    //         'books' => $results,
-    //         'sectionName' => 'Library'
-    //         ]
-    //     );
-    // }
+        return $this->twig->render(
+            'Book/personnal-library.html.twig',
+            ['errors' => $errors,
+            'name' => $params['name'],
+            'genres' => self::GENRES,
+            'tags' => self::TAGS,
+            'books' => $results,
+            'sectionName' => 'Library'
+            ]
+        );
+    }
+
+    public function show(int $id): string
+    {
+        $bookEditorManager = new BookEditorManager();
+        $book = $bookEditorManager->selectOneById($id);
+
+        return $this->twig->render('Book/show.html.twig', ['book' => $book]);
+    }
+
 }

@@ -2,6 +2,10 @@
 
 {% block title %}{{ parent() ~ ' - ' ~ book.title }}{% endblock %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/showBook.css">
+{% endblock %}
+
 {% block content %}
   <div id="picture">
       <img src={{book.cover}} alt="picture">
@@ -25,13 +29,19 @@
   </div>
   <div id="note">
     <p> 
-      note : {{ book.note }}/10
+      note globale : {{ book.note }}/5
     </p>
   </div>
 </div>
 <div class="categories">
   <div id="synopsisTitle">
     <h2>Synopsis</h2>
+  </div>
+  <div>
+    <hr class="separation" />
+  </div>
+  <div id="reviewTitle">
+    <h2>Review</h2>
   </div>
   <div>
     <hr class="separation" />
@@ -45,14 +55,17 @@
     {{ book.synopsis }}
   </p>
 </DIV>
+<div id="review">
+  <p>Difficulté : <strong>{{ book.difficulty }}/5</strong></p>
+  <p>Temps de lecture moyen : <strong>{{ book.reading_time }}h</strong></p>
+  <p>Date d'ajout : <strong>{{ book.created_at }}</strong></p>
+  <p>Commentaires : <strong>{{ book.opinion }}</strong></p>
+</div>
 <div id="details">
-  <p> Langue : <strong>{{ book.langue }}</strong></p>
   <p>ISBN : <strong>{{ book.isbn }}</strong></p>
   <p>Genre : <strong>{{ book.label }}</strong></p>
   <p>Date de publication : <strong>{{ book.written_at }}</strong></p>
   <p>Nombre de pages : <strong>{{ book.nb_pages }}</strong></p>
-  <p>Difficulté : <strong>{{ book.difficulty }}/5</strong></p>
-  <p>Temps de lecture moyen : <strong>{{ book.reading_time }}h</strong></p>
 </div>
 {% endblock %}
 
