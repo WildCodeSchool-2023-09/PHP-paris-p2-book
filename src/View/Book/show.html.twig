@@ -7,68 +7,57 @@
 {% endblock %}
 
 {% block content %}
-  <div id="picture">
-      <img src={{book.cover}} alt="picture">
-  </div>
-  <div class="icones">
-    <img class="review" src="../assets/images/reviewBook.png" alt="review">
-    <img class="share" src="../assets/images/shareBook.png" alt="share">
-    <img class="add" src="../assets/images/addLibraryBook.png" alt="add">
-  </div>
-  <div id="bookTitle">
-    <h1>
-      {{ book.title }}
-    </h1>
-  </div>
-<div class="infos">
-  <div id="author">
-    <p>
-      {{ book.firstname }}
-      {{ book. lastname }}
-    </p>
-  </div>
-  <div id="note">
-    <p> 
-      note globale : {{ book.note }}/5
-    </p>
-  </div>
-</div>
-<div class="categories">
-  <div id="synopsisTitle">
-    <h2>Synopsis</h2>
-  </div>
-  <div>
-    <hr class="separation" />
-  </div>
-  <div id="reviewTitle">
-    <h2>Review</h2>
-  </div>
-  <div>
-    <hr class="separation" />
-  </div>
-  <div id="detailTitle">
-    <h2>Details</h2>
-  </div>
-</div>
-<DIV id="synopsis">
-  <p>
-    {{ book.synopsis }}
-  </p>
-</DIV>
-<div id="review">
-  <p>Difficulté : <strong>{{ book.difficulty }}/5</strong></p>
-  <p>Temps de lecture moyen : <strong>{{ book.reading_time }}h</strong></p>
-  <p>Date d'ajout : <strong>{{ book.created_at }}</strong></p>
-  <p>Commentaires : <strong>{{ book.opinion }}</strong></p>
-</div>
-<div id="details">
-  <p>ISBN : <strong>{{ book.isbn }}</strong></p>
-  <p>Genre : <strong>{{ book.label }}</strong></p>
-  <p>Date de publication : <strong>{{ book.written_at }}</strong></p>
-  <p>Nombre de pages : <strong>{{ book.nb_pages }}</strong></p>
-</div>
+    <div id="picture">
+        <img src="{{ book.cover }}" alt="picture">
+    </div>
+
+    <div class="icones">
+        <img class="review" src="../assets/images/reviewBook.png" alt="review">
+        <img class="share" src="../assets/images/shareBook.png" alt="share">
+        <img class="add" src="../assets/images/addLibraryBook.png" alt="add">
+    </div>
+
+    <div id="bookTitle">
+        <h1>{{ book.title }}</h1>
+    </div>
+
+    <div class="infos">
+        <div id="author">
+            <p>{{ book.firstname }} {{ book.lastname }}</p>
+        </div>
+
+        <div id="note">
+            <p>Note : {{ random(3, 4) }}.{{ random(1, 9) }}/5</p>
+        </div>
+    </div>
+    <div class="categories">
+        <div id="synopsisTitle">
+            <h2>Synopsis</h2>
+        </div>
+
+        <div>
+            <hr class="separation" />
+        </div>
+
+        <div id="detailTitle">
+            <h2>Details</h2>
+        </div>
+    </div>
+
+    <div id="synopsis">
+        <p>{{ book.synopsis }}</p>
+    </div>
+
+    <div id="details">
+        <p>ISBN : <strong>{{ book.isbn }}</strong></p>
+        <p>Genre : <strong>{{ book.label }}</strong></p>
+        <p>Date de publication : <strong>{{ book.written_at }}</strong></p>
+        <p>Nombre de pages : <strong>{{ book.nb_pages }}</strong></p>
+        <p>Difficulté : <strong>{{ random(3, 4) }}.{{ random(1, 9) }}/5</strong></p>
+    </div>
+
 {% endblock %}
 
 {% block javascript %}
-  <script src="/assets/js/toggleInfosDetails.js"></script>
+    <script src="/assets/js/toggleInfosDetails.js"></script>
 {% endblock %}

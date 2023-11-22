@@ -5,7 +5,7 @@
 
     <div id="item-1-title">
         <li class="li-marker">
-            <a href="/Book/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a>
+            <a href="/book/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a>
         </li>
     </div>
 
@@ -26,16 +26,16 @@
     </div>
 
     <div id="item-6-opinion">
-        <p class="book-opinion">Good!</p>
+        <p class="book-opinion"></p>
     </div>
 
     <div id="item-7-review">
-        <p class="review">24
+        <p class="review">{{random(10,60)}}
             <img src="/assets/icons/review.png"></p>
     </div>
 
     <div id="item-8-score">
-        <p class="score">4.7
+        <p class="score">{{random(1, 4)}}.{{random(1, 9)}}
         <img src="/assets/icons/star.svg" class="comment-star"></p>
     </div>
 </div>
