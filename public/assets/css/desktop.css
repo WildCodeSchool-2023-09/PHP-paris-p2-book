@@ -1,10 +1,143 @@
 #content {
-  display: inline-block;
-
-  height: 100%;
   margin: 0;
-  width: calc(92% - 4px);
-  
+  padding: 1rem 104px;
+  width: 100%;
+
+  /* width: calc(92% - 4px);
   position: absolute;
-  top: 0;
+  top: 0; */
+}
+
+.book-img {
+  height: 12rem;
+  width: 9rem;
+  border-radius: .14rem .26rem .26rem .14rem;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+/* ADD BOOK FORM */
+
+#formAdd {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#formAdd #coverPicture {
+    height: 55vh;
+    width: 20vw;
+}
+
+/* #header {
+    width: 100%;
+    height: auto;
+} */
+
+#bookTitle {
+    color: var(--Second, #9D244D);
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Libre Caslon Display;
+    font-size: 3.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    margin: 3rem;
+}
+
+#author {
+    color: #947982;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25rem;
+    height: 5rem;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: Libre Caslon Display;
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#note {
+    color: var(--Second, #9D244D);
+    font-family: Libre Caslon Display;
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.categorie {
+    color: var(--color-second);
+}
+
+div#picture {
+    display: flex;
+    float: left;
+    margin: 8rem;
+    margin-left: 20rem;
+    width: auto;
+    height: 35rem;
+}
+
+.separation {
+    clear: both;
+    position: center;
+    height: 2.5rem;
+    background: black;
+    margin: auto;
+}
+
+
+.categories {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.detail {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+div.icones {
+    display: column;
+    align-items: flex-start;
+}
+
+.review {
+    padding: 1rem;
+}
+
+.share {
+    padding: 1rem;
+}
+
+.add {
+    padding: 1rem;
+}
+
+#synopsis {
+    text-align: justify;
+    margin: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--color-main);
+}
+
+#details {
+    display: none;
+    text-align: center;
+    line-height: 4rem;
+    margin: 2rem;
+    font-size: 1.7rem;
+    color: var(--color-main);
 }

@@ -13,13 +13,12 @@
 
     {{ errors }}
 
-    {# DEV ONLY #}
     <ul id="book-list">
-        {# {% for book in books %}
+        {% for book in books %}
             <li>
                 {{book.title}}
             </li>
-        {% endfor %} #}
+        {% endfor %}
     </ul>
 
 {% endblock %}

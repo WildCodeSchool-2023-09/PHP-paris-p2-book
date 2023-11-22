@@ -48,8 +48,9 @@ searchField.addEventListener('focusout', function(){
 
 // SEARCH IN AJAX
 
-function showBooks(books) {
-    const ul = document.getElementById('book-list');
+const ul = document.getElementById('book-list');
+
+function searchBooks(books) {
     ul.innerHTML = '';
     for (book of books) {
         console.log(book.title);
@@ -63,6 +64,6 @@ searchField.addEventListener('input', function(){
     const searchInput = searchField.value;
     fetch('/book/global-libraryAJAX?name='+searchInput)
         .then(response => response.json())
-        .then(books => showBooks(books))
+        .then(books => searchBooks(books))
         .catch((err) => console.log(err));
 })

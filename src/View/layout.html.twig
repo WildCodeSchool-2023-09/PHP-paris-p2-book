@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="/assets/images/favicon.png">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="/assets/images/favicon.png">
 
         <title>MyBookshelf - {% block title %}{% endblock %}</title>
 
@@ -22,22 +22,23 @@
             {% include 'Components/_header.html.twig' %}
         {% endblock %}
 
-        {% block navbar %}
-            {% include 'Components/_navbar.html.twig' %}
-        {% endblock %}
-
-        <div id="content">
-            {% block content %}
-            
+        <div id="main-container">
+            {% block navbar %}
+                {% include 'Components/_navbar.html.twig' %}
             {% endblock %}
+
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
 
         {% block footer %}
             {% include 'Components/_footer.html.twig' %}
         {% endblock %}
 
+        <script src="/assets/js/navbar.js"></script>
         {% block javascript %}
-            <script src="/assets/js/navbar.js"></script>
         {% endblock %}
     </body>
 </html>

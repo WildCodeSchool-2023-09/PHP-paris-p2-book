@@ -1,0 +1,78 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+	<div id="reviewPage">
+		<div id="bookInfos">
+			<div id="cover">
+				<img src="/{{ book.cover }}" alt=" cover of {{ book.title }} "/>
+			</div>
+			<div id="title">
+				<p>{{ book.title }}</p>
+			</div>
+			<div id="author">
+				<p>{{ book.firstname }}
+					{{ book.lastname }}</p>
+			</div>
+			<div id="year">
+				<p>{{ book.written_at }}</p>
+			</div>
+		</div>
+		<div id="innerForm">
+			<form id="formReview" action="" method="post">
+				<div id="note">
+					<label>Note</label>
+					<div id="noteStars">
+						<i class="noteStar lar la-star" data-value="1"></i>
+						<i class="noteStar lar la-star" data-value="2"></i>
+						<i class="noteStar lar la-star" data-value="3"></i>
+						<i class="noteStar lar la-star" data-value="4"></i>
+						<i class="noteStar lar la-star" data-value="5"></i>
+					</div>
+					<input type="hidden" name="noteResult" id="noteResult" value="0"/>
+					{{ errors.note }}
+				</div>
+				<div id="difficulty">
+					<label>Difficulty</label>
+					<div id="difficultyStars">
+						<i class="difficultyStar lar la-star" data-value="1"></i>
+						<i class="difficultyStar lar la-star" data-value="2"></i>
+						<i class="difficultyStar lar la-star" data-value="3"></i>
+						<i class="difficultyStar lar la-star" data-value="4"></i>
+						<i class="difficultyStar lar la-star" data-value="5"></i>
+					</div>
+					<input type="hidden" name="difficultyResult" id="difficultyResult" value="0"/>
+					{{ errors.difficulty }}
+				</div>
+				<div id="readingTime">
+					<label>Reading time</label>
+					<input type="month" id="review_reading_time" name="review_reading_time"/>
+				</div>
+				<div id="tag">
+					<label>Tags</label>
+					<select name="tag_label" id="tag_menu">
+						<option id="selectTag" value"">Select tags</option>
+						{% for tag in constant('App\\Model\\TagManager::TAGS') %}
+							<option class="tag_label" id="list{{tag}}" value="{{tag}}">{{tag}}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div id="tagChoose">
+					{% for tag in constant('App\\Model\\TagManager::TAGS') %}
+						<card class="tag_card" id="card{{tag}}" value="{{tag}}">{{tag}}</card>
+					{% endfor %}
+					<input type="hidden" name="getTag" id="getTag" value=""/>
+					{{ errors.tag }}
+				</div>
+				<div id="opinion">
+					<label>Your opinion</label>
+					<textarea id="review_opinion" name="review_opinion"></textarea>
+				</div>
+			</div>
+			<input class="submit" type="submit" value="REVIEW"/>
+		</form>
+	</div>
+{% endblock %}
+{% block javascript %}
+	<script src="/assets/js/noteStars.js"></script>
+	<script src="/assets/js/difficultyStars.js"></script>
+	<script src="/assets/js/tag.js"></script>
+{% endblock %}

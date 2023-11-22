@@ -1,14 +1,14 @@
-<nav>
+<nav id="main-nav">
     <div id="navbar-head"></div>
     <div id="navbar-container">
         <div class="btn library">
-            <a href="{% if admin %}/admin{% endif %}/book/global-library">
+            <a href="/book/global-library">
                 <img class="icon-mobile" src="/assets/images/navbar/icon-library.png" alt="Library button">
                 <img class="icon-desktop" src="/assets/images/navbar/icon-library-colored.png" alt="Library button">
             </a>
         </div>
         <div class="btn add">
-            <a href="/">
+            <a href="/book/add">
                 <img class="icon-mobile" src="/assets/images/navbar/icon-add.png" alt="Add button">
                 <img class="icon-desktop" src="/assets/images/navbar/icon-add-colored.png" alt="Add button">
             </a>
@@ -20,7 +20,7 @@
             </a>
         </div>
         <div class="btn stats">
-            <a href="/">
+            <a href="/?login=oui">
                 <img class="icon-mobile" src="/assets/images/navbar/icon-stats.png" alt="Statistics button">
                 <img class="icon-desktop" src="/assets/images/navbar/icon-stats-colored.png" alt="Statistics button">
             </a>
