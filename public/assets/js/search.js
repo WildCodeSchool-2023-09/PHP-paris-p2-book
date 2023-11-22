@@ -1,3 +1,5 @@
+// SEARCH BAR
+
 function toggleDisplay(buttonSelector, targetSelector, defaultDisplay) {
     const button = document.querySelector(buttonSelector);
     const target = document.querySelector(targetSelector);
@@ -45,3 +47,30 @@ searchField.addEventListener('focusin', function() {
 searchField.addEventListener('focusout', function(){
     searchField.setAttribute('placeholder', 'Search');
 });
+
+// SEARCH IN AJAX
+
+// const ul = document.getElementById('book-list');
+
+// function searchBooks(books) {
+//     ul.innerHTML = '';
+//     for (book of books) {
+//         // console.log(book.title);
+//         const li = document.createElement('li');
+//         li.innerHTML = book.title;
+//         ul.appendChild(li);
+//     }
+// }
+
+// fetch('/book/global-libraryAJAX')
+//         .then(response => response.json())
+//         .then(books => searchBooks(books))
+//         .catch((err) => console.log(err));
+
+// searchField.addEventListener('input', function(){
+//     const searchInput = searchField.value;
+//     fetch('/book/global-libraryAJAX?name='+searchInput)
+//         .then(response => response.json())
+//         .then(books => searchBooks(books))
+//         .catch((err) => console.log(err));
+// })

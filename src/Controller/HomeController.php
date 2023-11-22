@@ -16,9 +16,9 @@ class HomeController extends AbstractController
         }
 
         $bookManager = new BookManager();
-        $trending = $bookManager->search();
-        $foryou = $bookManager->search();
-        $reviews = $bookManager->search();
+        $trending = $bookManager->search([]);
+        $foryou = $bookManager->search([]);
+        $reviews = $bookManager->search([]);
 
         return $this->twig->render(
             'Home/index-user.html.twig',

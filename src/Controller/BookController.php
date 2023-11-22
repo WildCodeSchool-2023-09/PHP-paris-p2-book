@@ -98,7 +98,7 @@ class BookController extends AbstractController
                 $results = [];
             }
         } else {
-            $results = $this->manager->search();
+            $results = $this->manager->search([]);
         }
 
         return $this->twig->render(
@@ -111,6 +111,28 @@ class BookController extends AbstractController
             'sectionName' => 'Library'
             ]
         );
+    }
+
+    public function showGlobalLibraryAJAX(): string
+    {
+        $params = [];
+        $params['name'] = '';
+        $paramErrors = [];
+        // $errors = '';
+
+        // SECURING USER INPUT
+        if ($_SERVER['REQUEST_METHOD'] === "GET" && !empty($_GET)) {
+            if ($this->cleanSearchInput($params, $paramErrors)) {
+                $results = $this->manager->search($params);
+            } else {
+                // $errors = 'The following parameters do not exist : ' . implode(', ', $paramErrors) . '.';
+                $results = [];
+            }
+        } else {
+            $results = $this->manager->search([]);
+        }
+
+        return json_encode($results);
     }
 
     public function add()
