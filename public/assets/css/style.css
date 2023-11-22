@@ -51,12 +51,13 @@ ul {
   list-style: none;
 }
 
-body, #global-block {
+body,
+#global-block {
   margin-bottom: 100px;
 }
 
 .container {
-    width: 100%;
+  width: 100%;
 }
 
 .book-icon {
@@ -152,6 +153,7 @@ body {
   padding-left: 19.5rem;
   margin-top: -0.7rem;
 }
+
 .container-icons {
   display: flex;
   flex-direction: column;
@@ -165,7 +167,7 @@ body {
 
 .header-icons {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   width: auto;
   height: auto;
   margin-top: 3rem;
@@ -175,7 +177,7 @@ body {
 
 .header-icons-title {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   width: auto;
   height: auto;
   text-align: center;
@@ -193,7 +195,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 2.31rem;
- 
+
 }
 
 .card-model {
@@ -251,7 +253,7 @@ body {
 
 
 .card-grid-book {
-  display: grid; 
+  display: grid;
   grid-template-rows: 2fr 1fr 1fr 1.5fr;
   grid-template-columns: 2fr 2fr 2fr 1fr 1.5fr;
 
@@ -267,9 +269,9 @@ body {
   border: 0.2px solid rgba(0, 0, 0, 0.50);
   background: var(--Card-color, #F9E2C7);
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
-  
+
 }
- 
+
 #item-0-book-cover {
   margin: 1rem 1rem 1rem;
   grid-row-start: 1;
@@ -277,8 +279,9 @@ body {
 
   grid-row-end: 5;
   grid-column-end: 2;
-  
+
 }
+
 #item-1-title {
   width: 100%;
   padding-top: 1rem;
@@ -289,8 +292,9 @@ body {
 
   grid-row-end: 2;
   grid-column-end: 6;
-  
+
 }
+
 #item-2-author {
   width: 100%;
   margin-top: 0.5rem;
@@ -299,8 +303,9 @@ body {
 
   grid-row-end: 3;
   grid-column-end: 4;
-  
+
 }
+
 #item-3-year {
   margin-top: 0.5rem;
   margin-right: 1rem;
@@ -309,8 +314,9 @@ body {
 
   grid-row-end: 3;
   grid-column-end: 6;
-  
+
 }
+
 #item-4-editor {
   margin-right: 1rem;
   grid-row-start: 3;
@@ -318,8 +324,9 @@ body {
 
   grid-row-end: 4;
   grid-column-end: 6;
-  
+
 }
+
 #item-5-genre {
   margin: auto;
   grid-row-start: 3;
@@ -327,17 +334,19 @@ body {
 
   grid-row-end: 5;
   grid-column-end: 3;
-  
+
 }
+
 #item-6-opinion {
-  margin: auto; 
+  margin: auto;
   grid-row-start: 3;
   grid-column-start: 3;
 
   grid-row-end: 5;
   grid-column-end: 4;
-  
+
 }
+
 #item-7-review {
   padding-bottom: 1rem;
   grid-row-start: 4;
@@ -345,15 +354,16 @@ body {
 
   grid-row-end: 5;
   grid-column-end: 5;
-  
+
 }
+
 #item-8-score {
   grid-row-start: 4;
   grid-column-start: 5;
 
   grid-row-end: 5;
   grid-column-end: 6;
-  
+
 }
 
 .li-marker {
@@ -455,7 +465,7 @@ body {
 
 .score {
   height: auto;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
   color: #0a0a0a;
   text-align: justify;
   font-family: Libre Caslon Text;

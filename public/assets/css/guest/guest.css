@@ -18,12 +18,11 @@
 
 #guest-header .your-digital-book {
   position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
+  bottom: 3rem;
+  left: 3rem;
   color: var(--color-title);
   font-size: 1.2rem;
 }
-
 
 #guest-header .modal-btn {
   background-color: var(--color-third);
@@ -59,7 +58,6 @@
 #guest-header #modal-container.active #overlay {
   opacity: 1;
   transition: opacity 0.4s ease-out;
-
 }
 
 #guest-header #modal-container.active #modal {
@@ -72,7 +70,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #333333d3;
+  background: rgba(51, 51, 51, 0.8274509804);
   transition: opacity 0.4s 0.2s ease-out;
 }
 
@@ -130,12 +128,6 @@
   font-size: 0.7rem;
 }
 
-#guest-header #modal #signUp {
-  font-size: 1rem;
-  text-align: center;
-  color: var(--color-background);
-}
-
 #guest-header #modal {
   opacity: 0;
   width: 80%;
@@ -149,6 +141,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.4s ease-out;
+}
+
+#guest-header #modal #signUp {
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-background);
 }
 
 #guest-header #submit {
@@ -173,19 +171,10 @@
 #home-guest section {
   width: 95%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 10rem;
-}
-
-#home-guest section {
-  width: 95%;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   height: 10rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding: 0 1rem;
 }
 
 #home-guest section#middle {
@@ -199,18 +188,10 @@
   text-align: justify;
   font-family: var(--font-libre-caslon-text);
   font-size: 1rem;
-  width: 50%;
+  width: 66%;
 }
 
 #home-guest #section1 {
-  display: flex;
-}
-
-#home-guest #middle {
-  display: flex;
-}
-
-#home-guest #section3 {
   display: flex;
 }
 
@@ -218,12 +199,27 @@
   display: none;
 }
 
+#home-guest #middle {
+  display: flex;
+}
+
 #home-guest #middle.active {
   display: none;
 }
 
+#home-guest #section3 {
+  display: flex;
+}
+
 #home-guest #section3.active {
   display: none;
+}
+
+@media screen and (max-width: 425px) {
+  #guest-header h1 {
+    font-size: 2rem;
+    top: 30px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -241,3 +237,5 @@
     top: 40px;
   }
 }
+
+/*# sourceMappingURL=guest.css.map */

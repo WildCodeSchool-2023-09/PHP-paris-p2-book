@@ -8,7 +8,7 @@ class BookManager extends AbstractManager
 {
     public const TABLE = 'book';
 
-    public function filterBy($params): string
+    public function filterBy(array $params, int $id = 0): string
     {
         $queries = [];
         $query = "WHERE ";
@@ -39,17 +39,23 @@ class BookManager extends AbstractManager
                 }
             }
         }
+
+        // FILTER BY USER
+        if ($id > 0) {
+            $queries[] = " user.id = $id";
+        }
+
         $query .= implode(" AND ", $queries);
         return $query;
     }
 
-    public function search(array $params = []): array
+    public function search(array $params, int $id = 0): array
     {
         $query = file_get_contents("../src/Model/sql/search.sql");
 
         if (!empty($params)) {
             // FILTER PARAMS
-            $query .= $this->filterBy($params);
+            $query .= $this->filterBy($params, $id);
 
             // ORDER PARAMS
             $query .= " ORDER BY ";
@@ -78,6 +84,9 @@ class BookManager extends AbstractManager
             $statement->execute();
         } else {
             // ELSE IF NOT PARAMS
+            if ($id > 0) {
+                $query .= " WHERE user.id = $id";
+            }
             $query .= ' ORDER BY be.id DESC;';
 
             $statement = $this->pdo->query($query);
