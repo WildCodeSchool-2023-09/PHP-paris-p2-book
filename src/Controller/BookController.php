@@ -223,4 +223,35 @@ class BookController extends AbstractController
         }
         return $uploadFile;
     }
+
+    // public function showPersonnalLibrary(int $userid): string
+    // {
+    //     $params = [];
+    //     $params['name'] = '';
+    //     $paramErrors = [];
+    //     $errors = '';
+
+    //     // SECURING USER INPUT
+    //     if ($_SERVER['REQUEST_METHOD'] === "GET" && !empty($_GET)) {
+    //         if ($this->cleanSearchInput($params, $paramErrors)) {
+    //             $results = $this->manager->search($params, $userid);
+    //         } else {
+    //             $errors = 'The following parameters do not exist : ' . implode(', ', $paramErrors) . '.';
+    //             $results = [];
+    //         }
+    //     } else {
+    //         $results = $this->manager->search([], $userid);
+    //     }
+
+    //     return $this->twig->render(
+    //         'Book/personnal-library.html.twig',
+    //         ['errors' => $errors,
+    //         'name' => $params['name'],
+    //         'genres' => self::GENRES,
+    //         'tags' => self::TAGS,
+    //         'books' => $results,
+    //         'sectionName' => 'Library'
+    //         ]
+    //     );
+    // }
 }
