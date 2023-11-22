@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\BookManager;
+use App\Model\ReviewManager;
 
 class HomeController extends AbstractController
 {
@@ -16,9 +17,11 @@ class HomeController extends AbstractController
         }
 
         $bookManager = new BookManager();
+        $reviewManager = new ReviewManager();
+
         $trending = $bookManager->search([]);
+        $reviews = $reviewManager->getThreeLatests(1);
         $foryou = $bookManager->search([]);
-        $reviews = $bookManager->search([]);
 
         return $this->twig->render(
             'Home/index-user.html.twig',
