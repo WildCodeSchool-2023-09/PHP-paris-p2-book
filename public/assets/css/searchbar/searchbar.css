@@ -1,0 +1,113 @@
+/* -- SEARCH -- */
+form#search {
+  position: sticky;
+  width: 100%;
+  top: 10px;
+}
+
+#search-bar, #search-box {
+  background-color: var(--color-main);
+  color: white;
+  filter: var(--shadow-drop-small);
+  width: 75%;
+  min-width: 320px;
+  max-width: 600px;
+}
+
+#search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+  margin: 10px auto;
+  padding: 5px 12px;
+  border-radius: 2rem;
+}
+#search-bar .btn {
+  height: 1.6rem;
+  width: 1.6rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 0 none;
+  filter: var(--shadow-drop-small);
+  cursor: pointer;
+}
+#search-bar .btn.search {
+  background-color: #370A0A;
+  background-image: url("/assets/images/search/icon-search.svg");
+}
+#search-bar .btn.settings {
+  background-image: url("/assets/images/search/icon-settings.svg");
+}
+#search-bar #search-field {
+  width: 80%;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  font-family: var(--font-jomolhari);
+  text-shadow: var(--shadow-text);
+  font-size: 1rem;
+}
+#search-bar #search-field:focus-visible {
+  outline: none;
+}
+#search-bar ::placeholder {
+  color: lightgray;
+  font-family: var(--font-jomolhari);
+  text-shadow: var(--shadow-text);
+  font-size: 1.2rem;
+}
+
+#search-box {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  border-radius: 1.4rem;
+}
+#search-box > .filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+#search-box > .filter label {
+  cursor: pointer;
+}
+#search-box > .filter .params {
+  background-color: var(--color-third);
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 40px;
+  padding: 2px 0.5rem;
+}
+#search-box > .filter .params option {
+  text-align: center;
+}
+#search-box > .sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  height: fit-content;
+  cursor: pointer;
+}
+#search-box > .sort .btn.sort {
+  height: 1.2rem;
+  margin: 0 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.reversed {
+  transform: scaleY(-1);
+}/*# sourceMappingURL=searchbar.css.map */

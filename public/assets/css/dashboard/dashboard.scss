@@ -1,0 +1,39 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .card {
+        min-height: 10rem;
+        // height: 220px;
+    }
+    
+    .carousel {
+
+        .book-slide {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .dashboard {
+        gap: 1rem;
+
+        .card {
+            width: 800px;
+            height: 300px;
+        }
+
+        .carousel {
+
+            .book-slide {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+    }
+}

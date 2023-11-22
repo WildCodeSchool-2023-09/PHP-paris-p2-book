@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/searchbar/searchbar.css">
+{% endblock %}
+
+{% block title %}
+	Personnal Library
+{% endblock %}
+
+{% block content %}
+	{% include 'Components/_search.html.twig' %}
+	<div id="global-block">
+		<div>
+			<div class="header-icons">
+				<img src="/assets/icons/my-library.png">
+				<img src="/assets/icons/wishlist.png">
+			</div>
+			<div class="header-icons-title">
+				<div>MY LIBRARY</div>
+				<div class="wishlist-title">WISHLIST</div>
+			</div>
+		</div>
+
+		{{ errors }}
+
+		{# <ul id="book-list">
+		</ul> #}
+
+		{% for book in books %}
+			{% include 'Components/_book-card.html.twig' %}
+		{% else %}
+			<div class="nothing-to-display">
+				<li>Nothing to display</li>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	{{ parent() }}
+	<script src="/assets/js/search.js"></script>
+{% endblock %}

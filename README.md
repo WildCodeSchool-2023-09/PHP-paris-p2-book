@@ -1,79 +1,57 @@
-# Simple MVC
-
 ## Description
 
-This repository is a simple PHP MVC structure from scratch.
-
-It uses some cool vendors/libraries such as Twig and Grumphp.
-For this one, just a simple example where users can choose one of their databases and see tables in it.
+This repository exposes all the code that our group wrote as part of a school project in which we used the MVC method. The goal was to develop a mobile application that allows users to add books, write reviews for these books, and perform searches.
 
 ## Steps
 
 1. Clone the repo from Github.
 2. Run `composer install`.
 3. Create _config/db.php_ from _config/db.php.dist_ file and add your DB parameters. Don't delete the _.dist_ file, it must be kept.
+The DB name is `mybookshelf`
 
 ```php
-define('APP_DB_HOST', 'your_db_host');
-define('APP_DB_NAME', 'your_db_name');
-define('APP_DB_USER', 'your_db_user_wich_is_not_root');
+
+define('APP_DB_USER', 'your_db_user');
 define('APP_DB_PASSWORD', 'your_db_password');
+define('APP_DB_HOST', 'localhost');
+define('APP_DB_NAME', 'mybookshelf');
+
 ```
 
-4. Import _database.sql_ in your SQL server, you can do it manually or use the _migration.php_ script which will import a _database.sql_ file.
+4. Run `php migration.php` to import _database.sql_ in your SQL server.
 5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter means your localhost will target the `/public` folder.
-6. Go to `localhost:8000` with your favorite browser.
-7. From this starter kit, create your own web application.
+6. Go to `localhost:8000` with your favorite browser. You are now on our Website : My Bookshelf !
 
-### Windows Users
+## Your user journey
 
-If you develop on Windows, you should edit you git configuration to change your end of line rules with this command :
+Since it is a website aimed at adding books, consulting them, and writing reviews, here is a user journey that will allow you to test all of this, but you are also free to conduct your own tests!
 
-`git config --global core.autocrlf true`
+1. 
+Firstly, you arrive on a homepage presenting the fundamental features that our site offers. You can navigate through the site using the navigation bar. Some features will be conditional on user login. You can use the following credentials to have full access to our site:
+Username: guest
+Password: guest
 
-## Example
+2. 
+Now that you are logged in, you will arrive at a user homepage with the key information about your user profile.
 
-An example (a basic list of items) is provided (you can load the _simple-mvc.sql_ file in a test database). The accessible URLs are :
+3. 
+Next, you can check the overall library by clicking on the first button in the navigation bar. Feel free to try a search. Also, if you want to make a search at any time, the middle button of the navbar if here for you !
 
--   Home page at [localhost:8000/](localhost:8000/)
--   Items list at [localhost:8000/items](localhost:8000/items)
--   Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
--   Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
--   Item add [localhost:8000/items/add](localhost:8000/items/add)
--   Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
+4. 
+If you see a book that interests you, you can click on it to get additional information about it.
 
-You can find all these routes declared in the file `src/routes.php`. This is the very same file where you'll add your own new routes to the application.
+5. 
+Let's suppose you don't find the book you're trying to search for. This is entirely possible as our overall library grows with contributions from each user. In such a case, you can contribute to the improvement of this library by adding a book yourself!
 
-## How does URL routing work ?
+6. 
+If you have correctly filled out the form, you should have been directed to the page of the book you just added. Let's say you've read it, so go ahead and add a review!
 
-![simple_MVC.png](.tours/simple_MVC.png)
+7. 
+Reviews are important for keeping track of your readings, making it easy to find various information about the book, and capturing your thoughts on it. Once again, if the form is filled out correctly, you have just added your first review! Congratulations!
 
-## Ask for a tour !
+8. 
+Finally, you can click on the last button in the navigation bar, allowing you to access your profile. Many details will be available on this page later. For now, you can only consult all the reviews you've submitted.
 
-<img src="./.tours/photo-1632178151697-fd971baa906f.jpg" alt="Guided tour" width="150"/>
 
-We prepare a little guided tour to start with the simple-MVC.
-
-To take it, you need to install the `Code Tour` extension for Visual Studio Code : [Code Tour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
-
-It will give access to a new menu on your IDE where you'll find the different tours about the simple-MVC. Click on play to start one :
-
-![menu](.tours/code_tour_menu.png)
-
-## Run it on docker
-
-If you don't know what is docker, skip this chapter. ;)
-
-Otherwise, you probably see, this project is ready to use with docker.
-
-To build the image, go into the project directory and in your CLI type:
-
-```
-docker build -t simple-mvc-container .
-```
-
-then, run it to open it on your localhot :
-
-```
-docker run -i -t --name simple-mvc  -p 80:80 simple-mvc-container
-```
+NB.
+The statistics button on the navigation bar leads to a 'coming soon' page as this feature is not yet developed.

@@ -1,21 +1,41 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/assets/images/favicon.png">
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="/assets/images/favicon.png">
 
-    <title>{% block title %}{% endblock %}</title>
+		<title>MyBookshelf -
+			{% block title %}{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+		<link rel="stylesheet" href="/assets/css/reset.css">
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="stylesheet" href="/assets/css/desktop.css" media="(min-width: 1200px)">
+		<link rel="stylesheet" href="/assets/css/navbar/navbar.css"> {% block stylesheet %}{% endblock %}
+		</head>
 
-    <link rel="stylesheet" href="/assets/css/style.css">
-    {% block stylesheet %}{% endblock %}
-</head>
-
-<body>
-    {% block content %}{% endblock %}
-    {% block javascript %}{% endblock %}
-</body>
-</html>
+		<body>
+			{% block header %}
+				{% include 'Components/_header.html.twig' %}
+			{% endblock %}
 
 
+			<div id="main-container">
+				{% block navbar %}
+					{% include 'Components/_navbar.html.twig' %}
+				{% endblock %}
+
+				<div id="content"> {% block content %}{% endblock %}
+					</div>
+				</div>
+
+				{% block footer %}
+					{% include 'Components/_footer.html.twig' %}
+				{% endblock %}
+
+				<script src="/assets/js/navbar.js"></script>
+				{% block javascript %}{% endblock %}
+			</body>
+		</html>

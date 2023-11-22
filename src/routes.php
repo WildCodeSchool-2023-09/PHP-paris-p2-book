@@ -7,10 +7,12 @@
 //          3. (optional) array of query string keys to send as parameter to the method
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
-    '' => ['HomeController', 'index',],
-    'items' => ['ItemController', 'index',],
-    'items/edit' => ['ItemController', 'edit', ['id']],
-    'items/show' => ['ItemController', 'show', ['id']],
-    'items/add' => ['ItemController', 'add',],
-    'items/delete' => ['ItemController', 'delete',],
+    '' => ['HomeController', 'index', ['login']],
+    'book' => ['BookController', 'showGlobalLibrary',],
+    'book/global-library' => ['BookController', 'showGlobalLibrary',],
+    'book/personnal-library' => ['BookController', 'showPersonnalLibrary',],
+    'book/global-libraryAJAX' => ['BookController', 'getGlobalLibraryAJAX',],
+    'book/add' => ['BookController', 'add',],
+    'book/show' => ['BookController', 'show', ['id']],
+    'review/add' => ['ReviewController', 'add', ['id']],
 ];
