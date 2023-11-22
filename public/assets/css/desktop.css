@@ -1,3 +1,161 @@
+@font-face{
+    font-family: 'Libre Caslon Text';
+    src:url(../font/libre-caslon-text/libre-caslon-text-regular.ttf)
+}
+header img {
+    width: 100%;
+}
+.container {
+    width: 100%;
+}
+
+.book-icon {
+    width: 15rem;
+    height: 2.81538rem;
+}
+
+.mybookshelf-h1 {
+    color: #E8D2C9;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Libre Caslon Display;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.your-digital-book {
+    display: none;
+    color: #EDC7B7;
+    text-align: center;
+    font-family: Libre Caslon Display;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 22.625rem;
+    height: 13.5625rem;
+}
+
+.slogan {
+    display: flex;
+    width: 32.8125rem;
+    height: 13.375rem;
+    margin-top: 80rem;
+    margin-left: 5rem;
+    margin-right: -20rem;
+    flex-direction: column;
+    justify-content: center;
+    color: #FFF;
+    text-align: justify;
+    font-family: Libre Caslon Text;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+body {
+    background: var(--color-background, #FFEAD7);
+}
+
+.bloc-content {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloc-text {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 24.375rem;
+    height: 10.375rem;
+}
+
+.heart-icon {
+    position: absolute;
+    padding-left: 72.3rem;
+    margin-top: -0.8rem;
+}
+
+.text-home {
+    color: #9D244D;
+    text-align: justify;
+    font-family: Libre Caslon Text;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    left: 2.75rem;
+    right: 8.75rem;
+    width: 12.875rem;
+}
+
+.text-home-middle {
+    color: #9D244D;
+    display: flex;
+    width: 13.0625rem;
+    height: 4.5rem;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Libre Caslon Text;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.container-flex-book {
+    display: inline;
+}
+
+.container-book {
+    box-sizing: border-box;
+    margin: 0rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.31rem;
+   
+  }  
+
+.card-model-library {
+    display: flex;
+    width: 35rem;
+    height: 17rem;
+    padding-left: 0.56rem;
+    justify-content: center;
+    border-radius: 0.625rem;
+    border: 0.2px solid rgba(0, 0, 0, 0.50);
+    background: var(--Card-color, #F9E2C7);
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    padding-bottom: 1rem;
+    flex-direction: row;
+    align-items: center;
+}
+
+.book-cover {
+    width: 8rem;
+    height: 12rem;
+    border-radius: 0.0625rem 0.125rem 0.125rem 0.0625rem;
+    background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-home {
+    background: #F9E2C7;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+/* Form to add a book */
+
 #content {
   margin: 0;
   padding: 1rem 104px;
@@ -27,11 +185,6 @@
     width: 20vw;
 }
 
-/* #header {
-    width: 100%;
-    height: auto;
-} */
-
 #bookTitle {
     color: var(--Second, #9D244D);
     text-align: center;
@@ -49,16 +202,13 @@
     color: #947982;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 25rem;
-    height: 5rem;
-    flex-shrink: 0;
-    text-align: center;
-    font-family: Libre Caslon Display;
-    font-size: 5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 50%;
+    padding-top: 12rem;
+
+    background-image: none;
 }
 
 #note {
@@ -140,4 +290,75 @@ div.icones {
     margin: 2rem;
     font-size: 1.7rem;
     color: var(--color-main);
+}
+
+/* -- NAVBAR -- */
+
+nav {
+    width: 8%;
+    height: 100%;
+    left: 2px;
+    top: 0;
+}
+
+#navbar-head {
+    display: none;
+}
+
+#navbar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 50%;
+    padding-top: 12rem;
+
+    background-image: none;
+}
+
+#navbar-container .btn {
+    padding-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 1px;
+}
+
+#navbar-container .btn:not(.btn:last-of-type) {
+    border-bottom: 2px solid black;
+}
+
+#user-menu {
+    display: none;
+    position: relative;
+    top: -5%;
+    left: 0;
+
+    width: 100%;
+}
+
+#user-menu-head {
+    display: none;
+}
+
+#user-menu-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 0;
+
+    border-radius: 20px;
+}
+
+.icon-mobile {
+    display: none;
+}
+
+.icon-desktop {
+    display: inline;
+}
+
+.icon-selected {
+    display: none;
 }
