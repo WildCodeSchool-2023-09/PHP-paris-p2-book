@@ -32,4 +32,4 @@ FROM book_editor as be
         ON rt.tag_id = t.id
     LEFT JOIN user
         ON r.user_id = user.id
--- GROUP BY be.id
+-- GROUP BY t.id

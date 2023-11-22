@@ -11,7 +11,7 @@ return [
     'book' => ['BookController', 'showGlobalLibrary',],
     'book/global-library' => ['BookController', 'showGlobalLibrary',],
     'book/personnal-library' => ['BookController', 'showPersonnalLibrary',],
-    'book/global-libraryAJAX' => ['BookController', 'showGlobalLibraryAJAX',],
+    'book/global-libraryAJAX' => ['BookController', 'getGlobalLibraryAJAX',],
     'book/add' => ['BookController', 'add',],
     'book/show' => ['BookController', 'show', ['id']],
     'review/add' => ['ReviewController', 'add', ['id']],

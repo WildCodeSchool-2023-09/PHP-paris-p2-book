@@ -51,9 +51,20 @@ ul {
   list-style: none;
 }
 
-body,
-#global-block {
+body {
+  background-color: var(--color-background);
+  color: var(--color-main);
+  font-family: var(--font-libre-caslon-text);
+}
+
+body {
   margin-bottom: 100px;
+}
+
+#global-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
@@ -66,93 +77,7 @@ body,
   left: 2.56rem;
 }
 
-.mybookshelf-h1 {
-  color: #E8D2C9;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Libre Caslon Display;
-  font-size: 3rem;
-  line-height: 3.68rem;
-  font-weight: 400;
-  position: absolute;
-  top: 1.56rem;
-  left: 6.87rem;
-  right: 2.56rem;
-}
-
-.your-digital-book {
-  color: #EDC7B7;
-  text-align: center;
-  font-family: Libre Caslon Display;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  position: absolute;
-  top: 8.5rem;
-  left: 2.5rem;
-}
-
-body {
-  background: var(--Background, #FFEAD7);
-}
-
-.bloc-text {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 24.375rem;
-  height: 10.375rem;
-}
-
-.heart {
-  right: 3rem;
-}
-
-.text-home {
-  color: #9D244D;
-  text-align: justify;
-  font-family: Libre Caslon Text;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  left: 2.75rem;
-  right: 8.75rem;
-  width: 12.875rem;
-}
-
-.text-home-middle {
-  color: #9D244D;
-  display: flex;
-  width: 13.0625rem;
-  height: 4.5rem;
-  flex-direction: column;
-  justify-content: center;
-  font-family: Libre Caslon Text;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
-.card-home {
-  border: 0.2px solid rgba(0, 0, 0, 0.50);
-  background: #F9E2C7;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 24.375rem;
-  height: 10.375rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.heart-icon {
-  position: absolute;
-  padding-left: 19.5rem;
-  margin-top: -0.7rem;
-}
+/* --- */
 
 .container-icons {
   display: flex;
@@ -269,7 +194,6 @@ body {
   border: 0.2px solid rgba(0, 0, 0, 0.50);
   background: var(--Card-color, #F9E2C7);
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
-
 }
 
 #item-0-book-cover {
@@ -487,15 +411,6 @@ body {
   text-align: center;
 }
 
-/* --- NAVBAR ---  */
-/* only for dev & testing */
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-main);
-  font-family: var(--font-libre-caslon-text);
-}
-
 /* HEADER */
 
 #main-header {
@@ -503,6 +418,7 @@ body {
   position: relative;
   background-image: url('/assets/images/header.png');
   background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;

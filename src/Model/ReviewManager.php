@@ -26,4 +26,21 @@ class ReviewManager extends AbstractManager
 
         return (int)$this->pdo->lastInsertId();
     }
+
+    public function getThreeLatests(int $id = 0): array
+    {
+        $query = file_get_contents("../src/Model/sql/getBooks.sql");
+
+        if ($id > 0) {
+            $query .= " WHERE user.id != $id";
+        }
+
+        $query .= ' ORDER BY r.id DESC LIMIT 3';
+
+        $statement = $this->pdo->prepare($query);
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
