@@ -1,0 +1,40 @@
+<form method="GET" action="" id="search">
+    <div id="search-bar">
+        {# <input type="image" src="/assets/images/search/icon-search.svg" alt="Search button" class="btn search" name="name"> #}
+        <input type="submit" class="btn search" value="">
+        <input id="search-field" type="text" name="name" placeholder="Search" value="{{name}}">
+        <img class="btn settings" src="/assets/images/search/icon-settings.svg" alt="Settings button">
+    </div>
+    <div id="search-box" class="hidden">
+        <div class="filter genre">
+            <label for="genre">Genre</label>
+            <div class="params hidden" id="genre">
+                {% for genre in genres %}
+                    <div>
+                        <input type="checkbox" name="genre[]" id="{{genre}}" value="{{genre}}">
+                        <label for="{{genre}}">{{genre}}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="filter tag">
+            <label for="tag">Tag</label>
+            <div class="params hidden" id="tag">
+                {% for tag in tags %}
+                    <div>
+                        <input type="checkbox" name="tag[]" id="{{tag}}" value="{{tag}}">
+                        <label for="{{tag}}">{{tag}}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="sort date">Date<img class="btn sort" src="/assets/images/search/icon-sort-down.svg" alt="Sort up/down"></div>
+        <div class="sort reads">Reads<img class="btn sort" src="/assets/images/search/icon-sort-down.svg" alt="Sort updown"></div>
+        <div class="sort note">Note<img class="btn sort" src="/assets/images/search/icon-sort-down.svg" alt="Sort up/down"></div>
+
+        <input id="sort-by" type="hidden" name="sort-by" value="">
+        <input id="sort-order" type="hidden" name="sort-order" value="">
+    </div>
+</form>

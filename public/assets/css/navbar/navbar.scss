@@ -1,78 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jomolhari&display=swap');
-
-:root {
-    --color-main: #370A0A;
-    --color-second: #9D244D;
-    --color-third: #7A3434;
-    --color-background: #FFEAD7;
-    --color-card: #F9E2C7;
-    --color-title: #EDC7B7;
-
-    --font-inter: 'Inter', sans-serif;
-    --font-libre-caslon-display: 'Libre Caslon Text', serif;
-    --font-libre-caslon-text: 'Libre Caslon Display', serif;
-    --font-roboto: 'Roboto', sans-serif;
-    --font-jomolhari: 'Jomolhari', serif;
-}
-
-/* --- RESET CSS --- */
-
-html {
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ol,
-ul {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-}
-
-ol,
-ul {
-    list-style: none;
-}
-
-/* img {
-    max-width: 100%;
-    height: auto;
-} */
-
 /* --- NAVBAR ---  */
 
-    /* only for dev & testing */
-    body {
-        height: 1000px;
-        background-color: var(--color-background);
-        color: var(--color-main);
-        font-family: var(--font-libre-caslon-text);
-    }
-    /* - */
-
-nav {
+#main-nav {
     width: 100%;
     max-height: 1400px;
     position: fixed;
     bottom: 0;
+    z-index: 2;
 }
 
 #navbar-head {
@@ -161,4 +94,75 @@ nav {
     display: none;
 }
 
-/* -- SEARCH -- */
+//
+@media screen and (min-width: 1200px) {
+
+    #main-nav {
+        // height: 100%;
+        position: fixed;
+        width: 6rem;
+        height: 100%;
+        left: 4px;
+        top: 100px;
+
+        #navbar-head {
+            display: none;
+        }
+    
+        #navbar-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+    
+            height: 250px;
+            padding-top: 1rem;
+    
+            background-image: none;
+    
+            .btn {
+                padding-bottom: 16px;
+                margin-top: 20px;
+                border-radius: 1px;
+    
+                &:not(.btn:last-of-type) {
+                    border-bottom: 2px solid black;
+                }
+            }
+        }
+    
+        #user-menu {
+            display: none;
+            position: relative;
+            top: 138px;
+    
+            width: 100%;
+        }
+        
+        #user-menu-head {
+            display: none;
+        }
+    
+        #user-menu-container {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+            align-items: center;
+    
+            height: 340px;
+            padding: 1rem 0;
+    
+            border-radius: 20px;
+        }
+    
+        .icon-mobile {
+            display: none;
+        }
+        .icon-desktop {
+            display: inline;
+        }
+        .icon-selected {
+            display: none;
+        }
+    }
+}

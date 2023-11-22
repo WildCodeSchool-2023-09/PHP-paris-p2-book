@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 13 nov. 2023 à 13:45
+-- Généré le : lun. 20 nov. 2023 à 09:44
 -- Version du serveur : 8.0.28
 -- Version de PHP : 8.2.10
 
@@ -106,6 +106,42 @@ CREATE TABLE `genre` (
   `label` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `genre`
+--
+
+INSERT INTO `genre` (`id`, `label`) VALUES
+(1, 'Action'),
+(2, 'Adventure'),
+(3, 'Bibliography'),
+(4, 'Biography'),
+(5, 'Comedy'),
+(6, 'Cookbook'),
+(7, 'Epic'),
+(8, 'Essay'),
+(9, 'Encyclopedic'),
+(10, 'Fabulation'),
+(11, 'Fantasy'),
+(12, 'Folklore'),
+(13, 'Historical'),
+(14, 'Horror'),
+(15, 'Journalistic'),
+(16, 'Mystery'),
+(17, 'Paranoid'),
+(18, 'Pastoral'),
+(19, 'Philosophical'),
+(20, 'Political'),
+(21, 'Realist'),
+(22, 'Religious'),
+(23, 'Romance'),
+(24, 'Satire'),
+(25, 'Science fiction'),
+(26, 'Social'),
+(27, 'Theatre'),
+(28, 'Thriller'),
+(29, 'Travel'),
+(30, 'Western');
+
 -- --------------------------------------------------------
 
 --
@@ -114,12 +150,12 @@ CREATE TABLE `genre` (
 
 CREATE TABLE `review` (
   `id` int NOT NULL,
-  `book_edition_id` int NOT NULL,
+  `book_editor_id` int NOT NULL,
   `user_id` int NOT NULL,
   `note` tinyint NOT NULL,
   `difficulty` tinyint NOT NULL,
   `opinion` text,
-  `reading_time` time DEFAULT NULL,
+  `reading_time` varchar(150) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -144,6 +180,26 @@ CREATE TABLE `tag` (
   `id` int NOT NULL,
   `label` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `tag`
+--
+
+INSERT INTO `tag` (`id`, `label`) VALUES
+(1, 'Amazing'),
+(2, 'Cry'),
+(3, 'Dark'),
+(4, 'Disappointment'),
+(5, 'Emotion'),
+(6, 'Intense'),
+(7, 'Joy'),
+(8, 'Laugh'),
+(9, 'Mystery'),
+(10, 'Plot-twist'),
+(11, 'Sad'),
+(12, 'Unexpected'),
+(13, 'Weird'),
+(14, 'Wonder');
 
 -- --------------------------------------------------------
 
@@ -226,13 +282,7 @@ ALTER TABLE `genre`
 -- Index pour la table `review`
 --
 ALTER TABLE `review`
-  ADD PRIMARY KEY (`id`,`book_edition_id`,`user_id`);
-
---
--- Index pour la table `review_tag`
---
-ALTER TABLE `review_tag`
-  ADD PRIMARY KEY (`review_id`,`tag_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `tag`
@@ -247,12 +297,6 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `user_book_edition`
---
-ALTER TABLE `user_book_edition`
-  ADD PRIMARY KEY (`user_id`,`book_edition_id`);
-
---
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -260,31 +304,31 @@ ALTER TABLE `user_book_edition`
 -- AUTO_INCREMENT pour la table `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `book_editor`
 --
 ALTER TABLE `book_editor`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `editor`
 --
 ALTER TABLE `editor`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `review`
@@ -296,7 +340,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT pour la table `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `user`

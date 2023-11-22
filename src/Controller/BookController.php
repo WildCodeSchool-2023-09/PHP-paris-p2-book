@@ -9,34 +9,106 @@ use App\Model\GenreManager;
 
 class BookController extends AbstractController
 {
-    public array $errors = [];
+    public const PARAM_LIST = [
+        'name',
+        'genre',
+        'tag',
+        'sort-by',
+        'sort-order'
+    ];
+
+    public const GENRES = [
+        'Philosophy', 'Sci-Fi', 'Politics', 'Novel', 'Horror', 'Drama', 'Detective', 'Fantasy'
+    ];
+
+    public const TAGS = [
+        'Fun', 'Boring', 'Funny', 'Interesting', 'Original', 'Scary', 'Weird', 'Hopeful', 'Taboulé'
+    ];
+
+    public const SORT_BY = ['date', 'reads', 'note'];
+    public const SORT_ORDERS = ['ASC', 'DESC'];
+
     public const HIGHER_LIMIT = 150;
     public const LOWER_LIMIT = 50;
 
     public const AUTHORIZED_EXTENSIONS = ['jpeg', 'jpg' ,'png', 'gif', 'webp',];
-
     public const MAX_FILE_SIZE = 1000000;
-
     public const FORM_ADD_BOOK_READ = "read";
-
     public const FORM_ADD_BOOK_NOT_YET = "notyet";
 
     public BookManager $manager;
-
     public EditorManager $editorManager;
-
     public GenreManager $genreManager;
-
     public AuthorManager $authorManager;
+
+    public array $errors = [];
 
     public function __construct()
     {
         parent::__construct();
-
         $this->manager = new BookManager();
         $this->editorManager = new EditorManager();
         $this->genreManager = new GenreManager();
         $this->authorManager = new AuthorManager();
+    }
+
+    public function cleanSearchInput(&$params, &$paramErrors): bool
+    {
+        foreach ($_GET as $param => $value) {
+            // Clean input
+            $param = trim(htmlentities($param));
+            // Check if parameter name is correct
+            if (in_array($param, self::PARAM_LIST)) {
+                // Check if type array (genre & tag)
+                if (gettype($value) === 'array') {
+                    foreach ($value as $index => $valueOfArray) {
+                        $params[$param][$index] = trim(htmlentities($valueOfArray));
+                    }
+                } else {
+                    if (
+                        !($param === "sort-by" && !in_array($value, self::SORT_BY))
+                        && !($param === "sort-order" && !in_array($value, self::SORT_ORDERS))
+                    ) {
+                        $params[$param] = trim(htmlentities($value));
+                    }
+                }
+            } else {
+                // Add to wrong param list
+                $paramErrors[] = '"' . $param . '"';
+            }
+        }
+        return (empty($paramErrors));
+    }
+
+    public function showGlobalLibrary(): string
+    {
+        $params = [];
+        $params['name'] = '';
+        $paramErrors = [];
+        $errors = '';
+
+        // SECURING USER INPUT
+        if ($_SERVER['REQUEST_METHOD'] === "GET" && !empty($_GET)) {
+            if ($this->cleanSearchInput($params, $paramErrors)) {
+                $results = $this->manager->search($params);
+            } else {
+                $errors = 'The following parameters do not exist : ' . implode(', ', $paramErrors) . '.';
+                $results = [];
+            }
+        } else {
+            $results = $this->manager->search();
+        }
+
+        return $this->twig->render(
+            'Book/global-library.html.twig',
+            ['errors' => $errors,
+            'name' => $params['name'],
+            'genres' => self::GENRES,
+            'tags' => self::TAGS,
+            'books' => $results,
+            'sectionName' => 'Library'
+            ]
+        );
     }
 
     public function add()
@@ -116,6 +188,7 @@ class BookController extends AbstractController
             $this->errors['book_writing_year'] = "Vous devez indiquer l'année d'écriture de l'ouvrage";
         }
     }
+
     public function checksFormAddExtension($book)
     {
         if (empty($book['genre_label'])) {
