@@ -25,10 +25,32 @@ html {
   scroll-behavior: smooth;
 }
 
-@font-face{
-  font-family: 'Libre Caslon Text';
-  src:url(../font/Libre_Caslon_Text/libre-caslon-text-regular.ttf);
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
 body, #global-block {
   margin-bottom: 100px;
 }
@@ -83,7 +105,7 @@ body {
 }
 
 .heart {
-    right: 3rem;
+  right: 3rem;
 }
 
 .text-home {
