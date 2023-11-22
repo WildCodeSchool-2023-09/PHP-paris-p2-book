@@ -85,6 +85,8 @@ class BookController extends AbstractController
 
     public function showGlobalLibrary(): string
     {
+        $sectionName = "Global Library";
+
         $params = [];
         $params['name'] = '';
         $paramErrors = [];
@@ -109,12 +111,12 @@ class BookController extends AbstractController
             'genres' => self::GENRES,
             'tags' => self::TAGS,
             'books' => $results,
-            'sectionName' => 'Library'
+            'sectionName' => $sectionName,
             ]
         );
     }
 
-    public function showGlobalLibraryAJAX(): string
+    public function getGlobalLibraryAJAX(): string
     {
         $params = [];
         $params['name'] = '';
@@ -138,6 +140,8 @@ class BookController extends AbstractController
 
     public function add()
     {
+        $sectionName = "Add";
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
 
@@ -174,11 +178,12 @@ class BookController extends AbstractController
             } else {
                 return $this->twig->render('Book/formAdd.html.twig', [
                     'errors' => $this->errors,
+                    'sectionName' => $sectionName
                 ]);
             }
         }
 
-        return $this->twig->render('Book/formAdd.html.twig');
+        return $this->twig->render('Book/formAdd.html.twig', ['sectionName' => $sectionName]);
     }
 
     public function checksFormAdd($book)

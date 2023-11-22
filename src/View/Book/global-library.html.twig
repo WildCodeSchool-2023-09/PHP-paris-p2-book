@@ -12,44 +12,14 @@
 
 	{% include 'Components/_search.html.twig' %}
 	<div id="global-block">
-
+	
 		{{ errors }}
 
 		{# <ul id="book-list">
-						        </ul> #}
+		</ul> #}
 
-		{# DEV #}
-			{% for book in books %}
-				<div class="card-grid-book"> <div id="item-0-book-cover" class="book-cover"><img src="{{ book.cover }}" class="book-cover"></div>
-				<div id="item-1-title">
-					<li class="li-marker">
-						<a href="/Book/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a>
-					</li>
-				</div>
-				<div id="item-2-author">
-					<h2 class="book-title-h2">{{ book.author }}</h2>
-				</div>
-				<div id="item-3-year">
-					<h2 class="book-title-year">{{ book.date }}</h2>
-				</div>
-				<div id="item-4-editor">
-					<p class="book-edition">{{ book.editor }}</p>
-				</div>
-				<div id="item-5-genre">
-					<p class="book-genre">{{ book.genre }}</p>
-				</div>
-				<div id="item-6-opinion">
-					<p class="book-opinion">Good!</p>
-				</div>
-				<div id="item-7-review">
-					<p class="review">24
-						<img src="/assets/icons/review.png"></p>
-				</div>
-				<div id="item-8-score">
-					<p class="score">4.7
-						<img src="/assets/icons/star.svg" class="comment-star"></p>
-				</div>
-			</div>
+		{% for book in books %}
+			{% include 'Components/_book-card.html.twig' %}
 		{% else %}
 			<div class="nothing-to-display">
 				<li>Nothing to display</li>
