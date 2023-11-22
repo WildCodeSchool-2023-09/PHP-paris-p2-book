@@ -6,6 +6,7 @@ use App\Model\BookManager;
 use App\Model\AuthorManager;
 use App\Model\EditorManager;
 use App\Model\GenreManager;
+use App\Model\BookEditorManager;
 
 class BookController extends AbstractController
 {
@@ -40,6 +41,7 @@ class BookController extends AbstractController
     public EditorManager $editorManager;
     public GenreManager $genreManager;
     public AuthorManager $authorManager;
+    public BookEditorManager $bookEditorManager;
 
     public array $errors = [];
 
@@ -222,5 +224,13 @@ class BookController extends AbstractController
             $uploadFile = "assets/images/cover_question_mark.png";
         }
         return $uploadFile;
+    }
+
+    public function show(int $id): string
+    {
+        $bookEditorManager = new BookEditorManager();
+        $book = $bookEditorManager->selectOneById($id);
+
+        return $this->twig->render('Book/show.html.twig', ['book' => $book]);
     }
 }
