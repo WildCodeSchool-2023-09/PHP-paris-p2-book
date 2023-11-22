@@ -51,7 +51,7 @@ body {
   left: 28px;
   top: 34px;
   bottom: 0;
-  
+
   /* margin: auto 0; */
 }
 
@@ -69,6 +69,7 @@ body {
 
 #content {
   padding: .5rem .5rem;
+  margin-bottom: 5rem;
 }
 
 .book-img {
@@ -94,7 +95,8 @@ body {
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
-.card h1, .card h2 {
+.card h1,
+.card h2 {
   margin-bottom: .4rem;
 
   text-align: center;
@@ -127,11 +129,12 @@ body {
 
   list-style: none;
 
-  overflow:scroll;
+  overflow: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  scrollbar-width:none;
+  scrollbar-width: none;
 }
+
 .slides-container::-webkit-scrollbar {
   display: none;
 }
