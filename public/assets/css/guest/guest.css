@@ -173,6 +173,14 @@
 #home-guest section {
   width: 95%;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10rem;
+}
+
+#home-guest section {
+  width: 95%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   height: 10rem;
@@ -233,6 +241,3 @@
     top: 40px;
   }
 }
-
-
-/*# sourceMappingURL=guest.css.map */
