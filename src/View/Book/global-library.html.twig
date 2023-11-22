@@ -27,9 +27,9 @@
     
     {# DEV #}
     {% for book in books %}
-          <div class="card-grid-book">
-            <div id="item-0-book-cover" class="book-cover"><img src="{{ book.cover }}" class="book-cover"></div>
-            <div id="item-1-title"<li class="li-marker"><a href="/Book/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a></li></div>
+        <div class="card-grid-book">
+            <div id="item-0-book-cover" class="book-cover"><img src="/{{ book.cover }}" class="book-cover"></div>
+            <div id="item-1-title"<li class="li-marker"><a href="/book/show?id={{ book.id }}" class="book-title-h1">{{ book.title }}</a></li></div>
             <div id="item-2-author"><h2 class="book-title-h2">{{ book.firstname }} {{ book.lastname }}</h2></div>
             <div id="item-3-year"><h2 class="book-title-year">{{ book.written_at }}</h2></div>
             <div id="item-4-editor"><p class="book-edition">{{ book.label }}</p></div>
