@@ -15,7 +15,8 @@ class BookController extends AbstractController
         'genre',
         'tag',
         'sort-by',
-        'sort-order'
+        'sort-order',
+        'userid',
     ];
 
     public const GENRES = [
@@ -246,6 +247,37 @@ class BookController extends AbstractController
             $uploadFile = "assets/images/cover_question_mark.png";
         }
         return $uploadFile;
+    }
+
+    public function showPersonnalLibrary(): string
+    {
+        $params = [];
+        $params['name'] = '';
+        $paramErrors = [];
+        $errors = '';
+
+        // SECURING USER INPUT
+        if ($_SERVER['REQUEST_METHOD'] === "GET" && !empty($_GET)) {
+            if ($this->cleanSearchInput($params, $paramErrors)) {
+                $results = $this->manager->search($params, 1);
+            } else {
+                $errors = 'The following parameters do not exist : ' . implode(', ', $paramErrors) . '.';
+                $results = [];
+            }
+        } else {
+            $results = $this->manager->search([], 1);
+        }
+
+        return $this->twig->render(
+            'Book/personnal-library.html.twig',
+            ['errors' => $errors,
+            'name' => $params['name'],
+            'genres' => self::GENRES,
+            'tags' => self::TAGS,
+            'books' => $results,
+            'sectionName' => 'Library'
+            ]
+        );
     }
 
     public function show(int $id): string
