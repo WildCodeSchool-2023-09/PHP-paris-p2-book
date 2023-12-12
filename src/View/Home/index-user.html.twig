@@ -14,7 +14,7 @@
                         <li class="slide">
                             <div class="book-slide">
                                     {% for y in 0..2 %}
-                                        <a href="book/show?id={{trending[y + (3 * i)].id}}"><img class="book-img" src="{{trending[y + (3 * i)].cover}}" alt="{{trending[y + (3 * i)].title}}" title="{{trending[y + (3 * i)].title}}"></a>
+                                        <a href="book/show?id={{trending[y + (3 * i)].id}}"><img class="book-img" src="/uploads/{{trending[y + (3 * i)].cover}}" alt="{{trending[y + (3 * i)].title}}" title="{{trending[y + (3 * i)].title}}"></a>
                                     {% endfor %}
                             </div>
                         </li>
@@ -27,6 +27,7 @@
                 </nav>
             </div>
         </section>
+
         <section class="card" id="reviews">
             <h2>Latest Reviews</h2>
             <div class="carousel">
@@ -34,7 +35,7 @@
                     {% for i in 0..2 %}
                         <li class="slide">
                             <div class="review-slide">
-                                <img class="book-img" src="{{reviews[i].cover}}" alt="" style="float: right">
+                                <img class="book-img" src="/uploads/{{reviews[i].cover}}" alt="" style="float: right">
                                 <p style="font-weight: bold">{{reviews[i].title}}</p><br>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo suscipit nostrum architecto non? Soluta, necessitatibus architecto fugiat numquam culpa quisquam dolore laboriosam tempore!</p>
                             </div>
@@ -48,6 +49,7 @@
                 </nav>
             </div>
         </section>
+        
         <section class="card" id="for-you">
             <h2>For You</h2>
             <div class="carousel">
@@ -56,7 +58,7 @@
                         <li class="slide">
                             <div class="book-slide">
                                     {% for y in 0..2 %}
-                                        <a href="book/show?id={{forYou[y + (3 * i)].id}}"><img class="book-img" src="{{forYou[y + (3 * i)].cover}}" alt="{{forYou[y + (3 * i)].title}}" title="{{forYou[y + (3 * i)].title}}"></a>
+                                        <a href="book/show?id={{forYou[y + (3 * i)].id}}"><img class="book-img" src="/uploads/{{forYou[y + (3 * i)].cover}}" alt="{{forYou[y + (3 * i)].title}}" title="{{forYou[y + (3 * i)].title}}"></a>
                                     {% endfor %}
                             </div>
                         </li>

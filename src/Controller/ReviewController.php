@@ -48,6 +48,7 @@ class ReviewController extends AbstractController
                 foreach ($labels as $label) {
                     $this->reviewTagManager->insert($reviewId, $label['id']);
                 }
+                header('Location: /book/show?id=' . $bookEditorId);
             } else {
                 return $this->twig->render('review/formReview.html.twig', [
                     'errors' => $this->errors,

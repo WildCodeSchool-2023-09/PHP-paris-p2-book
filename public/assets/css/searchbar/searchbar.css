@@ -86,6 +86,7 @@ form#search {
   border-radius: 0.5rem;
   position: absolute;
   top: 40px;
+  width: 150px;
   padding: 2px 0.5rem;
 }
 #search-box > .filter .params option {
