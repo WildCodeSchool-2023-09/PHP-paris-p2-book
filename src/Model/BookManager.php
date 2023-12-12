@@ -58,11 +58,12 @@ class BookManager extends AbstractManager
             $query .= $this->filterBy($params, $id);
 
             // ORDER PARAMS
+            // $query .= ' GROUP BY t.id;';
             $query .= " ORDER BY ";
             if (isset($params['sort-by']) && $params['sort-by'] === 'date') {
                 $query .= "date " . $params['sort-order'] . ", ";
             }
-            $query .= "be.id DESC;";
+            $query .= "be.id DESC";
 
             $statement = $this->pdo->prepare($query);
 
@@ -87,7 +88,8 @@ class BookManager extends AbstractManager
             if ($id > 0) {
                 $query .= " WHERE user.id = $id";
             }
-            $query .= ' ORDER BY be.id DESC;';
+            // $query .= ' GROUP BY t.id;';
+            $query .= ' ORDER BY be.id DESC';
 
             $statement = $this->pdo->query($query);
         }
