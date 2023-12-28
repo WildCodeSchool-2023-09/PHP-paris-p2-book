@@ -8,7 +8,7 @@ class TagManager extends AbstractManager
 {
     public const TABLE = 'tag';
 
-    public const TAGS = ['Amazing', 'Cry', 'Dark', 'Disappointment', 'Emotion', 'Intense',
+    public const TAGS = ['Amazing', 'Cry', 'Dark', 'Emotion', 'Intense',
     'Joy', 'Laugh', 'Mystery', 'Plot-twist', 'Sad', 'Unexpected', 'Weird', 'Wonder'];
 
     public function findOneByLabel(string $label): array|false

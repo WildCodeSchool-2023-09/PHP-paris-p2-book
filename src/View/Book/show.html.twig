@@ -1,6 +1,8 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ parent() ~ ' - ' ~ book.title }}{% endblock %}
+{% block title %}
+    {{ book.title }}
+{% endblock %}
 
 {% block stylesheet %}
 <link rel="stylesheet" href="/assets/css/showBook.css">
@@ -8,7 +10,7 @@
 
 {% block content %}
     <div id="picture">
-        <img src="{{ book.cover }}" alt="picture">
+        <img src="/{{ book.cover }}" alt="picture">
     </div>
 
     <div class="icones">

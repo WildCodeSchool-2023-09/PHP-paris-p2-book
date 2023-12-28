@@ -6,6 +6,17 @@
 .dashboard .card {
   min-height: 10rem;
 }
+.dashboard .card#reviews .carousel .review-slide p:last-of-type {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  white-space: pre-wrap;
+}
+.dashboard .card#reviews .carousel .review-slide h2 {
+  text-align: left;
+  font-size: 1rem;
+}
 .dashboard .carousel .book-slide {
   display: flex;
   justify-content: space-around;
