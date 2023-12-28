@@ -14,28 +14,30 @@
 		<link rel="stylesheet" href="/assets/css/style.css">
 		<link rel="stylesheet" href="/assets/css/desktop.css" media="(min-width: 1200px)">
 		<link rel="stylesheet" href="/assets/css/navbar/navbar.css"> {% block stylesheet %}{% endblock %}
-		</head>
+	</head>
 
-		<body>
-			{% block header %}
-				{% include 'Components/_header.html.twig' %}
+	<body>
+		{% block header %}
+			{% include 'Components/_header.html.twig' %}
+		{% endblock %}
+
+
+		<div id="main-container">
+			{% block navbar %}
+				{% include 'Components/_navbar.html.twig' %}
 			{% endblock %}
 
+			<div id="content">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
 
-			<div id="main-container">
-				{% block navbar %}
-					{% include 'Components/_navbar.html.twig' %}
-				{% endblock %}
+		{% block footer %}
+			{% include 'Components/_footer.html.twig' %}
+		{% endblock %}
 
-				<div id="content"> {% block content %}{% endblock %}
-					</div>
-				</div>
+		<script src="/assets/js/navbar.js"></script>
+		{% block javascript %}{% endblock %}
 
-				{% block footer %}
-					{% include 'Components/_footer.html.twig' %}
-				{% endblock %}
-
-				<script src="/assets/js/navbar.js"></script>
-				{% block javascript %}{% endblock %}
-			</body>
-		</html>
+	</body>
+</html>
