@@ -19,13 +19,13 @@ class BookController extends AbstractController
         'userid',
     ];
 
-    public const GENRES = [
-        'Philosophy', 'Sci-Fi', 'Politics', 'Novel', 'Horror', 'Drama', 'Detective', 'Fantasy'
-    ];
+    public const GENRES = ['Action', 'Biography', 'Comedy', 'Essay',
+    'Fantasy', 'Historical', 'Horror', 'Journalistic',
+    'Philosophical', 'Political', 'Romance', 'Satire',
+    'Sci-Fiction', 'Theatre', 'Thriller'];
 
-    public const TAGS = [
-        'Fun', 'Boring', 'Funny', 'Interesting', 'Original', 'Scary', 'Weird', 'Hopeful', 'Taboulé'
-    ];
+    public const TAGS = ['Amazing', 'Cry', 'Dark', 'Emotion', 'Intense',
+    'Joy', 'Laugh', 'Mystery', 'Plot-twist', 'Sad', 'Unexpected', 'Weird', 'Wonder'];
 
     public const SORT_BY = ['date', 'reads', 'note'];
     public const SORT_ORDERS = ['ASC', 'DESC'];
@@ -151,7 +151,7 @@ class BookController extends AbstractController
                 $book = $this->manager->findOneByTitleAndEditor($data['book_title'], $data['editor_label']);
 
                 if ($book) {
-                    header('Location:/library/show?id=' . $book['id']);
+                    header('Location:/book/show?id=' . $book['id']);
                     exit();
                 } else {
                     $editor = $this->editorManager->findOneByLabel($data['editor_label']);
@@ -167,7 +167,7 @@ class BookController extends AbstractController
                     $bookId = $this->manager->insert($data, $editorId, $authorId, $genre['id']);
 
                     if ($data['choice'] === self::FORM_ADD_BOOK_NOT_YET) {
-                        header('Location:/library/show?id=' . $bookId);
+                        header('Location:/book/show?id=' . $bookId);
                         exit();
                     } elseif ($data['choice'] === self::FORM_ADD_BOOK_READ) {
                         header('Location:/review/add?id=' . $bookId);
@@ -248,7 +248,7 @@ class BookController extends AbstractController
 
             move_uploaded_file($cover['tmp_name'], $uploadFile);
         } else {
-            $uploadFile = "assets/images/cover_question_mark.png";
+            $uploadFile = "uploads/cover_question_mark.png";
         }
         return $uploadFile;
     }
@@ -289,6 +289,9 @@ class BookController extends AbstractController
         $bookEditorManager = new BookEditorManager();
         $book = $bookEditorManager->selectOneById($id);
 
-        return $this->twig->render('book/show.html.twig', ['book' => $book]);
+        return $this->twig->render('book/show.html.twig', [
+            'book' => $book,
+            'sectionName' => $book['title']
+        ]);
     }
 }

@@ -62,11 +62,12 @@ form#search {
 }
 
 #search-box {
+  font-size: 1rem;
   display: none;
   position: absolute;
   left: 0;
   right: 0;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
   padding: 1rem 1rem;
   border-radius: 1.4rem;
@@ -86,6 +87,7 @@ form#search {
   border-radius: 0.5rem;
   position: absolute;
   top: 40px;
+  width: 150px;
   padding: 2px 0.5rem;
 }
 #search-box > .filter .params option {
@@ -101,7 +103,7 @@ form#search {
 }
 #search-box > .sort .btn.sort {
   height: 1.2rem;
-  margin: 0 0.5rem;
+  margin: 0 0.4rem 0 0.2rem;
 }
 
 .hidden {

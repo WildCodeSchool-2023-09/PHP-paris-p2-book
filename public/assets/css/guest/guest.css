@@ -3,9 +3,8 @@
   background-image: url("/assets/images/background.png");
   background-size: cover;
   background-position: center;
-  height: 280px;
+  height: 250px;
 }
-
 #guest-header h1 {
   color: var(--color-title);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -15,15 +14,13 @@
   top: 20px;
   text-align: center;
 }
-
 #guest-header .your-digital-book {
   position: absolute;
-  bottom: 3rem;
-  left: 3rem;
+  bottom: 1.5rem;
+  left: 2rem;
   color: var(--color-title);
   font-size: 1.2rem;
 }
-
 #guest-header .modal-btn {
   background-color: var(--color-third);
   color: var(--color-background);
@@ -40,7 +37,6 @@
   bottom: 1.5rem;
   right: 1.5rem;
 }
-
 #guest-header #modal-container {
   visibility: hidden;
   position: fixed;
@@ -49,22 +45,18 @@
   height: 100vh;
   transition: visibility 0.4sec;
 }
-
 #guest-header #modal-container.active {
   visibility: visible;
   transition: visibility 0s;
 }
-
 #guest-header #modal-container.active #overlay {
   opacity: 1;
   transition: opacity 0.4s ease-out;
 }
-
 #guest-header #modal-container.active #modal {
   opacity: 1;
   transition: opacity 0.4s 0.2s ease-out;
 }
-
 #guest-header #overlay {
   opacity: 0;
   position: absolute;
@@ -73,19 +65,16 @@
   background: rgba(51, 51, 51, 0.8274509804);
   transition: opacity 0.4s 0.2s ease-out;
 }
-
 #guest-header #userLogin {
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
 }
-
 #guest-header #userLogin label {
   text-align: center;
   color: var(--color-background);
   margin-bottom: 0.7rem;
 }
-
 #guest-header #userLogin input {
   margin-bottom: 0.5rem;
   background-color: #FFF4E3;
@@ -97,19 +86,16 @@
   margin-left: 10%;
   margin-right: 10%;
 }
-
 #guest-header #passwordLogin {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
 }
-
 #guest-header #passwordLogin label {
   text-align: center;
   color: var(--color-background);
   margin-bottom: 0.7rem;
 }
-
 #guest-header #passwordLogin input {
   margin-bottom: 0.5rem;
   background-color: #FFF4E3;
@@ -121,13 +107,11 @@
   margin-left: 10%;
   margin-right: 10%;
 }
-
 #guest-header #passwordLogin a {
   text-decoration: none;
   color: var(--color-background);
   font-size: 0.7rem;
 }
-
 #guest-header #modal {
   opacity: 0;
   width: 80%;
@@ -142,13 +126,11 @@
   transform: translate(-50%, -50%);
   transition: opacity 0.4s ease-out;
 }
-
 #guest-header #modal #signUp {
   font-size: 1rem;
   text-align: center;
   color: var(--color-background);
 }
-
 #guest-header #submit {
   margin-top: 1rem;
   background-color: #FFF4E3;
@@ -167,22 +149,19 @@
   justify-content: center;
   align-items: center;
 }
-
 #home-guest section {
   width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10rem;
+  height: 9rem;
   padding: 0 1rem;
 }
-
 #home-guest section#middle {
   background-color: var(--color-card);
   border-radius: 0.5rem;
   flex-direction: row-reverse;
 }
-
 #home-guest section p {
   color: var(--color-second);
   text-align: justify;
@@ -190,27 +169,21 @@
   font-size: 1rem;
   width: 66%;
 }
-
 #home-guest #section1 {
   display: flex;
 }
-
 #home-guest #section1.active {
   display: none;
 }
-
 #home-guest #middle {
   display: flex;
 }
-
 #home-guest #middle.active {
   display: none;
 }
-
 #home-guest #section3 {
   display: flex;
 }
-
 #home-guest #section3.active {
   display: none;
 }
@@ -221,21 +194,16 @@
     top: 30px;
   }
 }
-
 @media screen and (min-width: 1200px) {
   #main-nav {
     top: 280px;
   }
-
   #guest-header h1 {
     position: relative;
     top: 40px;
   }
-
   #guest-header a img {
     left: 40px;
     top: 40px;
   }
-}
-
-/*# sourceMappingURL=guest.css.map */
+}/*# sourceMappingURL=guest.css.map */
